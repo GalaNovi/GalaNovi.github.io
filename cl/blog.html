@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CertLane | Blog</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="keywords">
+    <meta name="description" content="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+    <link rel="preload" href="fonts/Lato-Regular.woff2" as="font" crossorigin="">
+    <link rel="preload" href="fonts/Lato-Bold.woff2" as="font" crossorigin="">
+    <link rel="preload" href="fonts/PT_Sans-Bold.woff2" as="font" crossorigin="">
+    <link rel="preload" href="fonts/Roboto-Regular.woff2" as="font" crossorigin="">
+    <link rel="preload" href="fonts/Roboto-Medium.woff2" as="font" crossorigin="">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/simplelightbox.min.css">
+    <link rel="stylesheet" href="css/selectric.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="inline-search-glass" viewbox="0 0 56.966 56.966"><path d="M55.146 51.887L41.588 37.786A22.926 22.926 0 0 0 46.984 23c0-12.682-10.318-23-23-23s-23 10.318-23 23 10.318 23 23 23c4.761 0 9.298-1.436 13.177-4.162l13.661 14.208c.571.593 1.339.92 2.162.92.779 0 1.518-.297 2.079-.837a3.004 3.004 0 0 0 .083-4.242zM23.984 6c9.374 0 17 7.626 17 17s-7.626 17-17 17-17-7.626-17-17 7.626-17 17-17z"></path></symbol></svg></div>
+    
+    <header class="page-header">
+      <div class="page-header__top">
+        <div class="container">
+          <button class="page-header__menu-button button" type="button">
+            <span class="visually-hidden">Menu</span>
+            <span class="page-header__menu-button-element" aria-hidden="true"></span>
+          </button>
+          <button class="page-header__search-button button" type="button">
+            <span class="visually-hidden">Search</span>
+            <svg class="page-header__search-icon" width="22" height="22" aria-hidden="true">
+              <use xlink:href="#inline-search-glass"></use>
+            </svg>
+          </button>
+          <a class="page-header__logo-link">
+            <img class="page-header__logo" width="250" src="images/logos/certline-logo.png" alt="CertLine">
+          </a>
+          <div class="page-header__search-form-wrapper">
+            <form class="page-header__serach-form form" action="#" method="post">
+              <p class="page-header__field-wrapper form__field-wrapper">
+                <label class="page-header__search-label" for="search-field"><span class="visually-hidden">Enter your text</span></label>
+                <input class="page-header__search-field form__field" type="search" name="search" id="search-field" placeholder="Enter your text" required="" autocomplete="off">
+              </p>
+              <button class="page-header__search-submit button button--primary" type="submit" onclick="this.blur();">Search</button>
+            </form>
+          </div>
+          <img class="page-header__secure-logo" src="images/logos/mcafee-logo.png" alt="McAfee Secure" title="McAfee Secure">
+        </div>
+      </div>
+      <div class="page-header__bottom page-header__bottom--inner">
+        <div class="container">
+          <nav class="page-header__main-menu main-menu">
+            <ul class="main-menu__list">
+              <li class="main-menu__item">
+                <a class="main-menu__link link main-menu__link--active">Home</a>
+              </li>
+              <li class="main-menu__item">
+                <a class="main-menu__link link" href="#">Products</a>
+                <ul class="main-menu__submenu submenu">
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-cisco.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Cisco</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-microsoft.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Microsoft</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-comptia.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">CompTIA</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/citrix-logo.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Citrix</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-checkpoint.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Checkpoint</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-cwnp.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">CWNP</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-linux.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">LPI</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-isc.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">ISC</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/ibm-logo.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">IBM</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/hp-logo.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">HP</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-apple.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Apple</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/pmi-logo.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">PMI</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-adobe.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Adobe</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-emc.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">EMC</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-juniper.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Juniper</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/vmware-logo.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">VMWare</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-isaca.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Isaca</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/avaya_logo.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Avaya</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-fortinet.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Fortinet</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/ec-council-logo.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">ECCouncil</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-hitachi.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Hitachi</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-tibco.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Tibco</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-sas.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">SAS Institute</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-f5.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">F5</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/alcatel-lucent-logo.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Alcatel-Lucent</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-sap.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">SAP</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-riverbed.jpg" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Riverbed</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-giac.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">GIAC</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="main-menu__item">
+                <a class="main-menu__link link" href="#">Enterprice</a>
+              </li>
+              <li class="main-menu__item">
+                <a class="main-menu__link link" href="#">FAQ</a>
+              </li>
+              <li class="main-menu__item">
+                <a class="main-menu__link link" href="#">Contact Us</a>
+              </li>
+            </ul>
+          </nav>
+          <nav class="page-header__mobile-menu mobile-menu">
+            <button class="mobile-menu__close-button button"><span class="visually-hidden">Close Menu</span></button>
+            <div class="mobile-menu__lists-wrapper">
+              <ul class="mobile-menu__vendor-list">
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-cisco.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Cisco</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-microsoft.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Microsoft</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-comptia.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">CompTIA</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/citrix-logo.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Citrix</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-checkpoint.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Checkpoint</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-cwnp.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">CWNP</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-linux.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">LPI</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-isc.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">ISC</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/ibm-logo.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">IBM</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/hp-logo.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">HP</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-apple.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Apple</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/pmi-logo.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">PMI</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-adobe.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Adobe</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-emc.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">EMC</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-juniper.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Juniper</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/vmware-logo.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">VMWare</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-isaca.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Isaca</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/avaya_logo.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Avaya</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-fortinet.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Fortinet</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/ec-council-logo.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">ECCouncil</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-hitachi.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Hitachi</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-tibco.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Tibco</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-sas.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">SAS Institute</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-f5.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">F5</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/alcatel-lucent-logo.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Alcatel-Lucent</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-sap.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">SAP</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-riverbed.jpg" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Riverbed</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-giac.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">GIAC</a>
+                </li>
+              </ul>
+              <ul class="mobile-menu__nav-list">
+                <li class="mobile-menu__nav-item">
+                  <a class="mobile-menu__nav-link mobile-menu__nav-link--active link" href="#">Home</a>
+                </li>
+                <li class="mobile-menu__nav-item">
+                  <a class="mobile-menu__nav-link link" href="#">Products</a>
+                </li>
+                <li class="mobile-menu__nav-item">
+                  <a class="mobile-menu__nav-link link" href="#">Enterprice</a>
+                </li>
+                <li class="mobile-menu__nav-item">
+                  <a class="mobile-menu__nav-link link" href="#">FAQ</a>
+                </li>
+                <li class="mobile-menu__nav-item">
+                  <a class="mobile-menu__nav-link link" href="#">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <div class="page-header__user-menu user-menu">
+            <ul class="user-menu__list">
+              <li class="user-menu__item">
+                <a class="user-menu__link user-menu__link--cart link" href="#"><span class="visually-hidden--mobile">Cart</span></a>
+              </li>
+              <li class="user-menu__item">
+                <a class="user-menu__link user-menu__link--sign-in link" href="#"><span class="visually-hidden--mobile">Sign In</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-main">
+      <div class="container">
+
+        <div class="breadcrumbs">
+          <ul class="breadcrumbs__list">
+            <li class="breadcrumbs__item"><a class="breadcrumbs__link link link--breadcrumb" href="#">Home</a></li>
+            <li class="breadcrumbs__item"><a class="breadcrumbs__link link link--breadcrumb">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="page-main__content-wrapper">
+          <h1 class="page-main__heading heading heading--medium">Latest Posts</h1>
+          <div class="page-main__main-content">
+            <section class="posts">
+              <h2 class="visually-hidden">Latest Posts</h2>
+              <ul class="posts__categories-list">
+                <li class="posts__categories-item">
+                  <a class="posts__categories-link link link--button" href="#">Top Certifications</a>
+                </li>
+                <li class="posts__categories-item">
+                  <a class="posts__categories-link link link--button link--button--active" href="#">Courses</a>
+                </li>
+                <li class="posts__categories-item">
+                  <a class="posts__categories-link link link--button" href="#">Learnings</a>
+                </li>
+                <li class="posts__categories-item">
+                  <a class="posts__categories-link link link--button" href="#">Products</a>
+                </li>
+              </ul>
+              <ul class="posts__list">
+                <li class="posts__item">
+                  <h2 class="posts__title heading heading--post">MythBusters: 11 Mobile Security Myths</h2>
+                  <p class="posts__text text">
+                    Mobile Security can simply be defined as the applicable techniques put in place for the purpose of securing data on our mobile devices like tablets, smartphones, laptops as well as other mobile devices. In other words, this is different atlternative methods mobile devices use for authenticating user and limit access to data store on their devices. Some of these means vary from simple password, screen locks and PINs (Personal Identification Numbers) to more complex  eye scanners, fingerprint readers and several other varieties of biometric reader. The importance Of Mobile Security…
+                  </p>
+                  <a class="posts__link link link--icon-border" href="#">Read More</a>
+                </li>
+                <li class="posts__item">
+                  <h2 class="posts__title heading heading--post">DevOps: Hot Skills, Tools, and Certifications</h2>
+                  <p class="posts__text text">
+                    We live in the age where almost every business or firm has a software branch. This could be an outcome of the world becoming so technically advanced that the global population using smartphones was found to be around 2.1 billion in 2016. This creates a whole new medium through which almost every company can engage the masses. Now, due to the need of up to date software attributes and so much competition in the market, a very high skill of software development is required. This led to an exponential trend…
+                  </p>
+                  <a class="posts__link link link--icon-border" href="#">Read More</a>
+                </li>
+                <li class="posts__item">
+                  <h2 class="posts__title heading heading--post">10 Hardest IT Jobs to Fill</h2>
+                  <p class="posts__text text">
+                    When you work in the IT sphere, you will get benefits that you cannot find from another place. The followings are some of the reasons why it is good to work in the IT jobs. IT professional is able to work in any industry or sector. The world requires the IT professionals    There are skills gap in the entire world in the technology industry. You should take the example of the government and business that are seeking to get digital transformation with the need of getting to the cybersecurity…
+                  </p>
+                  <a class="posts__link link link--icon-border" href="#">Read More</a>
+                </li>
+                <li class="posts__item">
+                  <h2 class="posts__title heading heading--post">Advantages of Being a Software Developer</h2>
+                  <p class="posts__text text">
+                    We live in the age where almost every business or firm has a software branch. This could be an outcome of the world becoming so technically advanced that the global population using smartphones was found to be around 2.1 billion in 2016. This creates a whole new medium through which almost every company can engage the masses. Now, due to the need of up to date software attributes and so much competition in the market, a very high skill of software development is required. 
+                  </p>
+                  <a class="posts__link link link--icon-border" href="#">Read More</a>
+                </li>
+                <li class="posts__item">
+                  <h2 class="posts__title heading heading--post">10 Most Wanted Tech Jobs for 2018</h2>
+                  <p class="posts__text text">
+                    Mobile Security can simply be defined as the applicable techniques put in place for the purpose of securing data on our mobile devices like tablets, smartphones, laptops as well as other mobile devices. In other words, this is different atlternative methods mobile devices use for authenticating user and limit access to data store on their devices. Some of these means vary from simple password, screen locks and PINs (Personal Identification Numbers) to more complex  eye scanners,...
+                  </p>
+                  <a class="posts__link link link--icon-border" href="#">Read More</a>
+                </li>
+              </ul>
+            </section>
+            <div class="pagination">
+              <button class="pagination__button pagination__button--previous pagination__button--disabled button button--primary" type="button"><span class="pagination__button-arrow"></span><span class="visually-hidden--mobile">Previous</span></button>
+              <ul class="pagination__list">
+                <li class="pagination__item"><a class="pagination__link pagination__link--active pagination__link--first-page" href="#">1</a></li>
+                <li class="pagination__item"><a class="pagination__link" href="#">2</a></li>
+                <li class="pagination__item"><a class="pagination__link" href="#">3</a></li>
+                <li class="pagination__item pagination__item--dots">...</li>
+                <li class="pagination__item"><a class="pagination__link pagination__link--last-page" href="#">8</a></li>
+              </ul>
+              <button class="pagination__button pagination__button--next button button--primary" type="button"><span class="visually-hidden--mobile">Next</span><span class="pagination__button-arrow"></span></button>
+            </div>
+          </div>
+
+          <aside class="page-main__right-sidebar">
+            <form class="blog-sidebar__form form" action="#">
+              <p class="blog-sidebar__field-wrapper field__wrapper">
+                <label class="blog-sidebar__label" for="blog-search"><span class="visually-hidden">Search</span></label>
+                <input class="blog-sidebar__field form__field" type="search" name="blog-search" id="blog-search" placeholder="Search">
+                <button class="blog-sidebar__search-button button">
+                  <span class="visually-hidden">Search it</span>
+                  <svg class="blog-sidebar__search-icon" width="19" height="19" aria-hidden="true">
+                    <use xlink:href="#inline-search-glass"></use>
+                  </svg>
+                </button>
+              </p>
+            </form>
+            <ul class="blog-sidebar__list">
+              <li class="blog-sidebar__item">
+                <h2 class="blog-sidebar__title heading heading--medium">Popular Posts</h2>
+                <ul class="blog-sidebar__links-list">
+                  <li class="blog-sidebar__links-item">
+                    <a class="blog-sidebar__link link" href="#">Top Cyber Security Certifications that Will Rule the IT World in 2018</a>
+                  </li>
+                  <li class="blog-sidebar__links-item">
+                    <a class="blog-sidebar__link link" href="#">Best Paying IT Certifications in 2018</a>
+                  </li>
+                  <li class="blog-sidebar__links-item">
+                    <a class="blog-sidebar__link link" href="#">Top 6 Agile Certifications in 2018</a>
+                  </li>
+                  <li class="blog-sidebar__links-item">
+                    <a class="blog-sidebar__link link" href="#">Top 12 Cloud Certifications in 2018</a>
+                  </li>
+                  <li class="blog-sidebar__links-item">
+                    <a class="blog-sidebar__link link" href="#">10 Most Wanted Tech Jobs for 2018</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="blog-sidebar__item">
+                <h2 class="blog-sidebar__title heading heading--medium">Recent Posts</h2>
+                <ul class="blog-sidebar__links-list">
+                  <li class="blog-sidebar__links-item">
+                    <a class="blog-sidebar__link link" href="#">MythBusters: 11 Mobile Security Myths</a>
+                  </li>
+                  <li class="blog-sidebar__links-item">
+                    <a class="blog-sidebar__link link" href="#">DevOps: Hot Skills, Tools, and Certifications</a>
+                  </li>
+                  <li class="blog-sidebar__links-item">
+                    <a class="blog-sidebar__link link" href="#">10 Hardest IT Jobs to Fill</a>
+                  </li>
+                  <li class="blog-sidebar__links-item">
+                    <a class="blog-sidebar__link link" href="#">Advantages of Being a Software Developer</a>
+                  </li>
+                  <li class="blog-sidebar__links-item">
+                    <a class="blog-sidebar__link link" href="#">10 Most Wanted Tech Jobs for 2018</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="blog-sidebar__item">
+                <h2 class="blog-sidebar__title heading heading--medium">Recent Comments</h2>
+                <ul class="blog-sidebar__links-list">
+                  <li class="blog-sidebar__links-item blog-sidebar__links-item--comment">
+                    <span class="blog-sidebar__last-comment-author">Martin</span> 
+                    <a class="blog-sidebar__link blog-sidebar__link--comment link" href="#">on Top 7 Certifications to Start Your IT Career</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="blog-sidebar__item">
+                <h2 class="blog-sidebar__title heading heading--medium">Categories</h2>
+                <ul class="blog-sidebar__categories-list">
+                  <li class="blog-sidebar__categories-item">
+                    <a class="blog-sidebar__categories-link link link--button" href="#">Top Certifications</a>
+                  </li>
+                  <li class="blog-sidebar__categories-item">
+                    <a class="blog-sidebar__categories-link link link--button link--button--active" href="#">Courses</a>
+                  </li>
+                  <li class="blog-sidebar__categories-item">
+                    <a class="blog-sidebar__categories-link link link--button" href="#">Learnings</a>
+                  </li>
+                  <li class="blog-sidebar__categories-item">
+                    <a class="blog-sidebar__categories-link link link--button" href="#">Products</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+        <footer class="page-footer">
+          <div class="container">
+            <div class="page-footer__content-wrapper">
+              <a class="page-footer__logo-link">
+                <img class="page-footer__logo" width="250" src="images/logos/certline-logo.png" alt="CertLine">
+              </a>
+              <nav class="page-footer__navigation footer-navigation">
+                <ul class="footer-navigation__list">
+                  <li class="footer-navigation__item">
+                    <a class="footer-navigation__link" href="#">Home</a>
+                  </li>
+                  <li class="footer-navigation__item">
+                    <a class="footer-navigation__link" href="#">Disklaimer</a>
+                  </li>
+                  <li class="footer-navigation__item">
+                    <a class="footer-navigation__link" href="#">Terms</a>
+                  </li>
+                  <li class="footer-navigation__item">
+                    <a class="footer-navigation__link" href="#">Contact Us</a>
+                  </li>
+                  <li class="footer-navigation__item">
+                    <a class="footer-navigation__link" href="#">Privacy</a>
+                  </li>
+                  <li class="footer-navigation__item">
+                    <a class="footer-navigation__link" href="#">Sitemap</a>
+                  </li>
+                </ul>
+              </nav>
+              <div class="page-footer__subscribe subscribe">
+                <strong class="subscribe__title">Stay Connected</strong>
+                <form class="subscribe__form form" action="#" method="post">
+                  <p class="subscribe__field-wrapper form__field-wrapper">
+                    <label class="subscribe-label" for="email-field"><span class="visually-hidden">Enter your email</span></label>
+                    <input class="subscribe-field form__field" type="email" name="email" id="email-field" placeholder="Enter your email" required="">
+                  </p>
+                  <button class="page-footer__subscribe-submit button button--primary" type="submit" onclick="this.blur();">Subscribe</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <p class="page-footer__copyrights">
+            © All Rights Reserved 2017-2018 CertBolt.com
+          </p>
+        </footer>
+        <script src="js/librarys/jquery-3.4.1.min.js"></script>
+        <script src="js/polyfills/picturefill.js"></script>
+        <script src="js/polyfills/array-from.js"></script>
+        <script src="js/polyfills/ofi.min.js"></script>
+        <script src="js/plugins/swiper.min.js"></script>
+        <script src="js/plugins/simple-lightbox.min.js"></script>
+        <script src="js/plugins/jquery.selectric.min.js"></script>
+        <script src="js/plugins/smooth-scrollbar.js"></script>
+        <script src="js/all.js"></script>
+        <script>
+          // Lightbox initialization
+          if ($('.screenshots__list').length) {
+            var lightbox = $('.screenshots__list a').simpleLightbox();
+          }
+    
+          // Object-fit polyfill initialization
+          objectFitImages();
+    
+          var Scrollbar = window.Scrollbar;
+    
+          Scrollbar.init(document.querySelector('#scroll'));
+        </script>
+        <style>
+          #scroll {
+            width: 100vw;
+            height: 100vh;
+            overflow: auto;
+          }
+        </style>
+      </body>
+    </html>

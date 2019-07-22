@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CertLane | Checkout</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="keywords">
+    <meta name="description" content="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+    <link rel="preload" href="fonts/Lato-Regular.woff2" as="font" crossorigin="">
+    <link rel="preload" href="fonts/Lato-Bold.woff2" as="font" crossorigin="">
+    <link rel="preload" href="fonts/PT_Sans-Bold.woff2" as="font" crossorigin="">
+    <link rel="preload" href="fonts/Roboto-Regular.woff2" as="font" crossorigin="">
+    <link rel="preload" href="fonts/Roboto-Medium.woff2" as="font" crossorigin="">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/simplelightbox.min.css">
+    <link rel="stylesheet" href="css/selectric.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="inline-search-glass" viewbox="0 0 56.966 56.966"><path d="M55.146 51.887L41.588 37.786A22.926 22.926 0 0 0 46.984 23c0-12.682-10.318-23-23-23s-23 10.318-23 23 10.318 23 23 23c4.761 0 9.298-1.436 13.177-4.162l13.661 14.208c.571.593 1.339.92 2.162.92.779 0 1.518-.297 2.079-.837a3.004 3.004 0 0 0 .083-4.242zM23.984 6c9.374 0 17 7.626 17 17s-7.626 17-17 17-17-7.626-17-17 7.626-17 17-17z"></path></symbol></svg></div>
+    
+    <header class="page-header">
+      <div class="page-header__top">
+        <div class="container">
+          <a class="page-header__logo-link" href="index.html">
+            <img class="page-header__logo" width="250" src="images/logos/certline-logo.png" alt="CertLine">
+          </a>
+          <div class="page-header__search-form-wrapper">
+            <form class="page-header__serach-form form" action="#" method="post">
+              <p class="page-header__field-wrapper form__field-wrapper">
+                <label class="page-header__search-label" for="search-field"><span class="visually-hidden">Enter your text</span></label>
+                <input class="page-header__search-field form__field" type="search" name="search" id="search-field" placeholder="Enter your text" required="" autocomplete="off">
+              </p>
+              <button class="page-header__search-submit button button--primary" type="submit" onclick="this.blur();">Search</button>
+            </form>
+          </div>
+          <img class="page-header__secure-logo" src="images/logos/mcafee-logo.png" alt="McAfee Secure" title="McAfee Secure">
+        </div>
+      </div>
+    </header>
+
+    <main class="page-main">
+      <div class="container">
+
+        <div class="page-main__content-wrapper">
+          <div class="page-main__main-content page-main__main-content--sidebar-no-fit">
+
+            <section class="checkout">
+              <h1 class="checkout__heading heading heading--large">Fast & Secure, One Step Checkout</h1>
+              <p class="checkout__text text text--extra-large">Your Products will be made Available Immediately After Purchase</p>
+
+              <div class="checkout__bar checkout-bar">
+                <ul class="checkout-bar__list checkout-bar__list--first-step list">
+                  <li class="checkout-bar__item checkout-bar__item--active"><span class="checkout-bar__point"></span>Checkout</li>
+                  <li class="checkout-bar__item checkout-bar__item--next"><span class="checkout-bar__point"></span>Billing Info</li>
+                  <li class="checkout-bar__item checkout-bar__item--disabled"><span class="checkout-bar__point"></span>Billing Details</li>
+                </ul>
+              </div>
+
+              <section class="checkout__order order form__checkout-part form__checkout-part--active">
+                <h2 class="order__heading heading heading--medium">Review Your Order</h2>
+                <p class="order__text text text--large">The following items have been added to your shopping cart.</p>
+                <a class="order__link link" href="#">Need help with your purchase?</a>
+                <table class="order__table">
+                  <thead class="order__table-head">
+                    <tr class="order__table-row order__table-row--head visually-hidden--mobile">
+                      <th class="order__table-title">#</th>
+                      <th class="order__table-title">Item Description</th>
+                      <th class="order__table-title">Qty</th>
+                      <th class="order__table-title">Price</th>
+                      <th class="order__table-title"></th>
+                    </tr>
+                  </thead>
+                  <tbody class="order__table-body">
+                    <tr class="order__table-row">
+                      <td class="order__table-cell order__table-cell--number visually-hidden--mobile">1.</td>
+                      <td class="order__table-cell order__table-cell--description">
+                        <div class="order__description-wrapper">
+                          <a class="order__table-link link" href="#">Apple MAC-16A Questions & Answers</a>
+                          <span class="order__discount">$12.50 Instant Discount</span>
+                        </div>
+                      </td>
+                      <td class="order__table-cell order__table-cell--quantity">
+                        <div class="order__table-select-wrapper form__select-highlight-wrapper">
+                          <label for="quantity"><span class="visually-hidden">Quantity</span></label>
+                          <select id="quantity" class="order__table-select" name="order-quantity">
+                            <option value="1-computer">1 computer</option>
+                            <option value="2-computes">2 computers</option>
+                            <option value="3-computes">3 computers</option>
+                            <option value="4-computes">4 computers</option>
+                          </select>
+                        </div>
+                      </td>
+                      <td class="order__table-cell order__table-cell--price">$49.99</td>
+                      <td class="order__table-cell order__table-cell--remove-button">
+                        <button class="order__remove-button button button--remove" type="button">Remove</button>
+                      </td>
+                    </tr>
+                    <tr class="order__table-row">
+                      <td class="order__table-cell order__table-cell--number visually-hidden--mobile">2.</td>
+                      <td class="order__table-cell order__table-cell--description">
+                        <div class="order__description-wrapper">
+                          <a class="order__table-link link" href="#">Microsoft MC SD: Application Lifecycle Management Bundle</a>
+                          <ul class="order__table-list list">
+                            <li class="order__table-item">- 70-496 Questions & Answers</li>
+                            <li class="order__table-item">- 70-497 Questions & Answers</li>
+                            <li class="order__table-item">- 70-498 Questions & Answers</li>
+                          </ul>
+                        </div>
+                      </td>
+                      <td class="order__table-cell order__table-cell--quantity"><span class="order__table-cell-title">Qty </span>1</td>
+                      <td class="order__table-cell order__table-cell--price">$149.99</td>
+                      <td class="order__table-cell order__table-cell--remove-button">
+                        <button class="order__remove-button button button--remove" type="button">Remove</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="order__promocode promocode">
+                  <form class="promocode__form form" action="#" method="POST">
+                    <h3 class="promocode__title text text--large">Promotion Code:</h3>
+                    <p class="promocode__field-wrapper form__field-wrapper">
+                      <label class="promocode__label" for="promocode"><span class="visually-hidden">Promotion Code</span></label>
+                      <input class="promocode__field form__field" type="text" name="promocode" id="promocode" required="" autocomplete="off">
+                      <button class="promocode__submit-button button button--primary" type="submit">Apply</button>
+                    </p>
+                  </form>
+                  <strong class="order__total">Total: $124.99</strong>
+                </div>
+                <p class="order__notify text text--large visually-hidden--mobile">* In order to avoid duplicate orders only 1 copy of each product can be purchased. If you are interested in multiple copies please contact <a href="mailto:sales@testking.com" class="link">sales@testking.com</a>.</p>
+                <div class="order__next-button-wrapper">
+                  <button class="order__next-button button button--primary" type="button">Next</button>
+                </div>
+              </section>
+
+              <section class="checkout__data data">
+                <h2 class="visually-hidden">Payer data</h2>
+                <form class="data__form form" action="#" method="POST">
+                  <fieldset class="data__form-fieldset form__checkout-part">
+                    <legend class="data__form-title heading heading--medium">Billing Address</legend>
+                    <strong class="data__hint text text--large">All fields are required *</strong>
+                    <div class="data__form-content-wrapper">
+                      <p class="data__form-field-wrapper form__field-wrapper">
+                        <label class="data__form-label" for="first-name"><span class="visually-hidden">First name on card</span></label>
+                        <input id="first-name" class="data__form-field form__field" type="text" name="first-name" placeholder="First Name On Card">
+                      </p>
+                      <p class="data__form-field-wrapper form__field-wrapper">
+                        <label class="data__form-label" for="last-name"><span class="visually-hidden">Last name on card</span></label>
+                        <input id="last-name" class="data__form-field form__field" type="text" name="last-name" placeholder="Last Name On Card">
+                      </p>
+                      <p class="data__form-field-wrapper form__field-wrapper">
+                        <label class="data__form-label" for="address"><span class="visually-hidden">Address</span></label>
+                        <input id="address" class="data__form-field form__field" type="text" name="address" placeholder="Address">
+                      </p>
+                      <p class="data__form-field-wrapper form__field-wrapper">
+                        <label class="data__form-label" for="city"><span class="visually-hidden">City</span></label>
+                        <input id="city" class="data__form-field form__field" type="text" name="city" placeholder="City">
+                      </p>
+                      <p class="data__form-field-wrapper form__field-wrapper">
+                        <label class="data__form-label" for="state"><span class="visually-hidden">State/Province</span></label>
+                        <input id="state" class="data__form-field form__field" type="text" name="state" placeholder="State/Province">
+                      </p>
+                      <p class="data__form-field-wrapper form__select-wrapper">
+                        <label class="data__form-label" for="country"><span class="visually-hidden">Please choose your counrtry</span></label>
+                        <select id="country" class="data__form-select form__select" name="country">
+                          <option value="">Please Choose Your Counrtry</option>
+                          <option value="usa">United States of America</option>
+                          <option value="canada">Canada</option>
+                          <option value="argentina">Argentina</option>
+                          <option value="brasil">Brasil</option>
+                        </select>
+                      </p>
+                      <p class="data__form-field-wrapper form__field-wrapper">
+                        <label class="data__form-label" for="zip"><span class="visually-hidden">Zip/Postal</span></label>
+                        <input id="zip" class="data__form-field form__field" type="text" name="zip-postal" placeholder="Zip/Postal">
+                      </p>
+                      <p class="data__form-field-wrapper form__field-wrapper">
+                        <label class="data__form-label" for="email-address"><span class="visually-hidden">Email address</span></label>
+                        <input id="email-address" class="data__form-field form__field" type="email" name="email-address" placeholder="Email Address">
+                      </p>
+                      <p class="data__form-field-wrapper data__form-field-wrapper--phone form__field-wrapper">
+                        <label class="data__form-label" for="phone-number"><span class="visually-hidden">Phone</span></label>
+                        <input id="phone-number" class="data__form-field form__field" type="tel" name="phone-number" placeholder="Phone">
+                      </p>
+                    </div>
+                    <div class="data__navigation-buttons-wrapper">
+                      <button class="data__navigation-button data__navigation-button--previous button button--secondary" type="button">Previous</button>
+                      <button class="data__navigation-button data__navigation-button--next button button--primary" type="button">Next</button>
+                    </div>
+                  </fieldset>
+                  <fieldset class="data__form-fieldset form__checkout-part">
+                    <legend class="data__form-title heading heading--medium">Billing Details</legend>
+                    <strong class="data__hint text text--large">All fields are required *</strong>
+                    <div class="data__form-content-wrapper">
+                      <p class="data__form-field-wrapper data__form-field-wrapper--card-number form__field-wrapper">
+                        <label class="data__form-label" for="card-number"><span class="visually-hidden">Card number</span></label>
+                        <input id="card-number" class="data__form-field form__field" type="number" name="card-number" placeholder="Card Number">
+                      </p>
+                      <p class="data__form-field-wrapper form__select-wrapper">
+                        <label class="data__form-label" for="card-type"><span class="visually-hidden">Select card type</span></label>
+                        <select id="card-type" class="data__form-select form__select" name="card-type">
+                          <option value="">SelectCard Type</option>
+                          <option value="mastercard">MasterCard</option>
+                          <option value="maestro">Maestro</option>
+                          <option value="visa">VISA</option>
+                          <option value="american-express">American Express</option>
+                        </select>
+                      </p>
+                      <p class="data__form-field-wrapper form__field-wrapper form__field-wrapper--cvv">
+                        <label class="data__form-label" for="cvv"><span class="visually-hidden">Sequrity code (CVV)</span></label>
+                        <input id="cvv" class="data__form-field form__field" type="number" name="cvv" placeholder="CVV">
+                      </p>
+                      <div class="data__form-pair-fields-wrapper">
+                        <h4 class="data__form-pair-fields-title">Expiration Date</h4>
+                        <p class="data__form-field-wrapper data__form-field-wrapper--expiration form__select-wrapper">
+                          <label class="data__form-label" for="expiration-month"><span class="visually-hidden">Month</span></label>
+                          <select id="expiration-month" class="data__form-select form__select" name="expiration-month">
+                            <option value="">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                          </select>
+                        </p>
+                        <p class="data__form-field-wrapper data__form-field-wrapper--expiration form__select-wrapper">
+                          <label class="data__form-label" for="expiration-year"><span class="visually-hidden">Year</span></label>
+                          <select id="expiration-year" class="data__form-select form__select" name="expiration-year">
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="" selected="">19</option>
+                          </select>
+                        </p>
+                        <div class="data__navigation-buttons-wrapper data__navigation-buttons-wrapper--submit">
+                          <button class="data__navigation-button data__navigation-button--previous button button--secondary" type="button">Previous</button>
+                          <button class="data__form-submit-button button button--primary" type="submit">Pay Now</button>
+                        </div>
+                      </div>
+                      <div class="data__secure">
+                        <div class="data__secure-images-wrapper">
+                          <img class="data__secure-cards-image" src="images/other/pay-cards.png" alt="Payment cards">
+                          <img class="data__secure-mcafee-image" src="images/logos/mcafee-secure.png" alt="McAfee">
+                        </div>
+                        <p class="data__secure-text text text--large">Your purchase with Testking is safe and fast. Your products will be available for immediate download after your payment has been received.</p>
+                        <p class="data__secure-text text text--large">Testking website is protected by 256-bit SSL from McAfee, the leader in online security.</p>
+                      </div>
+                    </div>
+                  </fieldset>
+                </form>
+              </section>
+
+            </section>
+
+          </div>
+
+          <aside class="page-main__right-sidebar page-main__right-sidebar--checkout page-main__right-sidebar--no-fit page-main__right-sidebar--help">
+
+            <section class="satisfied">
+              <h3 class="satisfied__heading heading heading--sidebar">
+                <span class="heading__large-part">Over <span class="heading__number">315,121</span></span>
+                Satisfied Customers Since 2002
+              </h3>
+              <ul class="satisfied__list list list--check-mark">
+                <li class="satisfied__item text">100% Real Exam Questions</li>
+                <li class="satisfied__item text">Accurate & Updated Answers</li>
+                <li class="satisfied__item text">Secured Customer Data</li>
+                <li class="satisfied__item text">Regular Free Updates</li>
+                <li class="satisfied__item text">99.6% Pass Rate</li>
+              </ul>
+            </section>
+
+            <section class="feedback">
+              <h3 class="feedback__heading heading heading--sidebar">Customers’ Feedbacks</h3>
+              <ul class="feedback__list list">
+                <li class="feedback__item">
+                  <h4 class="feedback__title heading">I passed today!</h4>
+                  <div class="feedback__rating">
+                    <ul class="feedback__rating-list list">
+                      <li class="feedback__rating-item">
+                        <img class="feedback__star-image" src="images/icons/star-yellow.png" alt="Rating Star">
+                      </li>
+                      <li class="feedback__rating-item">
+                        <img class="feedback__star-image" src="images/icons/star-yellow.png" alt="Rating Star">
+                      </li>
+                      <li class="feedback__rating-item">
+                        <img class="feedback__star-image" src="images/icons/star-yellow.png" alt="Rating Star">
+                      </li>
+                      <li class="feedback__rating-item">
+                        <img class="feedback__star-image" src="images/icons/star-yellow.png" alt="Rating Star">
+                      </li>
+                      <li class="feedback__rating-item">
+                        <img class="feedback__star-image" src="images/icons/star-gray.png" alt="Rating Star">
+                      </li>
+                    </ul>
+                  </div>
+                  <p class="feedback__comment text text--italic">"I have just passed 220-802 exam today with a nearly perfect score! It is true: this is the UPDATED version of the braindump, which corresponds with the latest exam release. I was told to be the first one to take this exam in my local testing center, and probably one of the first exam takers nationwide. The great news is, the questions are real and valid. Thanks Testking!"</p>
+                  <span class="feedback__author">Joshua P.</span>
+                  <span class="feedback__author-location">Vienna, Austria</span>
+                </li>
+                <li class="feedback__item">
+                  <h4 class="feedback__title heading">I Got Successful Finally</h4>
+                  <div class="feedback__rating">
+                    <ul class="feedback__rating-list list">
+                      <li class="feedback__rating-item">
+                        <img class="feedback__star-image" src="images/icons/star-yellow.png" alt="Rating Star">
+                      </li>
+                      <li class="feedback__rating-item">
+                        <img class="feedback__star-image" src="images/icons/star-yellow.png" alt="Rating Star">
+                      </li>
+                      <li class="feedback__rating-item">
+                        <img class="feedback__star-image" src="images/icons/star-yellow.png" alt="Rating Star">
+                      </li>
+                      <li class="feedback__rating-item">
+                        <img class="feedback__star-image" src="images/icons/star-yellow.png" alt="Rating Star">
+                      </li>
+                      <li class="feedback__rating-item">
+                        <img class="feedback__star-image" src="images/icons/star-yellow.png" alt="Rating Star">
+                      </li>
+                    </ul>
+                  </div>
+                  <p class="feedback__comment text text--italic">"I am happy that I got successful finally in the TOEFL and that happened due to the greatest and fantastic Test King. This is the website that can offer you great and fantastic helping hand in the exam and you can be victorious effectively. You need to carry forward your study in the right manner and then you can hope for the biggest success in the exam. Make sure that all the things go in the right direction for you and you come out with greatest results indeed. Have strong belief over the greatest tools."</p>
+                  <span class="feedback__author">Emiliano Kane</span>
+                  <span class="feedback__author-location">Madrid, Spain</span>
+                </li>
+              </ul>
+            </section>
+
+            <section class="help">
+              <h3 class="help__heading">Need help assistance?</h3>
+              <strong class="help__agitation">Contact us!</strong>
+              <a class="help__link link" href="mailto:support@certlane.com">Customer Support</a>
+            </section>
+            
+          </aside>
+        </div>
+      </div>
+    </main>
+
+        <footer class="page-footer">
+          <div class="container">
+            <div class="page-footer__content-wrapper">
+              <a class="page-footer__logo-link page-footer__logo-link--checkout">
+                <img class="page-footer__logo" width="250" src="images/logos/certline-logo.png" alt="CertLine">
+              </a>
+            </div>
+          </div>
+          <p class="page-footer__copyrights">
+            © All Rights Reserved 2017-2018 CertBolt.com
+          </p>
+        </footer>
+        <script src="js/librarys/jquery-3.4.1.min.js"></script>
+        <script src="js/polyfills/picturefill.js"></script>
+        <script src="js/polyfills/array-from.js"></script>
+        <script src="js/polyfills/ofi.min.js"></script>
+        <script src="js/plugins/swiper.min.js"></script>
+        <script src="js/plugins/simple-lightbox.min.js"></script>
+        <script src="js/plugins/jquery.selectric.min.js"></script>
+        <script src="js/plugins/smooth-scrollbar.js"></script>
+        <script src="js/all.js"></script>
+        <script>
+          // Lightbox initialization
+          if ($('.screenshots__list').length) {
+            var lightbox = $('.screenshots__list a').simpleLightbox();
+          }
+    
+          // Object-fit polyfill initialization
+          objectFitImages();
+    
+          var Scrollbar = window.Scrollbar;
+    
+          Scrollbar.init(document.querySelector('#scroll'));
+        </script>
+        <style>
+          #scroll {
+            width: 100vw;
+            height: 100vh;
+            overflow: auto;
+          }
+        </style>
+      </body>
+    </html>
