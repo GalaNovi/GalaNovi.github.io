@@ -15,9 +15,10 @@
     <link rel="stylesheet" href="css/swiper.min.css">
     <link rel="stylesheet" href="css/simplelightbox.min.css">
     <link rel="stylesheet" href="css/selectric.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.min.css">
   </head>
   <body>
+    <div class="scroll">
     <div style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="inline-search-glass" viewbox="0 0 56.966 56.966"><path d="M55.146 51.887L41.588 37.786A22.926 22.926 0 0 0 46.984 23c0-12.682-10.318-23-23-23s-23 10.318-23 23 10.318 23 23 23c4.761 0 9.298-1.436 13.177-4.162l13.661 14.208c.571.593 1.339.92 2.162.92.779 0 1.518-.297 2.079-.837a3.004 3.004 0 0 0 .083-4.242zM23.984 6c9.374 0 17 7.626 17 17s-7.626 17-17 17-17-7.626-17-17 7.626-17 17-17z"></path></symbol></svg></div>
     
     <header class="page-header">
@@ -43,7 +44,7 @@
     <main class="page-main">
       <div class="container">
 
-        <div class="page-main__content-wrapper">
+        <div class="page-main__content-wrapper page-main__content-wrapper--no-breadcrumbs">
           <div class="page-main__main-content page-main__main-content--sidebar-no-fit">
 
             <section class="checkout">
@@ -61,7 +62,7 @@
               <section class="checkout__order order form__checkout-part form__checkout-part--active">
                 <h2 class="order__heading heading heading--medium">Review Your Order</h2>
                 <p class="order__text text text--large">The following items have been added to your shopping cart.</p>
-                <a class="order__link link" href="#">Need help with your purchase?</a>
+                <button class="order__link button link" type="button">Need help with your purchase?</button>
                 <table class="order__table">
                   <thead class="order__table-head">
                     <tr class="order__table-row order__table-row--head visually-hidden--mobile">
@@ -94,7 +95,7 @@
                       </td>
                       <td class="order__table-cell order__table-cell--price">$49.99</td>
                       <td class="order__table-cell order__table-cell--remove-button">
-                        <button class="order__remove-button button button--remove" type="button">Remove</button>
+                        <a class="order__remove-button button button--remove" href="#">Remove</a>
                       </td>
                     </tr>
                     <tr class="order__table-row">
@@ -125,7 +126,15 @@
                       <input class="promocode__field form__field" type="text" name="promocode" id="promocode" required="" autocomplete="off">
                       <button class="promocode__submit-button button button--primary" type="submit">Apply</button>
                     </p>
+                    <div class="promocode__error">
+                      <span class="promocode__error-text">Promotion code '123' that you entered is incorrect!</span>
+                    </div>
                   </form>
+                </div>
+                <div class="order__footer">
+                  <span class="order__green-text">Promotion code '123' that you entered is correct!</span>
+                  <span class="order__subprice">Subtotal: $456</span>
+                  <span class="order__subprice">Discount: $456</span>
                   <strong class="order__total">Total: $124.99</strong>
                 </div>
                 <p class="order__notify text text--large visually-hidden--mobile">* In order to avoid duplicate orders only 1 copy of each product can be purchased. If you are interested in multiple copies please contact <a href="mailto:sales@testking.com" class="link">sales@testking.com</a>.</p>
@@ -136,35 +145,47 @@
 
               <section class="checkout__data data">
                 <h2 class="visually-hidden">Payer data</h2>
-                <form class="data__form form" action="#" method="POST">
+                <form class="data__form form" action="https://echo.htmlacademy.ru" method="POST">
                   <fieldset class="data__form-fieldset form__checkout-part">
                     <legend class="data__form-title heading heading--medium">Billing Address</legend>
                     <strong class="data__hint text text--large">All fields are required *</strong>
                     <div class="data__form-content-wrapper">
                       <p class="data__form-field-wrapper form__field-wrapper">
                         <label class="data__form-label" for="first-name"><span class="visually-hidden">First name on card</span></label>
-                        <input id="first-name" class="data__form-field form__field" type="text" name="first-name" placeholder="First Name On Card">
+                        <input id="first-name" class="data__form-field form__field" type="text" name="first-name" placeholder="First Name On Card" required="">
                       </p>
                       <p class="data__form-field-wrapper form__field-wrapper">
                         <label class="data__form-label" for="last-name"><span class="visually-hidden">Last name on card</span></label>
-                        <input id="last-name" class="data__form-field form__field" type="text" name="last-name" placeholder="Last Name On Card">
+                        <input id="last-name" class="data__form-field form__field" type="text" name="last-name" placeholder="Last Name On Card" required="">
                       </p>
                       <p class="data__form-field-wrapper form__field-wrapper">
                         <label class="data__form-label" for="address"><span class="visually-hidden">Address</span></label>
-                        <input id="address" class="data__form-field form__field" type="text" name="address" placeholder="Address">
+                        <input id="address" class="data__form-field form__field" type="text" name="address" placeholder="Address" required="">
                       </p>
                       <p class="data__form-field-wrapper form__field-wrapper">
                         <label class="data__form-label" for="city"><span class="visually-hidden">City</span></label>
-                        <input id="city" class="data__form-field form__field" type="text" name="city" placeholder="City">
+                        <input id="city" class="data__form-field form__field" type="text" name="city" placeholder="City" required="">
                       </p>
                       <p class="data__form-field-wrapper form__field-wrapper">
                         <label class="data__form-label" for="state"><span class="visually-hidden">State/Province</span></label>
-                        <input id="state" class="data__form-field form__field" type="text" name="state" placeholder="State/Province">
+                        <input id="state" class="data__form-field form__field" type="text" name="state" placeholder="State/Province" required="">
                       </p>
                       <p class="data__form-field-wrapper form__select-wrapper">
                         <label class="data__form-label" for="country"><span class="visually-hidden">Please choose your counrtry</span></label>
-                        <select id="country" class="data__form-select form__select" name="country">
+                        <select id="country" class="data__form-select form__select" name="country" required="">
                           <option value="">Please Choose Your Counrtry</option>
+                          <option value="usa">United States of America</option>
+                          <option value="canada">Canada</option>
+                          <option value="argentina">Argentina</option>
+                          <option value="brasil">Brasil</option>
+                          <option value="usa">United States of America</option>
+                          <option value="canada">Canada</option>
+                          <option value="argentina">Argentina</option>
+                          <option value="brasil">Brasil</option>
+                          <option value="usa">United States of America</option>
+                          <option value="canada">Canada</option>
+                          <option value="argentina">Argentina</option>
+                          <option value="brasil">Brasil</option>
                           <option value="usa">United States of America</option>
                           <option value="canada">Canada</option>
                           <option value="argentina">Argentina</option>
@@ -173,15 +194,15 @@
                       </p>
                       <p class="data__form-field-wrapper form__field-wrapper">
                         <label class="data__form-label" for="zip"><span class="visually-hidden">Zip/Postal</span></label>
-                        <input id="zip" class="data__form-field form__field" type="text" name="zip-postal" placeholder="Zip/Postal">
+                        <input id="zip" class="data__form-field form__field" type="text" name="zip-postal" placeholder="Zip/Postal" required="">
                       </p>
                       <p class="data__form-field-wrapper form__field-wrapper">
                         <label class="data__form-label" for="email-address"><span class="visually-hidden">Email address</span></label>
-                        <input id="email-address" class="data__form-field form__field" type="email" name="email-address" placeholder="Email Address">
+                        <input id="email-address" class="data__form-field form__field" type="email" name="email-address" placeholder="Email Address" required="">
                       </p>
                       <p class="data__form-field-wrapper data__form-field-wrapper--phone form__field-wrapper">
                         <label class="data__form-label" for="phone-number"><span class="visually-hidden">Phone</span></label>
-                        <input id="phone-number" class="data__form-field form__field" type="tel" name="phone-number" placeholder="Phone">
+                        <input id="phone-number" class="data__form-field form__field" type="tel" name="phone-number" placeholder="Phone" required="">
                       </p>
                     </div>
                     <div class="data__navigation-buttons-wrapper">
@@ -195,11 +216,11 @@
                     <div class="data__form-content-wrapper">
                       <p class="data__form-field-wrapper data__form-field-wrapper--card-number form__field-wrapper">
                         <label class="data__form-label" for="card-number"><span class="visually-hidden">Card number</span></label>
-                        <input id="card-number" class="data__form-field form__field" type="number" name="card-number" placeholder="Card Number">
+                        <input id="card-number" class="data__form-field form__field" type="number" name="card-number" placeholder="Card Number" required="">
                       </p>
                       <p class="data__form-field-wrapper form__select-wrapper">
                         <label class="data__form-label" for="card-type"><span class="visually-hidden">Select card type</span></label>
-                        <select id="card-type" class="data__form-select form__select" name="card-type">
+                        <select id="card-type" class="data__form-select form__select" name="card-type" required="">
                           <option value="">SelectCard Type</option>
                           <option value="mastercard">MasterCard</option>
                           <option value="maestro">Maestro</option>
@@ -209,14 +230,15 @@
                       </p>
                       <p class="data__form-field-wrapper form__field-wrapper form__field-wrapper--cvv">
                         <label class="data__form-label" for="cvv"><span class="visually-hidden">Sequrity code (CVV)</span></label>
-                        <input id="cvv" class="data__form-field form__field" type="number" name="cvv" placeholder="CVV">
+                        <input id="cvv" class="data__form-field form__field" type="number" name="cvv" placeholder="CVV" required="">
                       </p>
                       <div class="data__form-pair-fields-wrapper">
                         <h4 class="data__form-pair-fields-title">Expiration Date</h4>
                         <p class="data__form-field-wrapper data__form-field-wrapper--expiration form__select-wrapper">
                           <label class="data__form-label" for="expiration-month"><span class="visually-hidden">Month</span></label>
-                          <select id="expiration-month" class="data__form-select form__select" name="expiration-month">
-                            <option value="">1</option>
+                          <select id="expiration-month" class="data__form-select form__select" name="expiration-month" required="">
+                            <option disabled="" value="">Month</option>
+                            <option value="1" selected="">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
@@ -225,12 +247,12 @@
                         </p>
                         <p class="data__form-field-wrapper data__form-field-wrapper--expiration form__select-wrapper">
                           <label class="data__form-label" for="expiration-year"><span class="visually-hidden">Year</span></label>
-                          <select id="expiration-year" class="data__form-select form__select" name="expiration-year">
-                            <option value="15">15</option>
+                          <select id="expiration-year" class="data__form-select form__select" name="expiration-year" required="">
+                            <option disabled="" value="">Year</option>
                             <option value="16">16</option>
                             <option value="17">17</option>
                             <option value="18">18</option>
-                            <option value="" selected="">19</option>
+                            <option value="19" selected="">19</option>
                           </select>
                         </p>
                         <div class="data__navigation-buttons-wrapper data__navigation-buttons-wrapper--submit">
@@ -350,6 +372,95 @@
             © All Rights Reserved 2017-2018 CertBolt.com
           </p>
         </footer>
+    </div>
+
+    <div class="overlay">
+      <div class="modal modal--purchase-help">
+        <header class="modal__header">
+          <h2 class="modal__title heading">Purchase process help</h2>
+        </header>
+        <div class="modal__content">
+          <div class="modal__left-content">
+            <ul class="modal__tab-navigation-list list">
+              <li class="modal__tab-navigation-item text"><button class="modal__tab-navigation-button link button">Placing an Order</button></li>
+              <li class="modal__tab-navigation-item text"><button class="modal__tab-navigation-button link button">Reviewing Your Selections</button></li>
+              <li class="modal__tab-navigation-item text"><button class="modal__tab-navigation-button link button">Payment Options</button></li>
+              <li class="modal__tab-navigation-item text"><button class="modal__tab-navigation-button link button">Billing Information</button></li>
+              <li class="modal__tab-navigation-item text"><button class="modal__tab-navigation-button link button">Creating an Account</button></li>
+              <li class="modal__tab-navigation-item text"><button class="modal__tab-navigation-button link button">Renewing Expired Product</button></li>
+              <li class="modal__tab-navigation-item text"><button class="modal__tab-navigation-button link button">Downloading and Installing</button></li>
+              <li class="modal__tab-navigation-item text"><button class="modal__tab-navigation-button link button">Support Options</button></li>
+              <li class="modal__tab-navigation-item text"><button class="modal__tab-navigation-button link button">Installing or Reinstalling Product Without Paying Again</button></li>
+              <li class="modal__tab-navigation-item text"><button class="modal__tab-navigation-button link button">Testking Guarantee Policy</button></li>
+              <li class="modal__tab-navigation-item text"><button class="modal__tab-navigation-button link button">Redeeming Discounts/Offers</button></li>
+            </ul>
+          </div>
+          <div class="modal__right-content">
+            <ul class="modal__tabs-list list">
+              <li class="modal__tabs-item">
+                <strong class="modal__tabs-title text text--large">Placing an Order</strong>
+                <p class="modal__tabs-text text">Once you've selected a product, select from the available purchase options, such as: Questions & Answers - Testing Engine product, PDF Questions & Answers or physical shipment of Hard Copy. Follow the prompts to complete your order. Note: Your steps may vary from these listed here, depending on the page(s) where you started.</p>
+                <ol class="modal__tabs-content-list">
+                  <li class="modal__tabs-content-item text">Select the product(s) you would like to order and select from the available options such as: Testing Engine, PDF Questions & Answers, Royal Packs and click the Add to Cart button.</li>
+                  <li class="modal__tabs-content-item text">Your shopping cart will display a list of the product(s) you have ordered. To add more items to your cart Continue Shopping. Once you are finished selecting Products click the Cart button on Top Navigation Bar.</li>
+                  <li class="modal__tabs-content-item text">Fill in the Billing Information using the correct Information and click on Pay Now Button to proceed to payment. Before clicking the Pay Now button make sure that all information is Correct. A receipt page displays once you have successfully placed an order. You will then be asked to create login with Testking.com. If you currently have a Testking account, you may log in through the Log In Now tab and then proceed to Checkout.</li>
+                  <li class="modal__tabs-content-item text">Enter your Account Information for the fields (* indicates required fields), and then click the Continue button.</li>
+                  <li class="modal__tabs-content-item text">Click the Install from My Account link or the Go to My Account Now button to install your products.</li>
+                </ol>
+              </li>
+              <li class="modal__tabs-item">
+                <strong class="modal__tabs-title text text--large">Reviewing Your Selections</strong>
+                <p class="modal__tabs-text text">Your shopping cart lists the product(s) you have selected, along with quantities and totals. No Taxes are applied to Testking Products. You may remove any products from your shopping cart by clicking the "Trash" button in the row of the item you would like to remove. Click the Continue Shopping button to add more items to your shopping cart or the Check Out button once you are done shopping and would like to proceed to checkout.</p>
+                <p class="modal__tabs-text modal__tabs-text--note text text--italic">Note: After clicking the Continue Shopping button, you can add any other retail product to your cart, you will be redirected to the Testking All Products Online Store.</p>
+              </li>
+              <li class="modal__tabs-item">
+                <strong class="modal__tabs-title text text--large">Payment Options</strong>
+                <p class="modal__tabs-text text">We accept Visa, MasterCard, American Express and, in some countries, JCB. We also accept PayPal, Moneybookers, Bank Wire Transfer and Western Union.</p>
+              </li>
+              <li class="modal__tabs-item">
+                <strong class="modal__tabs-title text text--large">Billing Information</strong>
+                <p class="modal__tabs-text text">When entering your credit card number on the Billing Information page, do not include spaces or dashes. Once you have completed the required information, click the Pay Now Button to proceed. Please do not click the "Pay Now" button more than once.</p>
+              </li>
+              <li class="modal__tabs-item">
+                <strong class="modal__tabs-title text text--large">Creating an Account</strong>
+                <p class="modal__tabs-text text">After checking out, you will be asked to create an account with Testking, if you don't already have one. An account is required for accessing the Products.</p>
+                <p class="modal__tabs-text text">Complete the customer profile form and review the privacy policy. Click the Submit Button and your account will be created.</p>
+                <p class="modal__tabs-text text">Remember, the email address used to create your account on Testking is your account ID. Use this email address to log in whenever you return to the Testking Web site.</p>
+                <p class="modal__tabs-text text">If you currently have a Testking Account, you may log in through the Log In Now link.</p>
+              </li>
+              <li class="modal__tabs-item">
+                <strong class="modal__tabs-title text text--large">Renewing Expired Product</strong>
+                <p class="modal__tabs-text text">Whenever you purchase a Product, our system begin the 90 day validation period. After Expiry the Products will still show in your login and you can renew them at 40% discount just by click on the "Renew Now" button next to each Expired Product. Your shopping cart will show Product Renewal at 40% Discount. You may now proceed to check out.</p>
+              </li>
+              <li class="modal__tabs-item">
+                <strong class="modal__tabs-title text text--large">Downloading and Installing</strong>
+                <p class="modal__tabs-text text">After Purchase is complete, you will need to download and install your products from Testking My Account by clicking on the relevant Download/Install/Update button(s).</p>
+              </li>
+              <li class="modal__tabs-item">
+                <strong class="modal__tabs-title text text--large">Support Options</strong>
+                <p class="modal__tabs-text text">You can use the Contact Us Page to find the relevant E-mail ID for specific Department.</p>
+              </li>
+              <li class="modal__tabs-item">
+                <strong class="modal__tabs-title text text--large">Installing or Reinstalling Product Without Paying Again</strong>
+                <p class="modal__tabs-text text">Purchased Testking Product can be download twice at any two locations of your choice. Two Authorization codes can be generated for each product from your Testking Account. For Reinstalled any previously installed product you may need to reset code. Please contact sales@testking.com for further assistance.</p>
+              </li>
+              <li class="modal__tabs-item">
+                <strong class="modal__tabs-title text text--large">Testking Guarantee Policy</strong>
+                <p class="modal__tabs-text text">If your request is within the first 30 days of purchase, we'll gladly provide you a full refund. We do not provide partial refunds. Refund can only be claimed in case you have failed corresponding after using Testking Question And Answer Product.</p>
+                <p class="modal__tabs-text text">IF YOU CLAIM FOR REFUND/EXCHANGE EXAM YOU MUST DELETE THE SOFTWARE IF ALREADY INSTALLED.</p>
+                <p class="modal__tabs-text text">You may exercise this right of Product Guarantee by contacting Customer Support at <a class="link" href="mailto:sales@certlane.com">sales@certlane.com</a></p>
+              </li>
+              <li class="modal__tabs-item">
+                <strong class="modal__tabs-title text text--large">Redeeming Discounts Offers</strong>
+                <p class="modal__tabs-text text">To purchase discounted product please Add the Product to cart and use provided Promo code and click Update Button. E-mail billing@testking.com if problem persists.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <button class="modal__close button" type="button"><span class="visually-hidden">Close</span></button>
+      </div>
+    </div>
+
         <script src="js/librarys/jquery-3.4.1.min.js"></script>
         <script src="js/polyfills/picturefill.js"></script>
         <script src="js/polyfills/array-from.js"></script>
@@ -358,26 +469,8 @@
         <script src="js/plugins/simple-lightbox.min.js"></script>
         <script src="js/plugins/jquery.selectric.min.js"></script>
         <script src="js/plugins/smooth-scrollbar.js"></script>
-        <script src="js/all.js"></script>
-        <script>
-          // Lightbox initialization
-          if ($('.screenshots__list').length) {
-            var lightbox = $('.screenshots__list a').simpleLightbox();
-          }
-    
-          // Object-fit polyfill initialization
-          objectFitImages();
-    
-          var Scrollbar = window.Scrollbar;
-    
-          Scrollbar.init(document.querySelector('#scroll'));
-        </script>
-        <style>
-          #scroll {
-            width: 100vw;
-            height: 100vh;
-            overflow: auto;
-          }
-        </style>
+        <script src="js/plugins/overscroll.js"></script>
+        <script src="js/plugins/intlTelInput.min.js"></script>
+        <script src="js/all.min.js"></script>
       </body>
     </html>

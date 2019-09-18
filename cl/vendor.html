@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CertLane | Vendor Page</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="keywords">
+    <meta name="description" content="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+    <link rel="preload" href="fonts/Lato-Regular.woff2" as="font" crossorigin="">
+    <link rel="preload" href="fonts/Lato-Bold.woff2" as="font" crossorigin="">
+    <link rel="preload" href="fonts/PT_Sans-Bold.woff2" as="font" crossorigin="">
+    <link rel="preload" href="fonts/Roboto-Regular.woff2" as="font" crossorigin="">
+    <link rel="preload" href="fonts/Roboto-Medium.woff2" as="font" crossorigin="">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/simplelightbox.min.css">
+    <link rel="stylesheet" href="css/selectric.css">
+    <link rel="stylesheet" href="css/style.min.css">
+  </head>
+  <body>
+    <div class="scroll">
+    <div style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="inline-search-glass" viewbox="0 0 56.966 56.966"><path d="M55.146 51.887L41.588 37.786A22.926 22.926 0 0 0 46.984 23c0-12.682-10.318-23-23-23s-23 10.318-23 23 10.318 23 23 23c4.761 0 9.298-1.436 13.177-4.162l13.661 14.208c.571.593 1.339.92 2.162.92.779 0 1.518-.297 2.079-.837a3.004 3.004 0 0 0 .083-4.242zM23.984 6c9.374 0 17 7.626 17 17s-7.626 17-17 17-17-7.626-17-17 7.626-17 17-17z"></path></symbol></svg></div>
+    
+    <header class="page-header">
+      <div class="page-header__top">
+        <div class="container">
+          <button class="page-header__menu-button button" type="button">
+            <span class="visually-hidden">Menu</span>
+            <span class="page-header__menu-button-element" aria-hidden="true"></span>
+          </button>
+          <button class="page-header__search-button button" type="button">
+            <span class="visually-hidden">Search</span>
+            <svg class="page-header__search-icon" width="22" height="22" aria-hidden="true">
+              <use xlink:href="#inline-search-glass"></use>
+            </svg>
+          </button>
+          <a class="page-header__logo-link">
+            <img class="page-header__logo" width="250" src="images/logos/certline-logo.png" alt="CertLine">
+          </a>
+          <div class="page-header__search-form-wrapper">
+            <form class="page-header__serach-form form" action="#" method="post">
+              <p class="page-header__field-wrapper form__field-wrapper">
+                <label class="page-header__search-label" for="search-field"><span class="visually-hidden">Enter your text</span></label>
+                <input class="page-header__search-field form__field" type="search" name="search" id="search-field" placeholder="Enter your text" required="" autocomplete="off">
+              </p>
+              <button class="page-header__search-submit button button--primary" type="submit" onclick="this.blur();">Search</button>
+            </form>
+          </div>
+          <img class="page-header__secure-logo" src="images/logos/mcafee-logo.png" alt="McAfee Secure" title="McAfee Secure">
+        </div>
+      </div>
+      <div class="page-header__bottom page-header__bottom--inner">
+        <div class="container">
+          <nav class="page-header__main-menu main-menu">
+            <ul class="main-menu__list">
+              <li class="main-menu__item">
+                <a class="main-menu__link link main-menu__link--active">Home</a>
+              </li>
+              <li class="main-menu__item">
+                <a class="main-menu__link link" href="#">Products</a>
+                <ul class="main-menu__submenu submenu">
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-cisco.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Cisco</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-microsoft.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Microsoft</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-comptia.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">CompTIA</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/citrix-logo.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Citrix</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-checkpoint.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Checkpoint</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-cwnp.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">CWNP</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-linux.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">LPI</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-isc.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">ISC</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/ibm-logo.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">IBM</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/hp-logo.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">HP</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-apple.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Apple</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/pmi-logo.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">PMI</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-adobe.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Adobe</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-emc.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">EMC</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-juniper.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Juniper</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/vmware-logo.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">VMWare</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-isaca.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Isaca</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/avaya_logo.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Avaya</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-fortinet.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Fortinet</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/ec-council-logo.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">ECCouncil</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-hitachi.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Hitachi</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-tibco.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Tibco</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-sas.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">SAS Institute</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-f5.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">F5</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/alcatel-lucent-logo.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Alcatel-Lucent</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-sap.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">SAP</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-riverbed.jpg" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Riverbed</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-giac.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">GIAC</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="main-menu__item">
+                <a class="main-menu__link link" href="#">Enterprice</a>
+              </li>
+              <li class="main-menu__item">
+                <a class="main-menu__link link" href="#">FAQ</a>
+              </li>
+              <li class="main-menu__item">
+                <a class="main-menu__link link" href="#">Contact Us</a>
+              </li>
+            </ul>
+          </nav>
+          <nav class="page-header__mobile-menu mobile-menu">
+            <button class="mobile-menu__close-button button"><span class="visually-hidden">Close Menu</span></button>
+            <div class="mobile-menu__lists-wrapper">
+              <ul class="mobile-menu__vendor-list">
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-cisco.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Cisco</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-microsoft.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Microsoft</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-comptia.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">CompTIA</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/citrix-logo.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Citrix</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-checkpoint.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Checkpoint</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-cwnp.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">CWNP</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-linux.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">LPI</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-isc.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">ISC</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/ibm-logo.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">IBM</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/hp-logo.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">HP</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-apple.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Apple</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/pmi-logo.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">PMI</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-adobe.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Adobe</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-emc.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">EMC</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-juniper.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Juniper</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/vmware-logo.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">VMWare</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-isaca.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Isaca</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/avaya_logo.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Avaya</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-fortinet.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Fortinet</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/ec-council-logo.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">ECCouncil</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-hitachi.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Hitachi</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-tibco.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Tibco</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-sas.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">SAS Institute</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-f5.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">F5</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/alcatel-lucent-logo.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Alcatel-Lucent</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-sap.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">SAP</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-riverbed.jpg" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Riverbed</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-giac.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">GIAC</a>
+                </li>
+              </ul>
+              <ul class="mobile-menu__nav-list">
+                <li class="mobile-menu__nav-item">
+                  <a class="mobile-menu__nav-link mobile-menu__nav-link--active link" href="#">Home</a>
+                </li>
+                <li class="mobile-menu__nav-item">
+                  <a class="mobile-menu__nav-link link" href="#">Products</a>
+                </li>
+                <li class="mobile-menu__nav-item">
+                  <a class="mobile-menu__nav-link link" href="#">Enterprice</a>
+                </li>
+                <li class="mobile-menu__nav-item">
+                  <a class="mobile-menu__nav-link link" href="#">FAQ</a>
+                </li>
+                <li class="mobile-menu__nav-item">
+                  <a class="mobile-menu__nav-link link" href="#">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <div class="page-header__user-menu user-menu">
+            <ul class="user-menu__list">
+              <li class="user-menu__item">
+                <a class="user-menu__link user-menu__link--cart link" href="#"><span class="visually-hidden--mobile">Cart</span></a>
+              </li>
+              <li class="user-menu__item">
+                <a class="user-menu__link user-menu__link--sign-in link" href="#"><span class="visually-hidden--mobile">Sign In</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-main">
+      <div class="container">
+
+        <div class="breadcrumbs">
+          <ul class="breadcrumbs__list">
+            <li class="breadcrumbs__item"><a class="breadcrumbs__link link link--breadcrumb" href="#">Home</a></li>
+            <li class="breadcrumbs__item"><a class="breadcrumbs__link link link--breadcrumb">Vendor Page</a></li>
+          </ul>
+        </div>
+
+        <div class="page-main__content-wrapper">
+          <div class="page-main__main-content page-main__main-content--sidebar-no-fit page-main__main-content--bottom">
+
+            <section class="vendor">
+              <figure class="vendor__image-wrapper">
+                <img class="vendor__image" src="images/other/vendor.jpg" alt="Vendor">
+              </figure>
+              <h1 class="vendor__heading heading heading--large">Pass your Microsoft Exams Easily - GUARANTEED!</h1>
+              <p class="vendor__agitation text text--extra-large">Get Microsoft Certified With Testking Training Materials</p>
+              <p class="vendor__text text text--large">Prepare your Microsoft certification exams with real Microsoft Questions & Answers verified by experienced Microsoft professionals! Testking makes your Microsoft certification journey easier as Testking provides you with learning materials to help you pass your exams from the first try. Professionally researched by Microsoft Certified Trainers, our Microsoft preparation materials contribute to industry's highest 99,6% pass rate among our customers. Just like all our exams, Microsoft exams come with our 100% Satisfaction Guarantee.</p>
+            </section>
+        
+            <section class="results">
+              <h2 class="results__heading heading heading--medium">Last Week Results!</h2>
+              <div class="results__slider">
+                <div class="results__list-wrapper swiper-container">
+                  <ul class="results__list swiper-wrapper">
+                    <li class="results__item swiper-slide">
+                      <span class="results__stat">365</span>
+                      <h3 class="results__title">Customers Passed CompTIA N10-006 Exam</h3>
+                    </li>
+                    <li class="results__item swiper-slide">
+                      <span class="results__stat">98.7%</span>
+                      <h3 class="results__title">Average Score In Real Exam At Testing Centre</h3>
+                    </li>
+                    <li class="results__item swiper-slide">
+                      <span class="results__stat">93%</span>
+                      <h3 class="results__title">Questions came word for word from this dump</h3>
+                    </li>
+                  </ul>
+                </div>
+                <button class="results__slider-button button button--primary results__slider-button--previous" type="button"><span class="visually-hidden">Previous</span><span class="results__button-arrow"></span></button>
+                <button class="results__slider-button button button--primary results__slider-button--next" type="button"><span class="visually-hidden">Next</span><span class="results__button-arrow"></span></button>
+              </div>
+            </section>
+
+            <section class="vendor-products">
+              <h2 class="visually-hidden">Vendor products</h2>
+              <div class="info__tab-wrapper">
+                  <div class="info__tab-list-wrapper swiper-container">
+                    <ul class="info__tabs-list swiper-wrapper">
+                      <li class="info__tabs-item swiper-slide"><button class="info__tabs-button button button--tab" type="button">Product Bundle</button></li>
+                      <li class="info__tabs-item swiper-slide"><button class="info__tabs-button button button--tab" type="button">Certification Notes</button></li>
+                      <li class="info__tabs-item swiper-slide"><button class="info__tabs-button button button--tab" type="button">FAQ</button></li>
+                    </ul>
+                    <div class="info__slider-pagination"></div>
+                  </div>
+                  <ul class="info__list info__list--vendor list">
+                    <li class="info__item info__item--vendor">
+                      <ul class="vendor-products__list-lvl-1 list">
+                        <li class="vendor-products__item-lvl-1">
+                          <h3 class="vendor-products__title-lvl-1 heading heading--medium"><a class="link__heading" href="#">Server</a></h3>
+                          <ul class="vendor-products__list-lvl-2 list">
+                            <li class="vendor-products__item-lvl-2">
+                              <h4 class="vendor-products__title-lvl-2 heading heading--blue"><a class="link__heading" href="#">Windows Server</a></h4>
+                              <ul class="vendor-products__list-lvl-3 list">
+                                <li class="vendor-products__item-lvl-3">
+                                  <h5 class="vendor-products__title-lvl-3 heading heading--blue"><a class="link__heading" href="#">Associate Level</a></h5>
+                                  <ul class="vendor-products__list-lvl-4 list">
+                                    <li class="vendor-products__item-lvl-4"><a class="link link--medium" href="#">MCSA: Windows Server 2008</a></li>
+                                    <li class="vendor-products__item-lvl-4"><a class="link link--medium" href="#">MCSA: Windows Server 2008</a></li>
+                                    <li class="vendor-products__item-lvl-4"><a class="link link--medium" href="#">MCSA: Windows Server 2008</a></li>
+                                  </ul>
+                                </li>
+                                <li class="vendor-products__item-lvl-3">
+                                  <h5 class="vendor-products__title-lvl-3 heading heading--blue"><a class="link__heading" href="#">Entry Level</a></h5>
+                                  <ul class="vendor-products__list-lvl-4 list">
+                                    <li class="vendor-products__item-lvl-4"><a class="link link--medium" href="#">Microsoft Specialist: Microsoft Azure</a></li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </li>
+                            <li class="vendor-products__item-lvl-2">
+                              <h4 class="vendor-products__title-lvl-2 heading heading--blue"><a class="link__heading" href="#">Windows Server</a></h4>
+                              <ul class="vendor-products__list-lvl-3 list">
+                                <li class="vendor-products__item-lvl-3">
+                                  <h5 class="vendor-products__title-lvl-3 heading heading--blue"><a class="link__heading" href="#">Associate Level</a></h5>
+                                  <ul class="vendor-products__list-lvl-4 list">
+                                    <li class="vendor-products__item-lvl-4"><a class="link link--medium" href="#">MCSA: Windows Server 2008</a></li>
+                                    <li class="vendor-products__item-lvl-4"><a class="link link--medium" href="#">MCSA: Windows Server 2008</a></li>
+                                    <li class="vendor-products__item-lvl-4"><a class="link link--medium" href="#">MCSA: Windows Server 2008</a></li>
+                                  </ul>
+                                </li>
+                                <li class="vendor-products__item-lvl-3">
+                                  <h5 class="vendor-products__title-lvl-3 heading heading--blue"><a class="link__heading" href="#">Entry Level</a></h5>
+                                  <ul class="vendor-products__list-lvl-4 list">
+                                    <li class="vendor-products__item-lvl-4"><a class="link link--medium" href="#">Microsoft Specialist: Microsoft Azure</a></li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                        <li class="vendor-products__item-lvl-1">
+                          <h3 class="vendor-products__title-lvl-1 heading heading--medium"><a class="link__heading" href="#">Desktop</a></h3>
+                          <ul class="vendor-products__list-lvl-2 list">
+                            <li class="vendor-products__item-lvl-2">
+                              <h4 class="vendor-products__title-lvl-2 heading heading--blue"><a class="link__heading" href="#">Windows Server</a></h4>
+                              <ul class="vendor-products__list-lvl-3 list">
+                                <li class="vendor-products__item-lvl-3">
+                                  <h5 class="vendor-products__title-lvl-3 heading heading--blue"><a class="link__heading" href="#">Associate Level</a></h5>
+                                  <ul class="vendor-products__list-lvl-4 list">
+                                    <li class="vendor-products__item-lvl-4"><a class="link link--medium" href="#">MCSA: Windows 8</a></li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                        <li class="vendor-products__item-lvl-1">
+                          <h3 class="vendor-products__title-lvl-1 heading heading--medium"><a class="link__heading" href="#">Server</a></h3>
+                          <ul class="vendor-products__list-lvl-2 list">
+                            <li class="vendor-products__item-lvl-2">
+                              <h4 class="vendor-products__title-lvl-2 heading heading--blue"><a class="link__heading" href="#">Windows Server</a></h4>
+                              <ul class="vendor-products__list-lvl-3 list">
+                                <li class="vendor-products__item-lvl-3">
+                                  <h5 class="vendor-products__title-lvl-3 heading heading--blue"><a class="link__heading" href="#">Associate Level</a></h5>
+                                  <ul class="vendor-products__list-lvl-4 list">
+                                    <li class="vendor-products__item-lvl-4"><a class="link link--medium" href="#">MCSA: Windows Server 2008</a></li>
+                                    <li class="vendor-products__item-lvl-4"><a class="link link--medium" href="#">MCSA: Windows Server 2008</a></li>
+                                    <li class="vendor-products__item-lvl-4"><a class="link link--medium" href="#">MCSA: Windows Server 2008</a></li>
+                                  </ul>
+                                </li>
+                                <li class="vendor-products__item-lvl-3">
+                                  <h5 class="vendor-products__title-lvl-3 heading heading--blue"><a class="link__heading" href="#">Entry Level</a></h5>
+                                  <ul class="vendor-products__list-lvl-4 list">
+                                    <li class="vendor-products__item-lvl-4"><a class="link link--medium" href="#">MTA: IT Infrastructure</a></li>
+                                  </ul>
+                                </li>
+                                <li class="vendor-products__item-lvl-3">
+                                  <h5 class="vendor-products__title-lvl-3 heading heading--blue"><a class="link__heading" href="#">Azure</a></h5>
+                                  <ul class="vendor-products__list-lvl-4 list">
+                                    <li class="vendor-products__item-lvl-4"><a class="link link--medium" href="#">Microsoft Specialist: Microsoft Azure</a></li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                        <li class="vendor-products__item-lvl-1">
+                          <h3 class="vendor-products__title-lvl-1 heading heading--medium"><a class="link__heading" href="#">Desktop</a></h3>
+                          <ul class="vendor-products__list-lvl-2 list">
+                            <li class="vendor-products__item-lvl-2">
+                              <h4 class="vendor-products__title-lvl-2 heading heading--blue"><a class="link__heading" href="#">Windows Server</a></h4>
+                              <ul class="vendor-products__list-lvl-3 list">
+                                <li class="vendor-products__item-lvl-3">
+                                  <h5 class="vendor-products__title-lvl-3 heading heading--blue"><a class="link__heading" href="#">Associate Level</a></h5>
+                                  <ul class="vendor-products__list-lvl-4 list">
+                                    <li class="vendor-products__item-lvl-4"><a class="link link--medium" href="#">MCSA: Windows 8</a></li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                        <li class="vendor-products__item-lvl-1">
+                          <h3 class="vendor-products__title-lvl-1 heading heading--medium"><a class="link__heading" href="#">Server</a></h3>
+                        </li>
+                      </ul>
+                    </li>
+  
+                    <li class="info__item info__item--vendor">
+                      Content 2
+                    </li>
+  
+                    <li class="info__item info__item--vendor">
+                      Content 3
+                    </li>
+  
+                  </ul>
+                </div>
+            </section>
+
+          </div>
+
+          <aside class="page-main__right-sidebar page-main__right-sidebar--no-fit page-main__right-sidebar--help">
+
+            <section class="feedbacks" data-accordion="">
+              <h3 class="feedbacks__heading heading heading--sidebar">Customers' Feedbacks</h3>
+              <section class="feedbacks__item">
+                <h4 class="feedbacks__title heading heading--small">Detail For Success Microsoft</h4>
+                <p class="feedbacks__text text text--small">"The test Microsoft went pretty well. I did have some difficulty .The rest of the questions I either knew the answers right off or I was able to narrow them down to a couple of answers that were similar. Those I skipped over and went back to figure them out. I want to thank Testking for the great job he does in explaining everything and everyone else that makes this web site possible and all those behind the scenes! If everyone paid attention to all the details Testking gives for success on the Microsoft exam. Marlin"</p>
+              </section>
+              <section class="feedbacks__item">
+                <h4 class="feedbacks__title heading heading--small">Know My Passing Score Microsoft</h4>
+                <p class="feedbacks__text text text--small">"I felt very prepared. I was disappointed not to know my passing score - there were just a few questions I was unfamiliar with. On the whole, the Microsoft test was easy. I loved Testking lectures and memory devices. The printed exam book was a gem, too! I will return to you for further licensing assistance! I passed the test Microsoft the first time. Testking course was everything I was told it would be. I studied the workbook before the test and found the lessons to be right on target. Thanks for all of your encouragement and assistance. William"</p>
+              </section>
+              <section class="feedbacks__item">
+                <h4 class="feedbacks__title heading heading--small">Great For Me Microsoft</h4>
+                <p class="feedbacks__text text text--small">"I passed the Microsoft exam on my first shot. The whole process from Testking to exam lasted 45 days, a little longer than I expected. Your system is great for me. I watch the videos, did the tests in the red workbook, then retook the last 2 online tests again 2 days before Microsoft exam, and finally read the Key Facts again the day before my exam. I think I got over 90% correct, way over-killed. About 98% of the question in the exam were Testking. I have recommended it to my friends as well. Limbar"</p>
+              </section>
+              <div class="feedbacks__hidding-block" data-content="">
+                <section class="feedbacks__item">
+                  <h4 class="feedbacks__title heading heading--small">Detail For Success Microsoft</h4>
+                  <p class="feedbacks__text text text--small">"The test Microsoft went pretty well. I did have some difficulty .The rest of the questions I either knew the answers right off or I was able to narrow them down to a couple of answers that were similar. Those I skipped over and went back to figure them out. I want to thank Testking for the great job he does in explaining everything and everyone else that makes this web site possible and all those behind the scenes! If everyone paid attention to all the details Testking gives for success on the Microsoft exam. Marlin"</p>
+                </section>
+                <section class="feedbacks__item">
+                  <h4 class="feedbacks__title heading heading--small">Know My Passing Score Microsoft</h4>
+                  <p class="feedbacks__text text text--small">"I felt very prepared. I was disappointed not to know my passing score - there were just a few questions I was unfamiliar with. On the whole, the Microsoft test was easy. I loved Testking lectures and memory devices. The printed exam book was a gem, too! I will return to you for further licensing assistance! I passed the test Microsoft the first time. Testking course was everything I was told it would be. I studied the workbook before the test and found the lessons to be right on target. Thanks for all of your encouragement and assistance. William"</p>
+                </section>
+                <section class="feedbacks__item">
+                  <h4 class="feedbacks__title heading heading--small">Great For Me Microsoft</h4>
+                  <p class="feedbacks__text text text--small">"I passed the Microsoft exam on my first shot. The whole process from Testking to exam lasted 45 days, a little longer than I expected. Your system is great for me. I watch the videos, did the tests in the red workbook, then retook the last 2 online tests again 2 days before Microsoft exam, and finally read the Key Facts again the day before my exam. I think I got over 90% correct, way over-killed. About 98% of the question in the exam were Testking. I have recommended it to my friends as well. Limbar"</p>
+                </section>
+              </div>
+              <button class="feedbacks__view-all-button button link link--icon" type="button" data-control="" onclick="if(textContent === 'View All'){textContent = 'Hide'}else{textContent = 'View All'}">View All</button>
+            </section>
+
+            <section class="satisfied">
+              <h3 class="satisfied__heading heading heading--sidebar">
+                <span class="heading__large-part">Over <span class="heading__number">315,121</span></span>
+                Satisfied Customers Since 2002
+              </h3>
+              <ul class="satisfied__list list list--check-mark">
+                <li class="satisfied__item text">100% Real Exam Questions</li>
+                <li class="satisfied__item text">Accurate & Updated Answers</li>
+                <li class="satisfied__item text">Secured Customer Data</li>
+                <li class="satisfied__item text">Regular Free Updates</li>
+                <li class="satisfied__item text">99.6% Pass Rate</li>
+              </ul>
+            </section>
+
+            <section class="valuable">
+              <h3 class="valuable__heading heading heading--sidebar">CertLane Valuable Customers</h3>
+              <ul class="valuable__list list">
+                <li class="valuable__item"><img class="valuable__image" src="images/logos/microsoft.png" alt="Microsoft"></li>
+                <li class="valuable__item"><img class="valuable__image" src="images/logos/facebook.png" alt="Facebook"></li>
+                <li class="valuable__item"><img class="valuable__image" src="images/logos/instagram.png" alt="Instagram"></li>
+                <li class="valuable__item"><img class="valuable__image" src="images/logos/att.png" alt="AT&T"></li>
+                <li class="valuable__item"><img class="valuable__image" src="images/logos/klm.png" alt="KLM"></li>
+                <li class="valuable__item"><img class="valuable__image" src="images/logos/turkish-airlines.png" alt="Turkish Airlines"></li>
+                <li class="valuable__item"><img class="valuable__image" src="images/logos/google.png" alt="Google"></li>
+                <li class="valuable__item"><img class="valuable__image" src="images/logos/amazon.png" alt="Amazon"></li>
+              </ul>
+            </section>
+
+            <section class="secure">
+              <h3 class="secure__heading heading heading--sidebar">Secure Shopping Experience</h3>
+              <div class="secure__pay-cards-wrapper">
+                <img class="secure__pay-cards-image" src="images/other/pay-cards.png" alt="Pay Crads">
+              </div>
+              <p class="secure__text text text--large">Your purchase with Testking is safe and fast. Your products will be available for immediate download after your payment has been received.</p>
+              <p class="secure__text text text--large">Testking website is protected by 256-bit SSL from McAfee, the leader in online security.</p>
+              <ul class="secure__list list">
+                <li class="secure__item">
+                  <img class="secure__logo-image" src="images/logos/mcafee-secure.png" alt="McAfee">
+                </li>
+                <li class="secure__item">
+                  <img class="secure__logo-image" src="images/logos/bbb-secure.png" alt="Accredited Business">
+                </li>
+              </ul>
+            </section>
+
+            <section class="help help--tablet-hidden">
+              <h3 class="help__heading">Need help assistance?</h3>
+              <strong class="help__agitation">Contact us!</strong>
+              <a class="help__link link" href="mailto:support@certlane.com">Customer Support</a>
+            </section>
+            
+          </aside>
+        </div>
+      </div>
+    </main>
+
+        <footer class="page-footer">
+          <div class="container">
+            <div class="page-footer__content-wrapper">
+              <a class="page-footer__logo-link">
+                <img class="page-footer__logo" width="250" src="images/logos/certline-logo.png" alt="CertLine">
+              </a>
+              <nav class="page-footer__navigation footer-navigation">
+                <ul class="footer-navigation__list">
+                  <li class="footer-navigation__item">
+                    <a class="footer-navigation__link" href="#">Home</a>
+                  </li>
+                  <li class="footer-navigation__item">
+                    <a class="footer-navigation__link" href="#">Disklaimer</a>
+                  </li>
+                  <li class="footer-navigation__item">
+                    <a class="footer-navigation__link" href="#">Terms</a>
+                  </li>
+                  <li class="footer-navigation__item">
+                    <a class="footer-navigation__link" href="#">Contact Us</a>
+                  </li>
+                  <li class="footer-navigation__item">
+                    <a class="footer-navigation__link" href="#">Privacy</a>
+                  </li>
+                  <li class="footer-navigation__item">
+                    <a class="footer-navigation__link" href="#">Sitemap</a>
+                  </li>
+                </ul>
+              </nav>
+              <div class="page-footer__subscribe subscribe">
+                <strong class="subscribe__title">Stay Connected</strong>
+                <form class="subscribe__form form" action="#" method="post">
+                  <p class="subscribe__field-wrapper form__field-wrapper">
+                    <label class="subscribe-label" for="email-field"><span class="visually-hidden">Enter your email</span></label>
+                    <input class="subscribe-field form__field" type="email" name="email" id="email-field" placeholder="Enter your email" required="">
+                  </p>
+                  <button class="page-footer__subscribe-submit button button--primary" type="submit" onclick="this.blur();">Subscribe</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <p class="page-footer__copyrights">
+            © All Rights Reserved 2017-2018 CertBolt.com
+          </p>
+        </footer>
+    </div>
+        <script src="js/librarys/jquery-3.4.1.min.js"></script>
+        <script src="js/polyfills/picturefill.js"></script>
+        <script src="js/polyfills/array-from.js"></script>
+        <script src="js/polyfills/ofi.min.js"></script>
+        <script src="js/plugins/swiper.min.js"></script>
+        <script src="js/plugins/simple-lightbox.min.js"></script>
+        <script src="js/plugins/jquery.selectric.min.js"></script>
+        <script src="js/plugins/smooth-scrollbar.js"></script>
+        <script src="js/plugins/overscroll.js"></script>
+        <script src="js/plugins/intlTelInput.min.js"></script>
+        <script src="js/all.min.js"></script>
+      </body>
+    </html>

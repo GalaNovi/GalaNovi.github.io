@@ -15,9 +15,10 @@
     <link rel="stylesheet" href="css/swiper.min.css">
     <link rel="stylesheet" href="css/simplelightbox.min.css">
     <link rel="stylesheet" href="css/selectric.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.min.css">
   </head>
   <body>
+    <div class="scroll">
     <div style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="inline-search-glass" viewbox="0 0 56.966 56.966"><path d="M55.146 51.887L41.588 37.786A22.926 22.926 0 0 0 46.984 23c0-12.682-10.318-23-23-23s-23 10.318-23 23 10.318 23 23 23c4.761 0 9.298-1.436 13.177-4.162l13.661 14.208c.571.593 1.339.92 2.162.92.779 0 1.518-.297 2.079-.837a3.004 3.004 0 0 0 .083-4.242zM23.984 6c9.374 0 17 7.626 17 17s-7.626 17-17 17-17-7.626-17-17 7.626-17 17-17z"></path></symbol></svg></div>
     
     <header class="page-header">
@@ -620,23 +621,33 @@
                   </li>
 
                   <li class="info__item">
-                    Content 2
+                    <div class="info__item-text-wrapper">
+                      Content 2
+                    </div>
                   </li>
 
                   <li class="info__item">
-                    Content 3
+                    <div class="info__item-text-wrapper">
+                      Content 3
+                    </div>
                   </li>
 
                   <li class="info__item">
-                    Content 4
+                    <div class="info__item-text-wrapper">
+                      Content 4
+                    </div>
                   </li>
 
                   <li class="info__item">
-                    Content 5
+                    <div class="info__item-text-wrapper">
+                      Content 5
+                    </div>
                   </li>
 
                   <li class="info__item">
-                    Content 6
+                    <div class="info__item-text-wrapper">
+                      Content 6
+                    </div>
                   </li>
 
                 </ul>
@@ -778,6 +789,7 @@
             © All Rights Reserved 2017-2018 CertBolt.com
           </p>
         </footer>
+    </div>
         <script src="js/librarys/jquery-3.4.1.min.js"></script>
         <script src="js/polyfills/picturefill.js"></script>
         <script src="js/polyfills/array-from.js"></script>
@@ -786,26 +798,8 @@
         <script src="js/plugins/simple-lightbox.min.js"></script>
         <script src="js/plugins/jquery.selectric.min.js"></script>
         <script src="js/plugins/smooth-scrollbar.js"></script>
-        <script src="js/all.js"></script>
-        <script>
-          // Lightbox initialization
-          if ($('.screenshots__list').length) {
-            var lightbox = $('.screenshots__list a').simpleLightbox();
-          }
-    
-          // Object-fit polyfill initialization
-          objectFitImages();
-    
-          var Scrollbar = window.Scrollbar;
-    
-          Scrollbar.init(document.querySelector('#scroll'));
-        </script>
-        <style>
-          #scroll {
-            width: 100vw;
-            height: 100vh;
-            overflow: auto;
-          }
-        </style>
+        <script src="js/plugins/overscroll.js"></script>
+        <script src="js/plugins/intlTelInput.min.js"></script>
+        <script src="js/all.min.js"></script>
       </body>
     </html>

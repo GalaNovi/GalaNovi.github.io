@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CertLane | Videocourse</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="keywords">
+    <meta name="description" content="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+    <link rel="preload" href="fonts/Lato-Regular.woff2" as="font" crossorigin="">
+    <link rel="preload" href="fonts/Lato-Bold.woff2" as="font" crossorigin="">
+    <link rel="preload" href="fonts/PT_Sans-Bold.woff2" as="font" crossorigin="">
+    <link rel="preload" href="fonts/Roboto-Regular.woff2" as="font" crossorigin="">
+    <link rel="preload" href="fonts/Roboto-Medium.woff2" as="font" crossorigin="">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/simplelightbox.min.css">
+    <link rel="stylesheet" href="css/selectric.css">
+    <link rel="stylesheet" href="css/style.min.css">
+  </head>
+  <body>
+    <div class="scroll">
+    <div style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="inline-search-glass" viewbox="0 0 56.966 56.966"><path d="M55.146 51.887L41.588 37.786A22.926 22.926 0 0 0 46.984 23c0-12.682-10.318-23-23-23s-23 10.318-23 23 10.318 23 23 23c4.761 0 9.298-1.436 13.177-4.162l13.661 14.208c.571.593 1.339.92 2.162.92.779 0 1.518-.297 2.079-.837a3.004 3.004 0 0 0 .083-4.242zM23.984 6c9.374 0 17 7.626 17 17s-7.626 17-17 17-17-7.626-17-17 7.626-17 17-17z"></path></symbol></svg></div>
+    
+    <header class="page-header">
+      <div class="page-header__top">
+        <div class="container">
+          <button class="page-header__menu-button button" type="button">
+            <span class="visually-hidden">Menu</span>
+            <span class="page-header__menu-button-element" aria-hidden="true"></span>
+          </button>
+          <button class="page-header__search-button button" type="button">
+            <span class="visually-hidden">Search</span>
+            <svg class="page-header__search-icon" width="22" height="22" aria-hidden="true">
+              <use xlink:href="#inline-search-glass"></use>
+            </svg>
+          </button>
+          <a class="page-header__logo-link">
+            <img class="page-header__logo" width="250" src="images/logos/certline-logo.png" alt="CertLine">
+          </a>
+          <div class="page-header__search-form-wrapper">
+            <form class="page-header__serach-form form" action="#" method="post">
+              <p class="page-header__field-wrapper form__field-wrapper">
+                <label class="page-header__search-label" for="search-field"><span class="visually-hidden">Enter your text</span></label>
+                <input class="page-header__search-field form__field" type="search" name="search" id="search-field" placeholder="Enter your text" required="" autocomplete="off">
+              </p>
+              <button class="page-header__search-submit button button--primary" type="submit" onclick="this.blur();">Search</button>
+            </form>
+          </div>
+          <img class="page-header__secure-logo" src="images/logos/mcafee-logo.png" alt="McAfee Secure" title="McAfee Secure">
+        </div>
+      </div>
+      <div class="page-header__bottom page-header__bottom--inner">
+        <div class="container">
+          <nav class="page-header__main-menu main-menu">
+            <ul class="main-menu__list">
+              <li class="main-menu__item">
+                <a class="main-menu__link link main-menu__link--active">Home</a>
+              </li>
+              <li class="main-menu__item">
+                <a class="main-menu__link link" href="#">Products</a>
+                <ul class="main-menu__submenu submenu">
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-cisco.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Cisco</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-microsoft.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Microsoft</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-comptia.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">CompTIA</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/citrix-logo.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Citrix</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-checkpoint.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Checkpoint</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-cwnp.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">CWNP</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-linux.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">LPI</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-isc.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">ISC</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/ibm-logo.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">IBM</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/hp-logo.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">HP</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-apple.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Apple</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/pmi-logo.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">PMI</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-adobe.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Adobe</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-emc.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">EMC</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-juniper.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Juniper</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/vmware-logo.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">VMWare</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-isaca.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Isaca</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/avaya_logo.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Avaya</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-fortinet.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Fortinet</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/ec-council-logo.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">ECCouncil</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-hitachi.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Hitachi</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-tibco.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Tibco</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-sas.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">SAS Institute</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-f5.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">F5</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/alcatel-lucent-logo.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Alcatel-Lucent</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-sap.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">SAP</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-riverbed.jpg" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">Riverbed</a>
+                  </li>
+                  <li class="submenu__item">
+                    <div class="submenu__icon-wrapper">
+                      <img class="submenu__icon" src="images/logos/vendors/logo-giac.png" alt="Vendor Logo">
+                    </div>
+                    <a class="submenu__link link" href="#">GIAC</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="main-menu__item">
+                <a class="main-menu__link link" href="#">Enterprice</a>
+              </li>
+              <li class="main-menu__item">
+                <a class="main-menu__link link" href="#">FAQ</a>
+              </li>
+              <li class="main-menu__item">
+                <a class="main-menu__link link" href="#">Contact Us</a>
+              </li>
+            </ul>
+          </nav>
+          <nav class="page-header__mobile-menu mobile-menu">
+            <button class="mobile-menu__close-button button"><span class="visually-hidden">Close Menu</span></button>
+            <div class="mobile-menu__lists-wrapper">
+              <ul class="mobile-menu__vendor-list">
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-cisco.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Cisco</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-microsoft.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Microsoft</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-comptia.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">CompTIA</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/citrix-logo.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Citrix</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-checkpoint.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Checkpoint</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-cwnp.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">CWNP</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-linux.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">LPI</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-isc.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">ISC</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/ibm-logo.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">IBM</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/hp-logo.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">HP</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-apple.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Apple</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/pmi-logo.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">PMI</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-adobe.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Adobe</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-emc.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">EMC</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-juniper.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Juniper</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/vmware-logo.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">VMWare</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-isaca.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Isaca</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/avaya_logo.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Avaya</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-fortinet.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Fortinet</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/ec-council-logo.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">ECCouncil</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-hitachi.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Hitachi</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-tibco.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Tibco</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-sas.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">SAS Institute</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-f5.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">F5</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/alcatel-lucent-logo.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Alcatel-Lucent</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-sap.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">SAP</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-riverbed.jpg" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">Riverbed</a>
+                </li>
+                <li class="mobile-menu__vendor-item">
+                  <div class="mobile-menu__vendor-icon-wrapper">
+                    <img class="mobile-menu__vendor-icon" width="40" src="images/logos/vendors/logo-giac.png" alt="Vendor Logo">
+                  </div>
+                  <a class="mobile-menu__vendor-link link" href="#">GIAC</a>
+                </li>
+              </ul>
+              <ul class="mobile-menu__nav-list">
+                <li class="mobile-menu__nav-item">
+                  <a class="mobile-menu__nav-link mobile-menu__nav-link--active link" href="#">Home</a>
+                </li>
+                <li class="mobile-menu__nav-item">
+                  <a class="mobile-menu__nav-link link" href="#">Products</a>
+                </li>
+                <li class="mobile-menu__nav-item">
+                  <a class="mobile-menu__nav-link link" href="#">Enterprice</a>
+                </li>
+                <li class="mobile-menu__nav-item">
+                  <a class="mobile-menu__nav-link link" href="#">FAQ</a>
+                </li>
+                <li class="mobile-menu__nav-item">
+                  <a class="mobile-menu__nav-link link" href="#">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <div class="page-header__user-menu user-menu">
+            <ul class="user-menu__list">
+              <li class="user-menu__item">
+                <a class="user-menu__link user-menu__link--cart link" href="#"><span class="visually-hidden--mobile">Cart</span></a>
+              </li>
+              <li class="user-menu__item">
+                <a class="user-menu__link user-menu__link--sign-in link" href="#"><span class="visually-hidden--mobile">Sign In</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-main">
+      <div class="container">
+
+        <div class="breadcrumbs">
+          <ul class="breadcrumbs__list">
+            <li class="breadcrumbs__item"><a class="breadcrumbs__link link link--breadcrumb" href="#">Home</a></li>
+            <li class="breadcrumbs__item"><a class="breadcrumbs__link link link--breadcrumb" href="#">Videocourse</a></li>
+            <li class="breadcrumbs__item"><a class="breadcrumbs__link link link--breadcrumb">N10-006 (CompTIA Network+)</a></li>
+          </ul>
+        </div>
+
+        <section class="course">
+          <figure class="course__image-wrapper">
+            <img class="course__image" src="images/courses/course-image.jpg" alt="Course image">
+            <div class="info__image-label">
+              <span class="info__save-title">BEST</span>
+              <span class="info__save-sum">SELLER</span>
+            </div>
+          </figure>
+          <div class="course__right-content">
+            <h1 class="course__heading heading heading--medium">200-125: CCNA Cisco Certified Network Associate</h1>
+            <p class="course__text text">
+              Cyberattacks on smarthphones and other mobile devices is now on regular occurrences, yet cybercriminals keep advancing in employing one form of forceful strategies or the other including Masque-Freak, Stagefright to Cored, YiSpecter to Wirelurker and water you. Hence, the seemingly unending vulnerability to exposing, malware to deploying techniques end up in loss of money.
+            </p>
+            <ul class="course__stats-list list">
+              <li class="course__stats-item course__stats-item--students">
+                <span class="course__stats-number">461</span>
+                <span class="course__stats-text text">Students Enrolled</span>
+              </li>
+              <li class="course__stats-item course__stats-item--lectures">
+                <span class="course__stats-number">150</span>
+                <span class="course__stats-text text">Lectures</span>
+              </li>
+              <li class="course__stats-item course__stats-item--hours">
+                <span class="course__stats-number">64</span>
+                <span class="course__stats-text text">Hours</span>
+              </li>
+              <li class="course__stats-item course__stats-item--rating">
+                <span class="course__stats-number">4</span>
+                <span class="course__stats-text text">Rating</span>
+              </li>
+            </ul>
+            <div class="course__button-wrapper">
+              <a class="course__button button button--primary button--primary--large" href="#">Start Course</a>
+              <span class="course__price">$4.99</span>
+            </div>
+          </div>
+        </section>
+
+        <div class="page-main__content-wrapper page-main__content-wrapper--inner-page">
+
+          <div class="page-main__main-content page-main__main-content--sidebar-no-fit page-main__main-content--bottom">
+
+            <section class="curriculum">
+              <h2 class="curriculum__heading heading heading--medium">Curriculum For This Course</h2>
+              <div class="top__list-wrapper top__list-wrapper--curriculum swiper-container">
+                <ul class="top__list swiper-wrapper">
+                  <li class="top__item top__item--curriculum swiper-slide">
+                    <a class="top__link top__link--featured top__link--curriculum link">
+                      <div class="top__image-wrapper top__image-wrapper--curriculum">
+                        <img class="top__image top__image--featured" src="images/other/featured.jpg" alt="Featured Courses">
+                      </div>
+                      <h3 class="top__item-title top__item-title--curriculum">Mastering Moodboards — our tools for understandin...</h3>
+                      <div class="top__stats top__stats--curriculum">
+                        <span class="top__users">90 299</span>
+                        <span class="top__time">2.5 h</span>
+                        <span class="top__rating">4.9</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="top__item top__item--curriculum swiper-slide">
+                    <a class="top__link top__link--featured top__link--curriculum link">
+                      <div class="top__image-wrapper top__image-wrapper--curriculum">
+                        <img class="top__image top__image--featured" src="images/other/featured.jpg" alt="Featured Courses">
+                      </div>
+                      <h3 class="top__item-title top__item-title--curriculum">Mastering Moodboards — our tools for understandin...</h3>
+                      <div class="top__stats top__stats--curriculum">
+                        <span class="top__users">90 299</span>
+                        <span class="top__time">2.5 h</span>
+                        <span class="top__rating">4.9</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="top__item top__item--curriculum swiper-slide">
+                    <a class="top__link top__link--featured top__link--curriculum link">
+                      <div class="top__image-wrapper top__image-wrapper--curriculum">
+                        <img class="top__image top__image--featured" src="images/other/featured.jpg" alt="Featured Courses">
+                      </div>
+                      <h3 class="top__item-title top__item-title--curriculum">Mastering Moodboards — our tools for understandin...</h3>
+                      <div class="top__stats top__stats--curriculum">
+                        <span class="top__users">90 299</span>
+                        <span class="top__time">2.5 h</span>
+                        <span class="top__rating">4.9</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="top__item top__item--curriculum swiper-slide">
+                    <a class="top__link top__link--featured top__link--curriculum link">
+                      <div class="top__image-wrapper top__image-wrapper--curriculum">
+                        <img class="top__image top__image--featured" src="images/other/featured.jpg" alt="Featured Courses">
+                      </div>
+                      <h3 class="top__item-title top__item-title--curriculum">Mastering Moodboards — our tools for understandin...</h3>
+                      <div class="top__stats top__stats--curriculum">
+                        <span class="top__users">90 299</span>
+                        <span class="top__time">2.5 h</span>
+                        <span class="top__rating">4.9</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="top__item top__item--curriculum swiper-slide">
+                    <a class="top__link top__link--featured top__link--curriculum link">
+                      <div class="top__image-wrapper top__image-wrapper--curriculum">
+                        <img class="top__image top__image--featured" src="images/other/featured.jpg" alt="Featured Courses">
+                      </div>
+                      <h3 class="top__item-title top__item-title--curriculum">Mastering Moodboards — our tools for understandin...</h3>
+                      <div class="top__stats top__stats--curriculum">
+                        <span class="top__users">90 299</span>
+                        <span class="top__time">2.5 h</span>
+                        <span class="top__rating">4.9</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="top__item top__item--curriculum swiper-slide">
+                    <a class="top__link top__link--featured top__link--curriculum link">
+                      <div class="top__image-wrapper top__image-wrapper--curriculum">
+                        <img class="top__image top__image--featured" src="images/other/featured.jpg" alt="Featured Courses">
+                      </div>
+                      <h3 class="top__item-title top__item-title--curriculum">Mastering Moodboards — our tools for understandin...</h3>
+                      <div class="top__stats top__stats--curriculum">
+                        <span class="top__users">90 299</span>
+                        <span class="top__time">2.5 h</span>
+                        <span class="top__rating">4.9</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="top__item top__item--curriculum swiper-slide">
+                    <a class="top__link top__link--featured top__link--curriculum link">
+                      <div class="top__image-wrapper top__image-wrapper--curriculum">
+                        <img class="top__image top__image--featured" src="images/other/featured.jpg" alt="Featured Courses">
+                      </div>
+                      <h3 class="top__item-title top__item-title--curriculum">Mastering Moodboards — our tools for understandin...</h3>
+                      <div class="top__stats top__stats--curriculum">
+                        <span class="top__users">90 299</span>
+                        <span class="top__time">2.5 h</span>
+                        <span class="top__rating">4.9</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="top__item top__item--curriculum swiper-slide">
+                    <a class="top__link top__link--featured top__link--curriculum link">
+                      <div class="top__image-wrapper top__image-wrapper--curriculum">
+                        <img class="top__image top__image--featured" src="images/other/featured.jpg" alt="Featured Courses">
+                      </div>
+                      <h3 class="top__item-title top__item-title--curriculum">Mastering Moodboards — our tools for understandin...</h3>
+                      <div class="top__stats top__stats--curriculum">
+                        <span class="top__users">90 299</span>
+                        <span class="top__time">2.5 h</span>
+                        <span class="top__rating">4.9</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="top__item top__item--curriculum swiper-slide">
+                    <a class="top__link top__link--featured top__link--curriculum link">
+                      <div class="top__image-wrapper top__image-wrapper--curriculum">
+                        <img class="top__image top__image--featured" src="images/other/featured.jpg" alt="Featured Courses">
+                      </div>
+                      <h3 class="top__item-title top__item-title--curriculum">Mastering Moodboards — our tools for understandin...</h3>
+                      <div class="top__stats top__stats--curriculum">
+                        <span class="top__users">90 299</span>
+                        <span class="top__time">2.5 h</span>
+                        <span class="top__rating">4.9</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="top__item top__item--curriculum swiper-slide">
+                    <a class="top__link top__link--featured top__link--curriculum link">
+                      <div class="top__image-wrapper top__image-wrapper--curriculum">
+                        <img class="top__image top__image--featured" src="images/other/featured.jpg" alt="Featured Courses">
+                      </div>
+                      <h3 class="top__item-title top__item-title--curriculum">Mastering Moodboards — our tools for understandin...</h3>
+                      <div class="top__stats top__stats--curriculum">
+                        <span class="top__users">90 299</span>
+                        <span class="top__time">2.5 h</span>
+                        <span class="top__rating">4.9</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="top__item top__item--curriculum swiper-slide">
+                    <a class="top__link top__link--featured top__link--curriculum link">
+                      <div class="top__image-wrapper top__image-wrapper--curriculum">
+                        <img class="top__image top__image--featured" src="images/other/featured.jpg" alt="Featured Courses">
+                      </div>
+                      <h3 class="top__item-title top__item-title--curriculum">Mastering Moodboards — our tools for understandin...</h3>
+                      <div class="top__stats top__stats--curriculum">
+                        <span class="top__users">90 299</span>
+                        <span class="top__time">2.5 h</span>
+                        <span class="top__rating">4.9</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="top__item top__item--curriculum swiper-slide">
+                    <a class="top__link top__link--featured top__link--curriculum link">
+                      <div class="top__image-wrapper top__image-wrapper--curriculum">
+                        <img class="top__image top__image--featured" src="images/other/featured.jpg" alt="Featured Courses">
+                      </div>
+                      <h3 class="top__item-title top__item-title--curriculum">Mastering Moodboards — our tools for understandin...</h3>
+                      <div class="top__stats top__stats--curriculum">
+                        <span class="top__users">90 299</span>
+                        <span class="top__time">2.5 h</span>
+                        <span class="top__rating">4.9</span>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+                <div class="curriculum__overlay curriculum__overlay--left curriculum__overlay--hidden"></div>
+                <div class="curriculum__overlay curriculum__overlay--right"></div>
+              </div>
+              <div class="top__slider-pagination top__slider-pagination--featured"></div>
+              <button class="top__featured-slider-button button top__featured-slider-button--next" type="button"><span class="visually-hidden">Previous</span></button>
+              <button class="top__featured-slider-button button top__featured-slider-button--previous" type="button"><span class="visually-hidden">Next</span></button>
+              <div class="top__load-button-wrapper">
+                <button class="top__load-button button link link--icon-border" type="button">Load More</button>
+              </div>
+            </section>
+            <section id="video" class="video">
+              <h2 class="visually-hidden">Videotutorials list</h2>
+              <ul class="video__list list">
+                <li class="video__item">
+                  <h3 class="video__title heading">Mastering Moodboards – Your tools for understanding and...</h3>
+                  <table class="video__table">
+                    <thead class="video__table-head">
+                      <tr class="video__table-row">
+                        <th class="video__table-title text text--large">Name Video</th>
+                        <th class="video__table-title text text--large">Time</th>
+                      </tr>
+                    </thead>
+                    <tbody class="video__table-body">
+                      <tr class="video__table-row">
+                        <td class="video__name text text--large">1. Security Why, What, and How <button class="video__button-play video__button-play--disabled button" type="bytton"><span class="visually-hidden">Play Video</span></button></td>
+                        <td class="video__time text text--large">42:01</td>
+                      </tr>
+                      <tr class="video__table-row">
+                        <td class="video__name text text--large">2. Introduction to Checkpoint Platform <button class="video__button-play button" type="bytton"><span class="visually-hidden">Play Video</span></button></td>
+                        <td class="video__time text text--large">42:01</td>
+                      </tr>
+                      <tr class="video__table-row">
+                        <td class="video__name text text--large">3. Security Why, What, and How <button class="video__button-play button" type="bytton"><span class="visually-hidden">Play Video</span></button></td>
+                        <td class="video__time text text--large">42:01</td>
+                      </tr>
+                      <tr class="video__table-row">
+                        <td class="video__name text text--large">4. Introduction to Checkpoint Platform <button class="video__button-play button" type="bytton"><span class="visually-hidden">Play Video</span></button></td>
+                        <td class="video__time text text--large">42:01</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li class="video__item">
+                  <h3 class="video__title heading">Mastering Moodboards – Your tools for understanding and...</h3>
+                  <table class="video__table">
+                    <thead class="video__table-head">
+                      <tr class="video__table-row">
+                        <th class="video__table-title text text--large">Name Video</th>
+                        <th class="video__table-title text text--large">Time</th>
+                      </tr>
+                    </thead>
+                    <tbody class="video__table-body">
+                      <tr class="video__table-row">
+                        <td class="video__name text text--large">1. Security Why, What, and How <button class="video__button-play video__button-play--disabled button" type="bytton"><span class="visually-hidden">Play Video</span></button></td>
+                        <td class="video__time text text--large">42:01</td>
+                      </tr>
+                      <tr class="video__table-row">
+                        <td class="video__name text text--large">2. Introduction to Checkpoint Platform <button class="video__button-play button" type="bytton"><span class="visually-hidden">Play Video</span></button></td>
+                        <td class="video__time text text--large">42:01</td>
+                      </tr>
+                      <tr class="video__table-row">
+                        <td class="video__name text text--large">3. Security Why, What, and How <button class="video__button-play button" type="bytton"><span class="visually-hidden">Play Video</span></button></td>
+                        <td class="video__time text text--large">42:01</td>
+                      </tr>
+                      <tr class="video__table-row">
+                        <td class="video__name text text--large">4. Introduction to Checkpoint Platform <button class="video__button-play button" type="bytton"><span class="visually-hidden">Play Video</span></button></td>
+                        <td class="video__time text text--large">42:01</td>
+                      </tr>
+                      <tr class="video__table-row">
+                        <td class="video__name text text--large">1. Security Why, What, and How <button class="video__button-play video__button-play--disabled button" type="bytton"><span class="visually-hidden">Play Video</span></button></td>
+                        <td class="video__time text text--large">42:01</td>
+                      </tr>
+                      <tr class="video__table-row">
+                        <td class="video__name text text--large">2. Introduction to Checkpoint Platform <button class="video__button-play button" type="bytton"><span class="visually-hidden">Play Video</span></button></td>
+                        <td class="video__time text text--large">42:01</td>
+                      </tr>
+                      <tr class="video__table-row">
+                        <td class="video__name text text--large">3. Security Why, What, and How <button class="video__button-play button" type="bytton"><span class="visually-hidden">Play Video</span></button></td>
+                        <td class="video__time text text--large">42:01</td>
+                      </tr>
+                      <tr class="video__table-row">
+                        <td class="video__name text text--large">4. Introduction to Checkpoint Platform <button class="video__button-play button" type="bytton"><span class="visually-hidden">Play Video</span></button></td>
+                        <td class="video__time text text--large">42:01</td>
+                      </tr>
+                      <tr class="video__table-row">
+                        <td class="video__name text text--large">1. Security Why, What, and How <button class="video__button-play video__button-play--disabled button" type="bytton"><span class="visually-hidden">Play Video</span></button></td>
+                        <td class="video__time text text--large">42:01</td>
+                      </tr>
+                      <tr class="video__table-row">
+                        <td class="video__name text text--large">2. Introduction to Checkpoint Platform <button class="video__button-play button" type="bytton"><span class="visually-hidden">Play Video</span></button></td>
+                        <td class="video__time text text--large">42:01</td>
+                      </tr>
+                      <tr class="video__table-row">
+                        <td class="video__name text text--large">3. Security Why, What, and How <button class="video__button-play button" type="bytton"><span class="visually-hidden">Play Video</span></button></td>
+                        <td class="video__time text text--large">42:01</td>
+                      </tr>
+                      <tr class="video__table-row">
+                        <td class="video__name text text--large">4. Introduction to Checkpoint Platform <button class="video__button-play button" type="bytton"><span class="visually-hidden">Play Video</span></button></td>
+                        <td class="video__time text text--large">42:01</td>
+                      </tr>
+                      <tr class="video__table-row">
+                        <td class="video__name text text--large">1. Security Why, What, and How <button class="video__button-play video__button-play--disabled button" type="bytton"><span class="visually-hidden">Play Video</span></button></td>
+                        <td class="video__time text text--large">42:01</td>
+                      </tr>
+                      <tr class="video__table-row">
+                        <td class="video__name text text--large">2. Introduction to Checkpoint Platform <button class="video__button-play button" type="bytton"><span class="visually-hidden">Play Video</span></button></td>
+                        <td class="video__time text text--large">42:01</td>
+                      </tr>
+                      <tr class="video__table-row">
+                        <td class="video__name text text--large">3. Security Why, What, and How <button class="video__button-play button" type="bytton"><span class="visually-hidden">Play Video</span></button></td>
+                        <td class="video__time text text--large">42:01</td>
+                      </tr>
+                      <tr class="video__table-row">
+                        <td class="video__name text text--large">4. Introduction to Checkpoint Platform <button class="video__button-play button" type="bytton"><span class="visually-hidden">Play Video</span></button></td>
+                        <td class="video__time text text--large">42:01</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li class="video__item">
+                  <h3 class="video__title heading">Mastering Moodboards – Your tools for understanding and...</h3>
+                  <table class="video__table">
+                    <thead class="video__table-head">
+                      <tr class="video__table-row">
+                        <th class="video__table-title text text--large">Name Video</th>
+                        <th class="video__table-title text text--large">Time</th>
+                      </tr>
+                    </thead>
+                    <tbody class="video__table-body">
+                      <tr class="video__table-row">
+                        <td class="video__name text text--large">1. Security Why, What, and How <button class="video__button-play video__button-play--disabled button" type="bytton"><span class="visually-hidden">Play Video</span></button></td>
+                        <td class="video__time text text--large">42:01</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li class="video__item">
+                  <h3 class="video__title heading">Mastering Moodboards – Your tools for understanding and...</h3>
+                  <table class="video__table">
+                    <thead class="video__table-head">
+                      <tr class="video__table-row">
+                        <th class="video__table-title text text--large">Name Video</th>
+                        <th class="video__table-title text text--large">Time</th>
+                      </tr>
+                    </thead>
+                    <tbody class="video__table-body">
+                      <tr class="video__table-row">
+                        <td class="video__name text text--large">1. Security Why, What, and How <button class="video__button-play video__button-play--disabled button" type="bytton"><span class="visually-hidden">Play Video</span></button></td>
+                        <td class="video__time text text--large">42:01</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li class="video__item">
+                  <h3 class="video__title heading">Mastering Moodboards – Your tools for understanding and...</h3>
+                  <table class="video__table">
+                    <thead class="video__table-head">
+                      <tr class="video__table-row">
+                        <th class="video__table-title text text--large">Name Video</th>
+                        <th class="video__table-title text text--large">Time</th>
+                      </tr>
+                    </thead>
+                    <tbody class="video__table-body">
+                      <tr class="video__table-row">
+                        <td class="video__name text text--large">1. Security Why, What, and How <button class="video__button-play video__button-play--disabled button" type="bytton"><span class="visually-hidden">Play Video</span></button></td>
+                        <td class="video__time text text--large">42:01</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+            </section>
+            <section class="about-course">
+              <h2 class="about-course__heading heading heading--medium">About This Cource</h2>
+              <p class="about-course__text text">
+                Cisco 200-125 is a certification course which is newly introduced in August 2016, popularly known as CCNA R/S 200-125. This certification guide is a combination of the CCNA and CCNA Security certifications that is counted among the highest rated certification courses of Cisco. Like other Cisco courses, this one also comes with a complete focus on networking from. Cisco 200-125 is a certification course which is newly introduced in August 2016, popularly known as CCNA R/S 200-125. This certification guide is a combination of the CCNA and CCNA Security certifications that is counted among the highest rated certification courses of Cisco. Like other Cisco courses, this one also comes with a complete focus on networking from. Cisco 200-125 is a certification course which is newly introduced in August 2016, popularly known as CCNA R/S 200-125. This certification guide is a combination of the CCNA and CCNA Security certifications that is counted among the highest rated certification courses of Cisco. Like other Cisco courses, this one also comes with a complete focus on networking from. Cisco 200-125 is a certification course which is newly introduced in August 2016, popularly known as CCNA R/S 200-125. This certification guide is a combination of the CCNA and CCNA Security certifications that is counted among the highest rated certification courses of Cisco. Like other Cisco courses, this one also comes with a complete focus on networking from.
+              </p>
+              <button class="about-course__button button button--primary" type="button">Read More</button>
+            </section>
+            <section class="rating">
+              <h2 class="rating__heading heading heading--medium">Student Feedback</h2>
+              <ol class="rating__list list">
+                <li class="rating__item"><div class="rating__indicator-bar"><div class="rating__indicator"></div></div><span class="rating__item-percents">0%</span></li>
+                <li class="rating__item"><div class="rating__indicator-bar"><div class="rating__indicator"></div></div><span class="rating__item-percents">2%</span></li>
+                <li class="rating__item"><div class="rating__indicator-bar"><div class="rating__indicator"></div></div><span class="rating__item-percents">5%</span></li>
+                <li class="rating__item"><div class="rating__indicator-bar"><div class="rating__indicator"></div></div><span class="rating__item-percents">13%</span></li>
+                <li class="rating__item"><div class="rating__indicator-bar"><div class="rating__indicator"></div></div><span class="rating__item-percents">80%</span></li>
+              </ol>
+              <script>
+                // The function sets the width of the indicators corresponding to the percentage
+                (function () {
+                  var indicators = document.querySelectorAll('.rating__indicator');
+                  var percents = document.querySelectorAll('.rating__item-percents');
+                  for (var i = 0; i < indicators.length; i++) {
+                    indicators[i].style.width = percents[i].textContent;
+                  };
+                })();
+              </script>
+              <div class="rating__total">
+                <p class="rating__text-wrapper">
+                  <span class="rating__total-large-text">Good</span>
+                  <span class="rating__total-text text">Overall Rating</span>
+                </p>
+                <span class="rating__star">4.4</span>
+              </div>
+            </section>
+            <section class="comments comments--videocourse">
+              <h2 class="comments__heading comments__heading--videocourse heading heading--medium">Comments</h2>
+              <small class="comments__hint text">* The most recent comments are at the top</small>
+              <a class="comments__anchor-link link" href="#comments">Add Comment</a>
+              <ul class="comments__list list">
+                <li class="comments__item">
+                  <strong class="comments__author">Martin</strong>
+                  <img class="comments__author-flag" src="images/flags/south-africa.png" alt="Country">
+                  <span class="comments__date">2 April 2018</span>
+                  <p class="comments__text text">Very Interesting and the way of explaining makes it more easier. Thank you</p>
+                </li>
+                <li class="comments__item">
+                  <strong class="comments__author">Johny</strong>
+                  <img class="comments__author-flag" src="images/flags/czech.png" alt="Country">
+                  <span class="comments__date">4 April 2018</span>
+                  <p class="comments__text text">very good courses..thank you</p>
+                </li>
+                <li class="comments__item">
+                  <strong class="comments__author">Max C.</strong>
+                  <img class="comments__author-flag" src="images/flags/yemen.png" alt="Country">
+                  <span class="comments__date">7 April 2018</span>
+                  <p class="comments__text text">I would like to be one the good learner, so like and i love it. Thank all staff personal for this opportunity thanks and be blessed all</p>
+                </li>
+                <li class="comments__item">
+                  <strong class="comments__author">Jimmy</strong>
+                  <img class="comments__author-flag" src="images/flags/usa.png" alt="Country">
+                  <span class="comments__date">7 April 2018</span>
+                  <p class="comments__text text">please how can i download the videos</p>
+                </li>
+              </ul>
+              <div class="comments__load-button-wrapper">
+                <button class="comments__load-button button link link--icon-border" type="button">Load More</button>
+              </div>
+              <section id="comments" class="comments__add-comment">
+                <h3 class="comments__heading heading heading">Add Comment</h3>
+                <form class="comments__form form" action="#" method="post">
+                  <p class="comments__form-field-wrapper form__field-wrapper">
+                    <label class="comments__form-label" for="comment-author-name"><span class="visually-hidden">Name</span></label>
+                    <input id="comment-author-name" class="comments__form-field form__field" type="text" name="comment-author-name" placeholder="Name *" required="">
+                  </p>
+                  <p class="comments__form-field-wrapper form__field-wrapper">
+                    <label class="comments__form-label" for="comment-author-email"><span class="visually-hidden">Email</span></label>
+                    <input id="comment-author-email" class="comments__form-field form__field" type="email" name="comment-author-email" placeholder="Email *" required="">
+                  </p>
+                  <p class="comments__form-field-wrapper comments__form-field-wrapper--videocourse comments__form-field-wrapper--comment form__field-wrapper">
+                    <label class="comments__form-label" for="comment-field"><span class="visually-hidden">Write Your Comment</span></label>
+                    <textarea class="comments__comment-field form__field form__field--textarea" name="comment" id="comment-field" placeholder="Write Your Comment *" required=""></textarea>
+                  </p>
+                  <div class="comments__rate-wrapper">
+                    <span class="comments__rate-title">Rate Course *</span>
+                    <div class="comments__rate-stars-list">
+                      <input class="comments__rate-input visually-hidden" type="radio" name="rate-course" id="5-stars" value="5">
+                      <label class="comments__rate-star" for="5-stars"><span class="visually-hidden">Five stars</span></label>
+                      <input class="comments__rate-input visually-hidden" type="radio" name="rate-course" id="4-stars" value="4">
+                      <label class="comments__rate-star" for="4-stars"><span class="visually-hidden">Five stars</span></label>
+                      <input class="comments__rate-input visually-hidden" type="radio" name="rate-course" id="3-stars" value="3">
+                      <label class="comments__rate-star" for="3-stars"><span class="visually-hidden">Five stars</span></label>
+                      <input class="comments__rate-input visually-hidden" type="radio" name="rate-course" id="2-stars" value="2">
+                      <label class="comments__rate-star" for="2-stars"><span class="visually-hidden">Five stars</span></label>
+                      <input class="comments__rate-input visually-hidden" type="radio" name="rate-course" id="1-star" value="1">
+                      <label class="comments__rate-star" for="1-star"><span class="visually-hidden">Five stars</span></label>
+                    </div>
+                  </div>
+                  <div class="comments__recapcha-wrapper form__recapcha-wrapper">
+                    <p class="requirements__field-wrapper form__field-wrapper">
+                      <label for="requirements-code"><span class="visually-hidden">Security code</span></label>
+                      <input id="requirements-code" class="form__field" type="number" name="requirements-code" placeholder="Security Code *" required="">
+                    </p>
+                    <figure class="form__recapcha"><img class="form__recapcha-image" src="images/other/capcha.jpg" alt="recapcha"></figure>
+                    <button class="form__recapcha-refresh button button--primary" type="button">
+                      <img class="form__recapcha-refresh-arrow" src="images/other/refresh-arrow.svg" alt="Refresh">
+                      <span class="visually-hidden">Refresh</span>
+                    </button>
+                  </div>
+                  <button class="comments__submit-button comments__submit-button--videocourse button button--primary" type="submit">Submit</button>
+                </form>
+              </section>
+            </section>
+          </div>
+
+          <aside class="page-main__right-sidebar page-main__right-sidebar--videocourse">
+            <section class="courses">
+              <h2 class="courses__heading heading heading--medium">Similar Courses</h2>
+              <ul class="courses__list list">
+                <li class="courses__item">
+                  <a class="courses__link" href="#">
+                    <div class="courses__image-wrapper">
+                      <img class="courses__image" src="images/courses/1.jpg" alt="Featured Courses">
+                    </div>
+                    <h3 class="courses__item-title">400-101: CCIE Routing and Switching Written</h3>
+                    <div class="courses__stats">
+                      <span class="courses__users">90 299</span>
+                      <span class="courses__time">2.5 h</span>
+                      <span class="courses__rating">4.9</span>
+                    </div>
+                  </a>
+                </li>
+                <li class="courses__item">
+                  <a class="courses__link" href="#">
+                    <div class="courses__image-wrapper">
+                      <img class="courses__image" src="images/courses/2.jpg" alt="Featured Courses">
+                    </div>
+                    <h3 class="courses__item-title">400-101: CCIE Routing and Switching Written</h3>
+                    <div class="courses__stats">
+                      <span class="courses__users">90 299</span>
+                      <span class="courses__time">2.5 h</span>
+                      <span class="courses__rating">4.9</span>
+                    </div>
+                  </a>
+                </li>
+                <li class="courses__item">
+                  <a class="courses__link" href="#">
+                    <div class="courses__image-wrapper">
+                      <img class="courses__image" src="images/courses/3.jpg" alt="Featured Courses">
+                    </div>
+                    <h3 class="courses__item-title">400-101: CCIE Routing and Switching Written</h3>
+                    <div class="courses__stats">
+                      <span class="courses__users">90 299</span>
+                      <span class="courses__time">2.5 h</span>
+                      <span class="courses__rating">4.9</span>
+                    </div>
+                  </a>
+                </li>
+                <li class="courses__item">
+                  <a class="courses__link" href="#">
+                    <div class="courses__image-wrapper">
+                      <img class="courses__image" src="images/courses/4.jpg" alt="Featured Courses">
+                    </div>
+                    <h3 class="courses__item-title">400-101: CCIE Routing and Switching Written</h3>
+                    <div class="courses__stats">
+                      <span class="courses__users">90 299</span>
+                      <span class="courses__time">2.5 h</span>
+                      <span class="courses__rating">4.9</span>
+                    </div>
+                  </a>
+                </li>
+                <li class="courses__item">
+                  <a class="courses__link" href="#">
+                    <div class="courses__image-wrapper">
+                      <img class="courses__image" src="images/courses/5.jpg" alt="Featured Courses">
+                    </div>
+                    <h3 class="courses__item-title">400-101: CCIE Routing and Switching Written</h3>
+                    <div class="courses__stats">
+                      <span class="courses__users">90 299</span>
+                      <span class="courses__time">2.5 h</span>
+                      <span class="courses__rating">4.9</span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </section>
+          </aside>
+
+        </div>
+
+      </div>
+    </main>
+
+        <footer class="page-footer">
+          <div class="container">
+            <div class="page-footer__content-wrapper">
+              <a class="page-footer__logo-link">
+                <img class="page-footer__logo" width="250" src="images/logos/certline-logo.png" alt="CertLine">
+              </a>
+              <nav class="page-footer__navigation footer-navigation">
+                <ul class="footer-navigation__list">
+                  <li class="footer-navigation__item">
+                    <a class="footer-navigation__link" href="#">Home</a>
+                  </li>
+                  <li class="footer-navigation__item">
+                    <a class="footer-navigation__link" href="#">Disklaimer</a>
+                  </li>
+                  <li class="footer-navigation__item">
+                    <a class="footer-navigation__link" href="#">Terms</a>
+                  </li>
+                  <li class="footer-navigation__item">
+                    <a class="footer-navigation__link" href="#">Contact Us</a>
+                  </li>
+                  <li class="footer-navigation__item">
+                    <a class="footer-navigation__link" href="#">Privacy</a>
+                  </li>
+                  <li class="footer-navigation__item">
+                    <a class="footer-navigation__link" href="#">Sitemap</a>
+                  </li>
+                </ul>
+              </nav>
+              <div class="page-footer__subscribe subscribe">
+                <strong class="subscribe__title">Stay Connected</strong>
+                <form class="subscribe__form form" action="#" method="post">
+                  <p class="subscribe__field-wrapper form__field-wrapper">
+                    <label class="subscribe-label" for="email-field"><span class="visually-hidden">Enter your email</span></label>
+                    <input class="subscribe-field form__field" type="email" name="email" id="email-field" placeholder="Enter your email" required="">
+                  </p>
+                  <button class="page-footer__subscribe-submit button button--primary" type="submit" onclick="this.blur();">Subscribe</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <p class="page-footer__copyrights">
+            © All Rights Reserved 2017-2018 CertBolt.com
+          </p>
+        </footer>
+    </div>
+        <script src="js/librarys/jquery-3.4.1.min.js"></script>
+        <script src="js/polyfills/picturefill.js"></script>
+        <script src="js/polyfills/array-from.js"></script>
+        <script src="js/polyfills/ofi.min.js"></script>
+        <script src="js/plugins/swiper.min.js"></script>
+        <script src="js/plugins/simple-lightbox.min.js"></script>
+        <script src="js/plugins/jquery.selectric.min.js"></script>
+        <script src="js/plugins/smooth-scrollbar.js"></script>
+        <script src="js/plugins/overscroll.js"></script>
+        <script src="js/plugins/intlTelInput.min.js"></script>
+        <script src="js/all.min.js"></script>
+      </body>
+    </html>
