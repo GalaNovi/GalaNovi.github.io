@@ -4944,13 +4944,11 @@ class AbstractSmartComponent extends _abstract_component__WEBPACK_IMPORTED_MODUL
     this.recoveryListeners();
   }
 
-  update(newMovieData, newComments) {
-    if (newMovieData) {
-      this._movieData = newMovieData;
-    }
+  update(newMovieData, comments) {
+    this._movieData = newMovieData;
 
-    if (newComments) {
-      this._commentsData = newComments;
+    if (comments) {
+      this._commentsData = comments;
     }
 
     this.rerender();
@@ -4987,6 +4985,7 @@ const formatReleaseDate = (timestamp) => {
 };
 
 const getCommentTimeAgoText = (dateTime) => {
+  dateTime = new Date(dateTime).getTime();
   const secondsAgo = Math.floor((Date.now() - dateTime) / 1000);
   const minutesAgo = Math.floor((Date.now() - dateTime) / 1000 / 60);
   const hoursAgo = Math.floor((Date.now() - dateTime) / 1000 / 60 / 60);
@@ -5018,8 +5017,8 @@ const createRatingMarkup = (commonRating, isAlredyWatched, personalRating) => {
   );
 };
 
-const createCommentMarkup = (comment) => {
-  const {id, author, text, date, emotion} = comment;
+const createCommentMarkup = (commentData) => {
+  const {id, author, comment, date, emotion} = commentData;
   const commentTimeAgoText = getCommentTimeAgoText(date);
 
   return (
@@ -5028,7 +5027,7 @@ const createCommentMarkup = (comment) => {
         <img src="./images/emoji/${emotion}.png" width="55" height="55" alt="emoji">
       </span>
       <div>
-        <p class="film-details__comment-text">${text}</p>
+        <p class="film-details__comment-text">${comment}</p>
         <p class="film-details__comment-info">
           <span class="film-details__comment-author">${author}</span>
           <span class="film-details__comment-day">${commentTimeAgoText}</span>
@@ -5119,7 +5118,7 @@ const getNewCommentMarkup = () => {
 
 const getNewCommentEmojiMarkup = (emoji) => {
   return (
-    `<img src="images/emoji/${emoji}.png" width="55" height="55" alt="emoji">`
+    `<img src="images/emoji/${emoji}.png" width="55" height="55" alt="emoji" data-emoji="${emoji}">`
   );
 };
 
@@ -5239,7 +5238,6 @@ class BigCard extends _abstract_smart_component__WEBPACK_IMPORTED_MODULE_0__["de
     super();
     this._movieData = movieData;
     this._commentsData = commentsData;
-    this.setOnCommentAddCallback();
   }
 
   getTemplate() {
@@ -5315,18 +5313,6 @@ class BigCard extends _abstract_smart_component__WEBPACK_IMPORTED_MODULE_0__["de
       });
   }
 
-  setOnCommentAddCallback(callback) {
-    if (callback) {
-      this._onCommentAddCallback = callback;
-    }
-
-    document.addEventListener(`keydown`, (evt) => {
-      if ((evt.ctrlKey || evt.metaKey) && evt.key === `Enter`) {
-        console.log(`CTRL or COMMAND + ENTER`);
-      }
-    });
-  }
-
   resetNewComment() {
     this.getElement().querySelector(`.film-details__add-emoji-label`).innerHTML = ``;
     this.getElement().querySelector(`.film-details__comment-input`).value = ``;
@@ -5341,8 +5327,8 @@ class BigCard extends _abstract_smart_component__WEBPACK_IMPORTED_MODULE_0__["de
     this.setWatchedButtonCallback();
     this.setFavoriteButtonCallback();
     this.setCloseCallback();
-    this.setOnDeleteCommentClickCallback();
     this.setOnEmojiListClickHandler();
+    this.setOnDeleteCommentClickCallback();
   }
 }
 
@@ -5931,6 +5917,7 @@ class MovieController {
     this._onEsqKeyDown = this._onEsqKeyDown.bind(this);
     this._openBigCard = this._openBigCard.bind(this);
     this._closeBigCard = this._closeBigCard.bind(this);
+    this._onCtrlEnderDown = this._onCtrlEnderDown.bind(this);
   }
 
   get id() {
@@ -5948,11 +5935,9 @@ class MovieController {
     this._bigCardComponent.setOnEmojiListClickHandler();
 
     this._bigCardComponent.setOnDeleteCommentClickCallback((commentId) => {
-      const newMovieData = Object.assign({}, this._movieData, {
+      this._onDataChange(this._movieData, Object.assign({}, this._movieData, {
         comments: this._movieData.comments.filter((id) => id !== commentId)
-      });
-      const newComments = comments.filter((comment) => comment.id !== commentId);
-      this._onDataChange(this._movieData, newMovieData, newComments);
+      }));
     });
 
     [this._cardComponent, this._bigCardComponent].forEach((component) => {
@@ -5990,9 +5975,9 @@ class MovieController {
     this._bigCardComponent.removeElement();
   }
 
-  updateComponents(newMovieData, newCommentsData) {
-    this._cardComponent.update(newMovieData, newCommentsData);
-    this._bigCardComponent.update(newMovieData, newCommentsData);
+  updateComponents(newMovieData, comments) {
+    this._cardComponent.update(newMovieData, comments);
+    this._bigCardComponent.update(newMovieData, comments);
   }
 
   updateMovieData(newMovieData) {
@@ -6010,16 +5995,37 @@ class MovieController {
     }
   }
 
+  _onCtrlEnderDown(evt) {
+    if ((evt.ctrlKey || evt.metaKey) && evt.key === `Enter`) {
+      evt.preventDefault();
+      const commentFieldElement = this._bigCardComponent.getElement().querySelector(`.film-details__comment-input`);
+      const dateValue = new Date().toISOString();
+      const emotionImageElement = this._bigCardComponent.getElement().querySelector(`.film-details__add-emoji-label img`);
+
+      if (commentFieldElement && emotionImageElement) {
+        this._onDataChange(this._movieData, Object.assign({}, this._movieData, {
+          localComment: {
+            comment: commentFieldElement.value,
+            date: dateValue,
+            emotion: emotionImageElement.getAttribute(`data-emoji`),
+          }
+        }));
+      }
+    }
+  }
+
   _openBigCard() {
     this._onViewChange();
     Object(_utils_render__WEBPACK_IMPORTED_MODULE_2__["render"])(document.body, this._bigCardComponent);
     document.addEventListener(`keydown`, this._onEsqKeyDown);
+    document.addEventListener(`keydown`, this._onCtrlEnderDown);
   }
 
   _closeBigCard() {
     this._bigCardComponent.resetNewComment();
     this._bigCardComponent.getElement().remove();
     document.removeEventListener(`keydown`, this._onEsqKeyDown);
+    document.removeEventListener(`keydown`, this._onCtrlEnderDown);
   }
 }
 
@@ -6179,18 +6185,19 @@ class PageController {
     this._shownMoviesInstances = this._shownMoviesInstances.filter((item) => item.type === EXTRA_MOVIES_TYPE);
   }
 
-  _onDataChange(oldMovie, newMovie, newCommentsData) {
+  _onDataChange(oldMovie, newMovie) {
     const instanceOfChangedMovies = this._shownMoviesInstances.filter(({controller}) => controller.id === oldMovie.id);
+    this._moviesModel.updateMovie(oldMovie.id, newMovie);
+
+    if (newMovie.localComment) {
+      newMovie = this._moviesModel.movies.find((movie) => movie.id === newMovie.id);
+    }
+
     instanceOfChangedMovies.forEach(({controller}) => {
-      this._moviesModel.updateMovie(oldMovie.id, newMovie);
       controller.updateMovieData(newMovie);
-      if (newCommentsData) {
-        controller.updateComponents(newMovie, newCommentsData);
-        this._moviesModel.comments = newCommentsData;
-      } else {
-        controller.updateComponents(newMovie, null);
-      }
+      controller.updateComponents(newMovie, this._moviesModel.comments);
     });
+
     this._menuController.render();
   }
 
@@ -6284,12 +6291,13 @@ pageController.render();
 /*!******************************!*\
   !*** ./src/mock/comments.js ***!
   \******************************/
-/*! exports provided: generateComments */
+/*! exports provided: generateComments, COMMENT_AUTHORS */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateComments", function() { return generateComments; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "COMMENT_AUTHORS", function() { return COMMENT_AUTHORS; });
 /* harmony import */ var _const__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../const */ "./src/const.js");
 /* harmony import */ var _utils_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/common */ "./src/utils/common.js");
 
@@ -6311,7 +6319,7 @@ const generateComment = (commentId) => {
   return {
     id: commentId,
     author: Object(_utils_common__WEBPACK_IMPORTED_MODULE_1__["getRandomArrayItem"])(COMMENT_AUTHORS),
-    text: Object(_utils_common__WEBPACK_IMPORTED_MODULE_1__["getRandomArrayItem"])(COMMENT_TEXTS),
+    comment: Object(_utils_common__WEBPACK_IMPORTED_MODULE_1__["getRandomArrayItem"])(COMMENT_TEXTS),
     date: new Date(Date.now() - Object(_utils_common__WEBPACK_IMPORTED_MODULE_1__["getRandomBetween"])(0, 36) * 60 * 60 * 1000).toISOString(),
     emotion: Object(_utils_common__WEBPACK_IMPORTED_MODULE_1__["getRandomArrayItem"])(_const__WEBPACK_IMPORTED_MODULE_0__["EMOTIONS"]),
   };
@@ -6320,6 +6328,8 @@ const generateComment = (commentId) => {
 const generateComments = () => {
   return new Array(20).fill(null).map((element, index) => generateComment(index));
 };
+
+
 
 
 /***/ }),
@@ -6514,6 +6524,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_sort__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/sort */ "./src/utils/sort.js");
 /* harmony import */ var _utils_filter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/filter */ "./src/utils/filter.js");
 /* harmony import */ var _const__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../const */ "./src/const.js");
+/* harmony import */ var _mock_comments__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../mock/comments */ "./src/mock/comments.js");
+/* harmony import */ var _utils_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/common */ "./src/utils/common.js");
+
 
 
 
@@ -6561,6 +6574,16 @@ class Movies {
   }
 
   updateMovie(oldMovieId, newMovie) {
+    if (newMovie.localComment) {
+      this.addcomment(Object.assign(newMovie.localComment, {
+        id: this._comments.length + 1,
+        author: Object(_utils_common__WEBPACK_IMPORTED_MODULE_4__["getRandomArrayItem"])(_mock_comments__WEBPACK_IMPORTED_MODULE_3__["COMMENT_AUTHORS"]),
+      }));
+
+      newMovie.comments.unshift(this._comments.length);
+      delete newMovie.localComment;
+    }
+
     this._movies = this._movies.map((movie) => movie.id === oldMovieId ? newMovie : movie);
   }
 
@@ -6580,6 +6603,10 @@ class Movies {
   setFilter(filterType) {
     this._filterType = filterType;
     this._callHandlers(this._filterChangeHandlers);
+  }
+
+  addcomment(comment) {
+    this._comments.unshift(comment);
   }
 
   _callHandlers(handlers) {
