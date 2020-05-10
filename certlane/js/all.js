@@ -163,10 +163,6 @@ if (document.querySelector('.mobile-menu')) {
       evt.preventDefault();
       disableOldTab();
       enableNewTab(evt.currentTarget);
-
-      if (innerWidth >= 1024) {
-        window.bodyScroll.update();
-      }
     };
 
     var initButtons = function initButtons() {
@@ -610,8 +606,14 @@ $(function () {
 
   var showHint = function showHint(fieldWrapper, message) {
     if (!fieldWrapper.querySelector(formHintClassNmae)) {
+      var field = fieldWrapper.querySelector('input') || fieldWrapper.querySelector('textarea');
       var hint = createHint(message);
-      fieldWrapper.appendChild(hint);
+
+      if (field.id === 'requirements-code') {
+        fieldWrapper.parentNode.parentNode.appendChild(hint);
+      } else {
+        fieldWrapper.appendChild(hint);
+      }
     }
 
     ;
@@ -1527,6 +1529,50 @@ try {
 } catch (err) {}
 
 ;
+'use strict';
+
+var FormSections = function FormSections(classes) {
+  var loginButtonElement = document.querySelector(classes.loginButton);
+  var registrationButtonElement = document.querySelector(classes.registrationButton);
+  var sections = Array.from(document.querySelectorAll(classes.section));
+
+  var onButtonClick = function onButtonClick(evt) {
+    evt.preventDefault();
+    sections.forEach(function (section, index) {
+      if (index === 0) {
+        section.style.display = "block";
+      } else {
+        section.style.display = "none";
+      }
+    });
+  };
+
+  var onRegistrationClick = function onRegistrationClick(evt) {
+    evt.preventDefault();
+    sections.forEach(function (section, index, array) {
+      if (index !== array.length - 1) {
+        section.style.display = "none";
+      } else {
+        section.style.display = "block";
+      }
+    });
+  };
+
+  var onLoginClick = function onLoginClick(evt) {
+    evt.preventDefault();
+    sections.forEach(function (section, index, array) {
+      if (index !== array.length - 2) {
+        section.style.display = "none";
+      } else {
+        section.style.display = "block";
+      }
+    });
+  };
+
+  loginButtonElement.addEventListener('click', onLoginClick);
+  registrationButtonElement.addEventListener('click', onButtonClick);
+  document.querySelector(".registration__submit-button").addEventListener('click', onRegistrationClick);
+};
 "use strict";
 
 /////////////////////////////////////////////////////////////////////////////// Lightbox initialization
@@ -1577,13 +1623,10 @@ if (document.querySelector('.modal__form--register')) {
   window.form.init(document.querySelector('.modal__form--register'));
 }
 
-;
-
-if (document.querySelector('.modal__form--login')) {
-  window.form.init(document.querySelector('.modal__form--login'));
-}
-
-; /////////////////////////////////////////////////////////////////////////////// Initialization Phone Codes and Flags
+; // if (document.querySelector('.modal__form--login')) {
+//   window.form.init(document.querySelector('.modal__form--login'));
+// };
+/////////////////////////////////////////////////////////////////////////////// Initialization Phone Codes and Flags
 
 if (document.querySelector('input[type="tel"]')) {
   window.intlTelInput(document.querySelector('input[type="tel"]'), {
@@ -1599,190 +1642,164 @@ if (document.querySelector('input[type="tel"]')) {
     utilsScript: "design/js/plugins/utils.js"
   });
 } /////////////////////////////////////////////////////////////////////////////// Initialization Smooth scroll bar
-
-
-(function () {
-  var isSmoothScrollActive = false;
-  var Scrollbar = window.Scrollbar;
-  Scrollbar.use(window.OverscrollPlugin);
-  var codePhoneScroll;
-  var modalTabContainerScroll;
-  var tableScrolls = [];
-  var selectScrolls = [];
-
-  var activateSmoothScroll = function activateSmoothScroll() {
-    window.bodyScroll = Scrollbar.init(document.querySelector('.scroll'), {
-      plugins: {
-        // overscroll: {
-        //   effect: 'glow',
-        //   glowColor: 'rgba(0, 0, 0, 0.5)'
-        // },
-        overscroll: false
-      }
-    });
-
-    window.onload = function () {
-      // Scroll on selectric selects
-      if (document.querySelector('.selectric-scroll')) {
-        var selects = Array.from(document.querySelectorAll('.selectric-scroll'));
-        selects.forEach(function (select, index) {
-          var selectScroll = Scrollbar.init(select, {
-            plugins: {
-              // overscroll: {
-              //   effect: 'glow',
-              //   glowColor: 'rgba(91, 124, 196, 0.6)'
-              // },
-              overscroll: false
-            }
-          });
-          selectScrolls[index] = selectScroll;
-        });
-      }
-    }; // Scroll of tables with limit height
-
-
-    if (document.querySelector('.video__table-body')) {
-      var tables = Array.from(document.querySelectorAll('.video__table-body'));
-      tables.forEach(function (table, index) {
-        var tableScroll = Scrollbar.init(table, {
-          plugins: {
-            overscroll: false
-          }
-        });
-        tableScrolls[index] = tableScroll;
-      });
-    }
-
-    ; // Scroll in the phone field
-
-    if (document.querySelector('.iti__country-list')) {
-      codePhoneScroll = Scrollbar.init(document.querySelector('.iti__country-list'), {
-        plugins: {
-          // overscroll: {
-          //   effect: 'glow',
-          //   glowColor: 'rgba(91, 124, 196, 0.6)'
-          // },
-          overscroll: false
-        }
-      });
-    } // Initialization smooth scroll for anchor links
-
-
-    var initAnchorLinks = function initAnchorLinks() {
-      var links = Array.from(document.querySelectorAll('a[href*="#"]'));
-
-      var onAnchorLinkClick = function onAnchorLinkClick(evt) {
-        var linkId = '#' + evt.currentTarget.href.split('#')[1];
-
-        if (linkId !== '#') {
-          var blockTarget = document.querySelector(linkId);
-        }
-
-        ;
-
-        if (blockTarget) {
-          window.bodyScroll.scrollIntoView(blockTarget);
-        }
-
-        ;
-      };
-
-      if (links) {
-        links.forEach(function (link) {
-          link.addEventListener('click', onAnchorLinkClick);
-        });
-      }
-
-      ;
-    }; // Scroll on modal tabs
-
-
-    if (document.querySelector('.modal__right-content')) {
-      modalTabContainerScroll = Scrollbar.init(document.querySelector('.modal__right-content'), {
-        plugins: {
-          // overscroll: {
-          //   effect: 'glow',
-          //   glowColor: 'rgba(91, 124, 196, 0.6)'
-          // },
-          overscroll: false
-        }
-      });
-      Array.from(document.querySelectorAll('.modal__tab-navigation-button')).forEach(function (button) {
-        button.addEventListener('click', function () {
-          modalTabContainerScroll.update();
-        });
-      });
-    }
-
-    if (document.querySelector('.feedbacks__view-all-button')) {
-      var buttons = Array.from(document.querySelectorAll('.feedbacks__view-all-button'));
-      buttons.forEach(function (button) {
-        button.addEventListener('click', function () {
-          setTimeout(function () {
-            window.bodyScroll.update();
-          }, 350);
-        });
-      });
-    }
-
-    initAnchorLinks();
-    isSmoothScrollActive = true;
-  };
-
-  var deactivateSmoothScroll = function deactivateSmoothScroll() {
-    selectScrolls.forEach(function (selectScroll) {
-      selectScroll.destroy();
-    });
-    tableScrolls.forEach(function (tableScroll) {
-      tableScroll.destroy();
-    });
-
-    if (window.bodyScroll) {
-      window.bodyScroll.destroy();
-    }
-
-    codePhoneScroll && codePhoneScroll.destroy();
-    modalTabContainerScroll && modalTabContainerScroll.destroy();
-    isSmoothScrollActive = false;
-  };
-
-  if (innerWidth >= 1024) {
-    activateSmoothScroll();
-  }
-
-  ;
-  window.addEventListener('resize', function () {
-    if (innerWidth >= 1024 && !isSmoothScrollActive) {
-      activateSmoothScroll();
-    } else if (innerWidth < 1024 && isSmoothScrollActive) {
-      deactivateSmoothScroll();
-    }
-
-    ;
-  }); // Initialization smooth scroll for anchor links (starting from tablet version)
-
-  var page = $('html, body');
-  $('a[href*="#"]').click(function (evt) {
-    if (evt.currentTarget.href.split('#')[1]) {
-      page.animate({
-        scrollTop: $($.attr(this, 'href')).offset().top
-      }, 400);
-      return false;
-    }
-
-    ;
-  });
-})(); /////////////////////////////////////////////////////////////////////////////// Initialization Login/Registration in modal
-// if (document.querySelector('.modal__switch-button--login')) {
-//   const modalLoginRegistartion = new FormSections({
-//     loginButton: '.modal__switch-button--login',
-//     registrationButton: '.modal__switch-button--register',
-//     section: '.modal__part-wrapper'
+// (function () {
+//   var isSmoothScrollActive = false;
+//   var Scrollbar = window.Scrollbar;
+//   Scrollbar.use(window.OverscrollPlugin)
+//   var codePhoneScroll;
+//   var modalTabContainerScroll;
+//   var tableScrolls = [];
+//   var selectScrolls = [];
+//   var activateSmoothScroll = function () {
+//     window.bodyScroll = Scrollbar.init(document.querySelector('.scroll'), {
+//       plugins: {
+//         // overscroll: {
+//         //   effect: 'glow',
+//         //   glowColor: 'rgba(0, 0, 0, 0.5)'
+//         // },
+//         overscroll: false,
+//       },
+//     });
+//     window.onload = function () {
+//       // Scroll on selectric selects
+//       if (document.querySelector('.selectric-scroll')) {
+//         var selects = Array.from(document.querySelectorAll('.selectric-scroll'));
+//         selects.forEach(function (select, index) {
+//           var selectScroll = Scrollbar.init(select, {
+//             plugins: {
+//               // overscroll: {
+//               //   effect: 'glow',
+//               //   glowColor: 'rgba(91, 124, 196, 0.6)'
+//               // },
+//               overscroll: false,
+//             },
+//           });
+//           selectScrolls[index] = selectScroll;
+//         });
+//       }
+//     };
+//     // Scroll of tables with limit height
+//     if (document.querySelector('.video__table-body')) {
+//       let tables = Array.from(document.querySelectorAll('.video__table-body'));
+//       tables.forEach(function (table, index) {
+//         let tableScroll = Scrollbar.init(table, {
+//           plugins: {
+//             overscroll: false
+//           },
+//         });
+//         tableScrolls[index] = tableScroll;
+//       });
+//     };
+//     // Scroll in the phone field
+//     if (document.querySelector('.iti__country-list')) {
+//       codePhoneScroll = Scrollbar.init(document.querySelector('.iti__country-list'), {
+//         plugins: {
+//           // overscroll: {
+//           //   effect: 'glow',
+//           //   glowColor: 'rgba(91, 124, 196, 0.6)'
+//           // },
+//         overscroll: false,
+//         },
+//       });
+//     }
+//     // Initialization smooth scroll for anchor links
+//     let initAnchorLinks = function () {
+//       let links = Array.from(document.querySelectorAll('a[href*="#"]'));
+//       let onAnchorLinkClick = function (evt) {
+//         let linkId = '#' + evt.currentTarget.href.split('#')[1];
+//         if (linkId !== '#') {
+//           var blockTarget = document.querySelector(linkId);
+//         };
+//         if (blockTarget) {
+//           window.bodyScroll.scrollIntoView(blockTarget);
+//         };
+//       };
+//       if (links) {
+//         links.forEach(function (link) {
+//           link.addEventListener('click', onAnchorLinkClick);
+//         });
+//       };
+//     };
+//     // Scroll on modal tabs
+//     if (document.querySelector('.modal__right-content')) {
+//       modalTabContainerScroll = Scrollbar.init(document.querySelector('.modal__right-content'), {
+//         plugins: {
+//           // overscroll: {
+//           //   effect: 'glow',
+//           //   glowColor: 'rgba(91, 124, 196, 0.6)'
+//           // },
+//         overscroll: false,
+//         },
+//       });
+//       Array.from(document.querySelectorAll('.modal__tab-navigation-button')).forEach((button) => {
+//         button.addEventListener('click', function () {
+//           modalTabContainerScroll.update();
+//         });
+//       });
+//     }
+//     if (document.querySelector('.feedbacks__view-all-button')) {
+//       const buttons = Array.from(document.querySelectorAll('.feedbacks__view-all-button'));
+//       buttons.forEach((button) => {
+//         button.addEventListener('click', function () {
+//           setTimeout(function () {
+//             window.bodyScroll.update()
+//           }, 350);
+//         });
+//       });
+//     }
+//     initAnchorLinks();
+//     isSmoothScrollActive = true;
+//   };
+//   let deactivateSmoothScroll = function () {
+//     selectScrolls.forEach(function (selectScroll) {
+//       selectScroll.destroy();
+//     });
+//     tableScrolls.forEach(function (tableScroll) {
+//       tableScroll.destroy();
+//     });
+//     if (window.bodyScroll) {
+//       window.bodyScroll.destroy();
+//     }
+//     codePhoneScroll && codePhoneScroll.destroy();
+//     modalTabContainerScroll && modalTabContainerScroll.destroy();
+//     isSmoothScrollActive = false;
+//   };
+//   if (innerWidth >= 1024) {
+//     activateSmoothScroll();
+//   };
+//   window.addEventListener('resize', function () {
+//     if (innerWidth >= 1024 && !isSmoothScrollActive) {
+//       activateSmoothScroll();
+//     } else if (innerWidth < 1024 && isSmoothScrollActive) {
+//       deactivateSmoothScroll();
+//     };
 //   });
-// };
-//////////////////////////////////////////////////////////////////////////////////////////// Modal windows
-// Modal Discount 30%
+//   window.deactivateSmoothScroll = deactivateSmoothScroll;
+//   window.activateSmoothScroll = activateSmoothScroll;
+//   // Initialization smooth scroll for anchor links (starting from tablet version)
+//   let page = $('html, body');
+//   $('a[href*="#"]').click(function(evt) {
+//     if (evt.currentTarget.href.split('#')[1]) {
+//       page.animate({
+//         scrollTop: $($.attr(this, 'href')).offset().top
+//       }, 400);
+//       return false;
+//     };
+//   });
+// })();
+/////////////////////////////////////////////////////////////////////////////// Initialization Login/Registration in modal
 
+
+if (document.querySelector('.modal__switch-button--login')) {
+  var modalLoginRegistartion = new FormSections({
+    loginButton: '.registration__link',
+    registrationButton: '.modal__switch-button--register',
+    section: '.modal__part-wrapper'
+  });
+}
+
+; //////////////////////////////////////////////////////////////////////////////////////////// Modal windows
+// Modal Discount 30%
 
 if (document.querySelector('.modal--discount')) {
   var discountModal = new Modal({
@@ -1804,20 +1821,22 @@ if (document.querySelector('.modal--purchase-help')) {
 }
 
 ; // Modal Free Download
-// if (document.querySelector('.modal--new-user')) {
-//   var newUserModal = new Modal({
-//     modalClass: 'modal--new-user',
-//     overlayClass: 'overlay',
-//     closeButtonClass: 'modal__close',
-//     callButtonClass: 'info__submit-button--free-download3'
-//   });
-// };
-// Button of mobile version
+
+if (document.querySelector('.modal--new-user2')) {
+  var newUserModal = new Modal({
+    modalClass: 'modal--new-user2',
+    overlayClass: 'overlay',
+    closeButtonClass: 'modal__close',
+    callButtonClass: 'info__submit-button--free-download'
+  });
+}
+
+; // Button of mobile version
 // if (document.querySelector('.modal--new-user')) {
 //   var newUserMobileModal = new Modal({
 //     modalClass: 'modal--new-user',
 //     overlayClass: 'overlay',
 //     closeButtonClass: 'modal__close',
-//     callButtonClass: 'info__submit-button--free-download23'
+//     callButtonClass: 'info__submit-button--free-download'
 //   });
 // };
