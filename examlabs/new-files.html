@@ -36,8 +36,9 @@
   <div class="page-header__main">
     <div class="page-header__main-container container">
       <div class="page-header__mobile-buttons show-0-768">
-        <button class="page-header__menu-button button menu-button-open-js" type="button"></button>
+        <button class="page-header__menu-button button menu-button-open-js" type="button"><span class="visually-hidden">Menu</span></button>
         <button class="page-header__search-button button search-button-js" type="button">
+          <span class="visually-hidden">Search</span>
           <svg class="page-header__search-icon" width="20" height="20" aria-hidden="true">
             <use xlink:href="#inline-search-glass"></use>
           </svg>
@@ -69,28 +70,28 @@
             How it works
           </button>
         </li>
-        <li class="user-menu__item">
+        <!-- <li class="user-menu__item">
           <a class="user-menu__link" href="#">
             <svg class="user-menu__icon user-menu__icon--login show-0-768" width="16" height="16" aria-hidden="true">
               <use xlink:href="#inline-login"></use>
             </svg>
-            <span class="show-768-higher">Sign in</span>
+            <span class="user-menu__hiding-text">Sign in</span>
           </a>
-        </li>
-        <!-- <li class="user-menu__item">
+        </li> -->
+        <li class="user-menu__item">
           <a class="user-menu__link user-menu__link--account" href="#">
             <span class="show-992-higher">My Account</span>
             <svg class="user-menu__icon user-menu__icon--login show-0-768" width="16" height="16" aria-hidden="true">
               <use xlink:href="#inline-avatar-mobile"></use>
             </svg>
           </a>
-        </li> -->
+        </li>
         <li class="user-menu__item">
           <a class="user-menu__link" href="#">
             <svg class="user-menu__icon" width="16" height="16" aria-hidden="true">
               <use xlink:href="#inline-cart"></use>
             </svg>
-            <span class="user-menu__cart-text show-768-higher">Cart</span>
+            <span class="user-menu__hiding-text">Cart</span>
             <span class="user-menu__cart-counter">1</span>
           </a>
         </li>
@@ -235,7 +236,7 @@
   <div class="mobile-search mobile-search-js">
     <form id="openingSearch" class="mobile-search__form form" action="#" method="get">
       <p class="form__field-wrapper">
-        <!-- <label for="mobile-search-field"><span class="visually-hidden">Search</span></label> -->
+        <label for="mobile-search-field"><span class="visually-hidden">Search</span></label>
         <input id="mobile-search-field" class="mobile-search__field form__field form__field--secondary" type="search" name="q" placeholder="Search">
         <button class="mobile-search__submit button" type="submit">Search</button>
       </p>

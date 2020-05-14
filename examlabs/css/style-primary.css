@@ -858,38 +858,6 @@ input[type="radio"].visually-hidden {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
-@media (max-width: 768px) {
-  .visually-hidden--mobile:not(.user-menu__link-text--mobile):not(:focus):not(:active),
-  input[type="checkbox"].visually-hidden--mobile,
-  input[type="radio"].visually-hidden--mobile {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    white-space: nowrap;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
-  }
-}
-@media (max-width: 480px) {
-  .visually-hidden--480:not(.user-menu__link-text--480):not(:focus):not(:active),
-  input[type="checkbox"].visually-hidden--480,
-  input[type="radio"].visually-hidden--480 {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    white-space: nowrap;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
-  }
-}
 @font-face {
   font-family: "GothamPro";
   src: url("../fonts/GothamPro-Regular.woff2") format("woff2"), url("../fonts/GothamPro-Regular.woff") format("woff");
@@ -1681,8 +1649,8 @@ html {
 .user-menu__icon {
   margin-right: 0.625rem;
 }
-.user-menu__cart-text {
-  margin-right: 0.3125rem;
+.user-menu__cart-counter {
+  margin-left: 0.3125rem;
 }
 .user-menu__cart-counter::before {
   content: "(";
@@ -1749,6 +1717,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 0;
     width: 1.46rem;
     height: 1.46rem;
     font-size: 0.8125rem;
@@ -1761,6 +1730,18 @@ html {
   }
   .user-menu__cart-counter::after {
     display: none;
+  }
+  .user-menu__hiding-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
   }
 }
 .main-menu__list {
