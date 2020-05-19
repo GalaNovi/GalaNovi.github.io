@@ -6627,12 +6627,297 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 });
 "use strict";
 
+/*!
+ * jQuery Accordion 0.0.1
+ * (c) 2014 Victor Fernandez <victor@vctrfrnndz.com>
+ * MIT Licensed.
+ */
+;
+
+(function ($, window, document, undefined) {
+  var pluginName = 'accordion',
+      defaults = {
+    transitionSpeed: 300,
+    transitionEasing: 'ease',
+    controlElement: '[data-control]',
+    contentElement: '[data-content]',
+    groupElement: '[data-accordion-group]',
+    singleOpen: true
+  };
+
+  function Accordion(element, options) {
+    this.element = element;
+    this.options = $.extend({}, defaults, options);
+    this._defaults = defaults;
+    this._name = pluginName;
+    this.init();
+  }
+
+  Accordion.prototype.init = function () {
+    var self = this,
+        opts = self.options;
+    var $accordion = $(self.element),
+        $controls = $accordion.find('> ' + opts.controlElement),
+        $content = $accordion.find('> ' + opts.contentElement);
+    var accordionParentsQty = $accordion.parents('[data-accordion]').length,
+        accordionHasParent = accordionParentsQty > 0;
+    var closedCSS = {
+      'max-height': 0,
+      'overflow': 'hidden'
+    };
+    var CSStransitions = supportsTransitions();
+
+    function debounce(func, threshold, execAsap) {
+      var timeout;
+      return function debounced() {
+        var obj = this,
+            args = arguments;
+
+        function delayed() {
+          if (!execAsap) func.apply(obj, args);
+          timeout = null;
+        }
+
+        ;
+        if (timeout) clearTimeout(timeout);else if (execAsap) func.apply(obj, args);
+        timeout = setTimeout(delayed, threshold || 100);
+      };
+    }
+
+    function supportsTransitions() {
+      var b = document.body || document.documentElement,
+          s = b.style,
+          p = 'transition';
+
+      if (typeof s[p] == 'string') {
+        return true;
+      }
+
+      var v = ['Moz', 'webkit', 'Webkit', 'Khtml', 'O', 'ms'];
+      p = 'Transition';
+
+      for (var i = 0; i < v.length; i++) {
+        if (typeof s[v[i] + p] == 'string') {
+          return true;
+        }
+      }
+
+      return false;
+    }
+
+    function requestAnimFrame(cb) {
+      if (window.requestAnimationFrame) {
+        requestAnimationFrame(cb);
+      } else if (window.webkitRequestAnimationFrame) {
+        webkitRequestAnimationFrame(cb);
+      } else if (window.mozRequestAnimationFrame) {
+        mozRequestAnimationFrame(cb);
+      } else {
+        setTimeout(cb, 1000 / 60);
+      }
+    }
+
+    function toggleTransition($el, remove) {
+      if (!remove) {
+        $content.css({
+          '-webkit-transition': 'max-height ' + opts.transitionSpeed + 'ms ' + opts.transitionEasing,
+          'transition': 'max-height ' + opts.transitionSpeed + 'ms ' + opts.transitionEasing
+        });
+      } else {
+        $content.css({
+          '-webkit-transition': '',
+          'transition': ''
+        });
+      }
+    }
+
+    function calculateHeight($el) {
+      var height = 0;
+      $el.children().each(function () {
+        height = height + $(this).outerHeight(true);
+      });
+      $el.data('oHeight', height);
+    }
+
+    function updateParentHeight($parentAccordion, $currentAccordion, qty, operation) {
+      var $content = $parentAccordion.filter('.open').find('> [data-content]'),
+          $childs = $content.find('[data-accordion].open > [data-content]'),
+          $matched;
+
+      if (!opts.singleOpen) {
+        $childs = $childs.not($currentAccordion.siblings('[data-accordion].open').find('> [data-content]'));
+      }
+
+      $matched = $content.add($childs);
+
+      if ($parentAccordion.hasClass('open')) {
+        $matched.each(function () {
+          var currentHeight = $(this).data('oHeight');
+
+          switch (operation) {
+            case '+':
+              $(this).data('oHeight', currentHeight + qty);
+              break;
+
+            case '-':
+              $(this).data('oHeight', currentHeight - qty);
+              break;
+
+            default:
+              throw 'updateParentHeight method needs an operation';
+          }
+
+          $(this).css('max-height', $(this).data('oHeight'));
+        });
+      }
+    }
+
+    function refreshHeight($accordion) {
+      if ($accordion.hasClass('open')) {
+        var $content = $accordion.find('> [data-content]'),
+            $childs = $content.find('[data-accordion].open > [data-content]'),
+            $matched = $content.add($childs);
+        calculateHeight($matched);
+        $matched.css('max-height', $matched.data('oHeight'));
+      }
+    }
+
+    function closeAccordion($accordion, $content) {
+      $accordion.trigger('accordion.close');
+
+      if (CSStransitions) {
+        if (accordionHasParent) {
+          var $parentAccordions = $accordion.parents('[data-accordion]');
+          updateParentHeight($parentAccordions, $accordion, $content.data('oHeight'), '-');
+        }
+
+        $content.css(closedCSS);
+        $accordion.removeClass('open');
+      } else {
+        $content.css('max-height', $content.data('oHeight'));
+        $content.animate(closedCSS, opts.transitionSpeed);
+        $accordion.removeClass('open');
+      }
+    }
+
+    function openAccordion($accordion, $content) {
+      $accordion.trigger('accordion.open');
+
+      if (CSStransitions) {
+        toggleTransition($content);
+
+        if (accordionHasParent) {
+          var $parentAccordions = $accordion.parents('[data-accordion]');
+          updateParentHeight($parentAccordions, $accordion, $content.data('oHeight'), '+');
+        }
+
+        requestAnimFrame(function () {
+          $content.css('max-height', $content.data('oHeight'));
+        });
+        $accordion.addClass('open');
+      } else {
+        $content.animate({
+          'max-height': $content.data('oHeight')
+        }, opts.transitionSpeed, function () {
+          $content.css({
+            'max-height': 'none'
+          });
+        });
+        $accordion.addClass('open');
+      }
+    }
+
+    function closeSiblingAccordions($accordion) {
+      var $accordionGroup = $accordion.closest(opts.groupElement);
+      var $siblings = $accordion.siblings('[data-accordion]').filter('.open'),
+          $siblingsChildren = $siblings.find('[data-accordion]').filter('.open');
+      var $otherAccordions = $siblings.add($siblingsChildren);
+      $otherAccordions.each(function () {
+        var $accordion = $(this),
+            $content = $accordion.find(opts.contentElement);
+        closeAccordion($accordion, $content);
+      });
+      $otherAccordions.removeClass('open');
+    }
+
+    function toggleAccordion() {
+      var isAccordionGroup = opts.singleOpen ? $accordion.parents(opts.groupElement).length > 0 : false;
+      calculateHeight($content);
+
+      if (isAccordionGroup) {
+        closeSiblingAccordions($accordion);
+      }
+
+      if ($accordion.hasClass('open')) {
+        closeAccordion($accordion, $content);
+      } else {
+        openAccordion($accordion, $content);
+      }
+    }
+
+    function addEventListeners() {
+      $controls.on('click', toggleAccordion);
+      $controls.on('accordion.toggle', function () {
+        if (opts.singleOpen && $controls.length > 1) {
+          return false;
+        }
+
+        toggleAccordion();
+      });
+      $controls.on('accordion.refresh', function () {
+        refreshHeight($accordion);
+      });
+      $(window).on('resize', debounce(function () {
+        refreshHeight($accordion);
+      }));
+    }
+
+    function setup() {
+      $content.each(function () {
+        var $curr = $(this);
+
+        if ($curr.css('max-height') != 0) {
+          if (!$curr.closest('[data-accordion]').hasClass('open')) {
+            $curr.css({
+              'max-height': 0,
+              'overflow': 'hidden'
+            });
+          } else {
+            toggleTransition($curr);
+            calculateHeight($curr);
+            $curr.css('max-height', $curr.data('oHeight'));
+          }
+        }
+      });
+
+      if (!$accordion.attr('data-accordion')) {
+        $accordion.attr('data-accordion', '');
+        $accordion.find(opts.controlElement).attr('data-control', '');
+        $accordion.find(opts.contentElement).attr('data-content', '');
+      }
+    }
+
+    setup();
+    addEventListeners();
+  };
+
+  $.fn[pluginName] = function (options) {
+    return this.each(function () {
+      if (!$.data(this, 'plugin_' + pluginName)) {
+        $.data(this, 'plugin_' + pluginName, new Accordion(this, options));
+      }
+    });
+  };
+})(jQuery, window, document);
+"use strict";
+
 "use strict";
 
 (function () {
   var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 
   var stickFooter = function stickFooter() {
+    document.querySelector(".ie-width").textContent = "".concat(innerWidth, "px");
     var FOOTER = document.querySelector(".page-footer");
     var MAIN = document.querySelector(".page-main");
     var BODY = document.querySelector("body");
@@ -6646,6 +6931,19 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   };
 
   if (isIE11) {
+    var widthLabel = document.createElement("div");
+    widthLabel.style.position = 'fixed';
+    widthLabel.style.top = '0';
+    widthLabel.style.left = '0';
+    widthLabel.style.padding = '10px 20px';
+    widthLabel.style.color = 'white';
+    widthLabel.style.fontSize = '20px', widthLabel.style.fontWeight = '500';
+    widthLabel.style.border = '2px solid rgba(0, 255, 155, 1)';
+    widthLabel.style.backgroundColor = 'rgba(0, 255, 155, 0.7)';
+    widthLabel.style.zIndex = '15';
+    widthLabel.classList.add("ie-width");
+    widthLabel.textContent = "".concat(innerWidth, "px");
+    document.body.appendChild(widthLabel);
     stickFooter();
     window.addEventListener("resize", stickFooter);
   }
@@ -6945,6 +7243,74 @@ var Modal = /*#__PURE__*/function () {
 })();
 "use strict";
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Parts = /*#__PURE__*/function () {
+  function Parts(options) {
+    _classCallCheck(this, Parts);
+
+    this._partsElements = Array.from(document.querySelectorAll(".".concat(options.partClass)));
+    this._buttonsElements = Array.from(document.querySelectorAll(".".concat(options.buttonClass)));
+    this._onButtonClick = this._onButtonClick.bind(this);
+
+    this._init();
+  }
+
+  _createClass(Parts, [{
+    key: "_onButtonClick",
+    value: function _onButtonClick(evt) {
+      evt.preventDefault();
+      var desiredPartNumber = evt.target.getAttribute("data-part");
+
+      this._partsElements.forEach(function (part, index) {
+        if (index === desiredPartNumber - 1) {
+          part.style.display = "block";
+        } else {
+          part.style.display = "none";
+        }
+      });
+    }
+  }, {
+    key: "_init",
+    value: function _init() {
+      var _this = this;
+
+      this._partsElements.forEach(function (part, index) {
+        if (index !== 0) {
+          part.style.display = "none";
+        }
+      });
+
+      this._buttonsElements.forEach(function (button) {
+        return button.addEventListener("click", _this._onButtonClick);
+      });
+    }
+  }]);
+
+  return Parts;
+}();
+"use strict";
+
+(function () {
+  if (document.querySelector(".form__capcha-button")) {
+    var buttons = Array.from(document.querySelectorAll(".form__capcha-button"));
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function (evt) {
+        evt.preventDefault();
+        evt.target.classList.add("form__capcha-button--refresh");
+        setTimeout(function () {
+          evt.target.classList.remove("form__capcha-button--refresh");
+        }, 300);
+      });
+    });
+  }
+})();
+"use strict";
+
 /////////////////////// SLIDERS
 // Slider with vendor links on the home page
 if (document.querySelector(".header-links__swiper-slider")) {
@@ -7011,11 +7377,25 @@ if (document.querySelector(".courses__list-wrapper")) {
 } // Screenshots Slider
 
 
-if (document.querySelector(".screenshots__slider")) {
-  new Swiper(".screenshots__slider", {
+if (document.querySelector(".screenshots__slider--half-width")) {
+  new Swiper(".screenshots__slider--half-width", {
     slidesPerView: "auto",
     watchOverflow: true,
     centeredSlides: true,
+    navigation: {
+      prevEl: ".screenshots__slider-button.button--slider--prev",
+      nextEl: ".screenshots__slider-button.button--slider--next"
+    }
+  });
+} // Screenshots Slider (full width)
+
+
+if (document.querySelector(".screenshots__slider--full-width")) {
+  new Swiper(".screenshots__slider--full-width", {
+    slidesPerView: "auto",
+    watchOverflow: true,
+    centeredSlides: true,
+    loop: true,
     navigation: {
       prevEl: ".screenshots__slider-button.button--slider--prev",
       nextEl: ".screenshots__slider-button.button--slider--next"
@@ -7050,5 +7430,18 @@ if (document.querySelector(".modal--steps")) {
 if (document.querySelector(".modal--free-demo")) {
   var modalFreeDemo = new Modal("modal--free-demo", {
     callButtonClass: "js-free-demo-button"
+  });
+} //////////////////////// EXPAND
+
+
+if (document.querySelector(".expand")) {
+  $('.expand [data-accordion]').accordion();
+} //////////////////////// PARTS
+
+
+if (document.querySelector(".login__part")) {
+  new Parts({
+    partClass: "login__part",
+    buttonClass: "login__button--part"
   });
 }

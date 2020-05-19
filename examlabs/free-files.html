@@ -70,22 +70,22 @@
             How it works
           </button>
         </li>
-        <!-- <li class="user-menu__item">
-          <a class="user-menu__link" href="#">
+        <li class="user-menu__item">
+          <a class="user-menu__link" href="login.html">
             <svg class="user-menu__icon user-menu__icon--login show-0-768" width="16" height="16" aria-hidden="true">
               <use xlink:href="#inline-login"></use>
             </svg>
             <span class="user-menu__hiding">Sign in</span>
           </a>
-        </li> -->
-        <li class="user-menu__item">
+        </li>
+        <!-- <li class="user-menu__item">
           <a class="user-menu__link user-menu__link--account" href="#">
             <span class="user-menu__hiding user-menu__hiding--992-higher">My Account</span>
             <svg class="user-menu__icon user-menu__icon--login show-0-768" width="16" height="16" aria-hidden="true">
               <use xlink:href="#inline-avatar-mobile"></use>
             </svg>
           </a>
-        </li>
+        </li> -->
         <li class="user-menu__item">
           <a class="user-menu__link" href="#">
             <svg class="user-menu__icon" width="16" height="16" aria-hidden="true">
@@ -265,8 +265,8 @@
       <div class="separate__container container">
 
         <div class="separate__content">
-          <section class="files">
-            <h2 class="top__heading heading">Popular Free VCE Files (Last 30 Days)</h2>
+          <section class="top top--files">
+            <h2 class="heading heading--margin-bottom">Popular Free VCE Files (Last 30 Days)</h2>
             <table class="table table--secondary">
               <colgroup>
                 <col class="table__col-1">
@@ -287,7 +287,7 @@
                   <td class="table__cell-vendor">
                     <a class="show-768-higher" href="#">
                       <picture class="table__image-wrapper">
-                        <img class="table__image" src="images/vendors/logo-amazon.png" srcset="images/vendors/logo-amazon@2x.png 2x" alt="Amazon">
+                        <img class="table__image lazyload" data-src="images/vendors/logo-amazon.png" data-srcset="images/vendors/logo-amazon@2x.png 2x" src="images/vendors/logo-amazon.png" alt="Amazon">
                       </picture>
                     </a>
                   </td>
@@ -312,7 +312,7 @@
                   <td class="table__cell-vendor">
                     <a class="show-768-higher" href="#">
                       <picture class="table__image-wrapper">
-                        <img class="table__image" src="images/vendors/logo-microsoft.png" srcset="images/vendors/logo-microsoft@2x.png 2x" alt="Microsoft">
+                        <img class="table__image lazyload" data-src="images/vendors/logo-microsoft.png" data-srcset="images/vendors/logo-microsoft@2x.png 2x" src="images/vendors/logo-microsoft.png" alt="Microsoft">
                       </picture>
                     </a>
                   </td>
@@ -336,7 +336,7 @@
                   <td class="table__cell-vendor">
                     <a class="show-768-higher" href="#">
                       <picture class="table__image-wrapper">
-                        <img class="table__image" src="images/vendors/logo-comptia.png" srcset="images/vendors/logo-comptia@2x.png 2x" alt="CompTIA">
+                        <img class="table__image lazyload" data-src="images/vendors/logo-comptia.png" data-srcset="images/vendors/logo-comptia@2x.png 2x" src="images/vendors/logo-comptia.png" alt="CompTIA">
                       </picture>
                     </a>
                   </td>
@@ -361,11 +361,11 @@
           </section>
         </div>
 
-        <aside class="separate__sidebar">
+        <aside class="separate__sidebar sidebar">
   <article class="vce">
     <h2 class="visually-hidden">VCE player</h2>
     <div class="vce__header">
-      <img class="vce__header-image lazyload" data-src="images/avanset-logo.png" alt="Avanset" width="171" height="34">
+      <img class="vce__header-image lazyload" data-src="images/avanset-logo.png" src="images/avanset-logo.png" alt="Avanset" width="171" height="34">
     </div>
     <div class="vce__body">
       <a class="vce__link link link--large link--invert" href="#">How to Open VCE Files</a>
@@ -374,7 +374,7 @@
         <span class="vce__text-simple">Use <a class="link link--invert" href="#">VCE Exam Simulator</a> to open VCE files</span>
       </p>
       <a class="vce__block-link" href="#">
-        <img class="vce_block-link-image lazyload" data-src="images/dev/avanset-img.jpg" alt="Avanset Simulator Screenshot">
+        <img class="vce_block-link-image lazyload" data-src="images/dev/avanset-img.jpg" src="images/dev/avanset-img.jpg" alt="Avanset Simulator Screenshot">
       </a>
       <ul class="vce__list list">
         <li class="vce__item">
@@ -398,7 +398,7 @@
         <li class="hot-sidebar__item swiper-slide">
           <a class="hot-sidebar__link" href="#">
             <picture class="hot-sidebar__image-wrapper">
-              <img class="hot-sidebar__image lazyload" data-src="images/courses/4582.jpg" data-srcset="images/courses/4582@2x.jpg 2x" alt="Image">
+              <img class="hot-sidebar__image lazyload" data-src="images/courses/4582.jpg" data-srcset="images/courses/4582@2x.jpg 2x" src="images/courses/4582.jpg" alt="Image">
             </picture>
             <div class="hot-sidebar__content-wrapper">
               <p class="hot-sidebar__price">$19.99</p>
@@ -436,7 +436,7 @@
         <li class="hot-sidebar__item swiper-slide">
           <a class="hot-sidebar__link" href="#">
             <picture class="hot-sidebar__image-wrapper">
-              <img class="hot-sidebar__image lazyload" data-src="images/courses/126.jpg" data-srcset="images/courses/126@2x.jpg 2x" alt="Image">
+              <img class="hot-sidebar__image lazyload" data-src="images/courses/126.jpg" data-srcset="images/courses/126@2x.jpg 2x" src="images/courses/126.jpg" alt="Image">
             </picture>
             <div class="hot-sidebar__content-wrapper">
               <p class="hot-sidebar__price">$19.99</p>
@@ -472,7 +472,7 @@
         <li class="hot-sidebar__item swiper-slide">
           <a class="hot-sidebar__link" href="#">
             <picture class="hot-sidebar__image-wrapper">
-              <img class="hot-sidebar__image lazyload" data-src="images/courses/5200.jpg" data-srcset="images/courses/5200@2x.jpg 2x" alt="Image">
+              <img class="hot-sidebar__image lazyload" data-src="images/courses/5200.jpg" data-srcset="images/courses/5200@2x.jpg 2x" src="images/courses/5200.jpg" alt="Image">
             </picture>
             <div class="hot-sidebar__content-wrapper">
               <p class="hot-sidebar__price">$19.99</p>
@@ -508,7 +508,7 @@
         <li class="hot-sidebar__item swiper-slide">
           <a class="hot-sidebar__link" href="#">
             <picture class="hot-sidebar__image-wrapper">
-              <img class="hot-sidebar__image lazyload" data-src="images/courses/8287.jpg" data-srcset="images/courses/8287@2x.jpg 2x" alt="Image">
+              <img class="hot-sidebar__image lazyload" data-src="images/courses/8287.jpg" data-srcset="images/courses/8287@2x.jpg 2x" src="images/courses/8287.jpg" alt="Image">
             </picture>
             <div class="hot-sidebar__content-wrapper">
               <p class="hot-sidebar__price">$19.99</p>
@@ -601,7 +601,7 @@
         </li>
       </ul>
       <picture class="page-footer__labels">
-        <img class="lazyload" data-src="images/other/ddd.png" alt="We accept VISA, MasterCard, Maestro, American Express">
+        <img class="lazyload" data-src="images/other/ddd.png" src="images/other/ddd.png" alt="We accept VISA, MasterCard, Maestro, American Express">
       </picture>
       <p class="page-footer__signature">Exam-Labs.com is owned by Boltprep Ltd: Wisteria Grange Barn, Pikes End, Pinner, Middlesex, United Kingdom, HA5 2EX</p>
     </div>
@@ -616,21 +616,21 @@
     </div>
 
     <div class="modal__body">
-      <ol class="modal__steps-list list">
-        <li class="modal__steps-item">
-          <span class="modal__steps-icon"></span>
-          <h3 class="modal__steps-title heading">Choose Exam<br> on ExamLabs</h3>
-          <p class="modal__steps-text text text--grey">Download IT Exams<br> Questions & Answers</p>
+      <ol class="modal__steps steps steps--modal list">
+        <li class="steps__item">
+          <span class="steps__icon steps__icon--download"></span>
+          <h3 class="steps__title heading">Choose Exam<br> on ExamLabs</h3>
+          <p class="steps__text text text--grey">Download IT Exams<br> Questions & Answers</p>
         </li>
-        <li class="modal__steps-item">
-          <span class="modal__steps-icon"></span>
-          <h3 class="modal__steps-title heading">Open Exam with<br> Avanset Exam Simulator</h3>
-          <p class="modal__steps-text text text--grey">Press <a class="modal__steps-link" href="https://www.avanset.com" target="_blank" rel="nofollow, noopener">here</a> to download VCE Exam Simulator that simulates real exam environment</p>
+        <li class="steps__item">
+          <span class="steps__icon steps__icon--gear"></span>
+          <h3 class="steps__title heading">Open Exam with<br> Avanset Exam Simulator</h3>
+          <p class="steps__text text text--grey">Press <a class="steps__link" href="https://www.avanset.com" target="_blank" rel="nofollow, noopener">here</a> to download VCE Exam Simulator that simulates real exam environment</p>
         </li>
-        <li class="modal__steps-item">
-          <span class="modal__steps-icon"></span>
-          <h3 class="modal__steps-title heading">Study<br> & Pass</h3>
-          <p class="modal__steps-text text text--grey">IT Exams<br> Anywhere, Anytime!</p>
+        <li class="steps__item">
+          <span class="steps__icon steps__icon--checkmark"></span>
+          <h3 class="steps__title heading">Study<br> & Pass</h3>
+          <p class="steps__text text text--grey">IT Exams<br> Anywhere, Anytime!</p>
         </li>
       </ol>
     </div>
@@ -665,7 +665,7 @@
           <input id="modal-email" class="modal__form-field form__field form__field--primary" type="email" name="modal-email" required="">
         </p>
       </form>
-      <p class="modal__note text text--small text--grey">Free Demo Limits: In the demo version you will be able to access only first 5 questions from exam.</p>
+      <p class="modal__note text text--smaller text--grey">Free Demo Limits: In the demo version you will be able to access only first 5 questions from exam.</p>
     </div>
 
     <div class="modal__footer">
@@ -692,7 +692,7 @@
 
   <!-- SCRIPTS  -->
   <script src="js/librarys/jquery-3.5.1.min.js" async=""></script>
-<script async="">
+<script>
   function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
     function calcTimerTime() {
