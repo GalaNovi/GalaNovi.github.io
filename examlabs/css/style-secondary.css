@@ -5895,7 +5895,7 @@
 }
 .vplay .vplay__big-play::before {
   content: "\f101";
-  font-size: 12em;
+  font-size: 120px;
   line-height: 1;
   text-shadow: 0 0 1px #000000, 0 0 1px #000000;
 }
@@ -5916,6 +5916,9 @@
 }
 .vplay--fullscreen .vplay__time-tooltip {
   transform: translate(-50%, -2.5em);
+}
+.vplay--fullscreen .vplay__big-play::before {
+  font-size: 216px;
 }
 .vplay--played .vplay__big-play::before {
   content: "\f103";
@@ -6196,7 +6199,7 @@
     font-size: 10px;
   }
   .vplay .vplay__big-play::before {
-    font-size: 6em;
+    font-size: 60px;
   }
   .vplay__speed {
     font-size: 1.2em;

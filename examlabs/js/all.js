@@ -14874,6 +14874,10 @@ var Vplay = /*#__PURE__*/function () {
 
       this._videoElement.addEventListener("seeked", this._onVideoSeeked);
 
+      this._container.addEventListener("fullscreenchange", this._onContainerFullscreenchange);
+
+      document.onmsfullscreenchange = this._onContainerFullscreenchange; // IE11
+
       this._videoElement.autoplay && this.play();
     }
   }, {
@@ -15310,7 +15314,6 @@ var Vplay = /*#__PURE__*/function () {
 
       window.addEventListener("mousemove", function (evt) {
         if (evt.target.closest(".vplay__controls")) {
-          console.log("add");
           controlBar.classList.add("vplay__controls--hover");
         } else {
           controlBar.classList.remove("vplay__controls--hover");
@@ -15485,6 +15488,7 @@ var Vplay = /*#__PURE__*/function () {
     key: "_onVideoLoadMeta",
     value: function _onVideoLoadMeta() {
       this._fullTime.textContent = formatTime(this._videoElement.duration);
+      this._currentTime.textContent = "0:00";
 
       this._changeSpeed(this._currentSpeed);
     }
@@ -15623,8 +15627,6 @@ var Vplay = /*#__PURE__*/function () {
       this._videoElement.before(this._container);
 
       this._videoElement.remove();
-
-      this._container.addEventListener("fullscreenchange", this._onContainerFullscreenchange);
 
       this._container.append(this._videoElement);
     }
