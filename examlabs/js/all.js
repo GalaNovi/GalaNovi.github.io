@@ -14710,6 +14710,9 @@ var DragNDrop = /*#__PURE__*/function () {
     this._onContainerMousedown = this._onContainerMousedown.bind(this);
     this._onWindowMousemove = this._onWindowMousemove.bind(this);
     this._onWindowMouseup = this._onWindowMouseup.bind(this);
+    this._onContainerTouchstart = this._onContainerTouchstart.bind(this);
+    this._onWindowTouchmove = this._onWindowTouchmove.bind(this);
+    this._onWindowTouchend = this._onWindowTouchend.bind(this);
 
     this._init();
   }
@@ -14752,6 +14755,24 @@ var DragNDrop = /*#__PURE__*/function () {
       this._changeCoords(evt.clientX);
     }
   }, {
+    key: "_onWindowTouchend",
+    value: function _onWindowTouchend() {
+      this._container.classList.remove("vplay__active");
+
+      window.removeEventListener("touchmove", this._onWindowTouchmove);
+      window.removeEventListener("touchend", this._onWindowTouchend);
+      this._containerCoords = null;
+
+      if (this._onTotalChange) {
+        this._onTotalChange(this._value);
+      }
+    }
+  }, {
+    key: "_onWindowTouchmove",
+    value: function _onWindowTouchmove(evt) {
+      this._changeCoords(evt.changedTouches[0].clientX);
+    }
+  }, {
     key: "_onContainerMousedown",
     value: function _onContainerMousedown(evt) {
       if (evt.which === 1) {
@@ -14767,9 +14788,23 @@ var DragNDrop = /*#__PURE__*/function () {
       }
     }
   }, {
+    key: "_onContainerTouchstart",
+    value: function _onContainerTouchstart(evt) {
+      this._containerCoords = this._container.getBoundingClientRect();
+
+      this._container.classList.add("vplay__active");
+
+      window.addEventListener("touchend", this._onWindowTouchend);
+      window.addEventListener("touchmove", this._onWindowTouchmove);
+
+      this._changeCoords(evt.changedTouches[0].clientX);
+    }
+  }, {
     key: "_init",
     value: function _init() {
       this._container.addEventListener("mousedown", this._onContainerMousedown);
+
+      this._container.addEventListener("touchstart", this._onContainerTouchstart);
     }
   }, {
     key: "value",
@@ -15275,6 +15310,7 @@ var Vplay = /*#__PURE__*/function () {
 
       window.addEventListener("mousemove", function (evt) {
         if (evt.target.closest(".vplay__controls")) {
+          console.log("add");
           controlBar.classList.add("vplay__controls--hover");
         } else {
           controlBar.classList.remove("vplay__controls--hover");
@@ -15341,6 +15377,8 @@ var Vplay = /*#__PURE__*/function () {
 
         this._fullScreenButton.title = "Non Fullscreen";
         this._fullScreenButton.querySelector("span").textContent = "Non Fullscreen";
+
+        this._container.querySelector(".vplay__controls").classList.remove("vplay__controls--hover");
       } else {
         this._fullScreenButton.classList.remove("vplay__fullscreen--active");
 
@@ -15564,8 +15602,7 @@ var Vplay = /*#__PURE__*/function () {
       document.addEventListener("mousemove", function () {
         _this7._userSleepSeconds = 0;
       });
-
-      this._videoElement.addEventListener("touchstart", function () {
+      document.addEventListener("touchmove", function () {
         _this7._userSleepSeconds = 0;
       });
     }

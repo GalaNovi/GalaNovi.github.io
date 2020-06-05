@@ -1209,7 +1209,7 @@
 }
 .modal--video .modal__separate {
   height: 30.625rem;
-  height: 90vh;
+  max-height: 90vh;
 }
 .modal--video .modal__separate .modal__video {
   margin-right: 0;
@@ -1397,6 +1397,8 @@
   }
   .modal--video .modal__separate {
     flex-direction: column;
+    height: 90vh;
+    max-height: none;
   }
   .modal__video {
     width: 100%;
@@ -1499,6 +1501,9 @@
   .modal--video .modal__close-bottom:focus,
   .modal--video .modal__close-bottom:active {
     text-decoration: none;
+  }
+  .modal--video .modal__close {
+    display: none;
   }
   .modal__header--steps {
     margin-bottom: 2.5rem;
@@ -5894,11 +5899,12 @@
   line-height: 1;
   text-shadow: 0 0 1px #000000, 0 0 1px #000000;
 }
-.vplay--user-sleep:not(.vplay--paused) .vplay__controls:not(.vplay__controls--hover) {
+.vplay--user-sleep.vplay--played .vplay__controls:not(.vplay__controls--hover) {
   opacity: 0;
 }
-.vplay--user-sleep:not(.vplay--paused) .vplay__big-play {
+.vplay--user-sleep.vplay--played .vplay__big-play {
   opacity: 0;
+  pointer-events: none;
 }
 .vplay--fullscreen {
   position: fixed;
@@ -5986,7 +5992,7 @@
   content: "\f107";
 }
 .vplay__volume:hover .vplay__volume-bar {
-  margin: 0 1em 0 0;
+  margin: 0 1em;
   width: 5em;
   visibility: visible;
   opacity: 1;
@@ -6004,7 +6010,7 @@
 }
 .vplay__volume-bar:hover,
 .vplay__volume-bar.vplay__active {
-  margin: 0 1em 0 0;
+  margin: 0 1em;
   width: 5em;
   visibility: visible;
   opacity: 1;
@@ -6175,23 +6181,46 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+@media (pointer: coarse) {
+  .vplay__volume-bar,
+  .vplay__volume-bar:hover,
+  .vplay__volume-bar.vplay__active {
+    margin: 0 1em;
+    width: 5em;
+    visibility: visible;
+    opacity: 1;
+  }
+}
 @media (max-width: 768px) {
+  .vplay--fullscreen {
+    font-size: 10px;
+  }
   .vplay .vplay__big-play::before {
     font-size: 6em;
+  }
+  .vplay__speed {
+    font-size: 1.2em;
   }
 }
 @media (max-width: 480px) {
   .vplay .button {
     width: 2.5em;
   }
-  .vplay__volume:hover .vplay__volume-bar {
-    margin: 0 1em;
+  .vplay__volume:hover .vplay__volume-bar,
+  .vplay__volume.vplay__active .vplay__volume-bar {
     width: 4em;
   }
   .vplay__time {
     padding: 0 0.5em;
   }
   .vplay__speed-bar {
+    width: 4em;
+  }
+}
+@media (max-width: 480px) and (pointer: coarse) {
+  .vplay__volume-bar,
+  .vplay__volume-bar:hover,
+  .vplay__volume-bar.vplay__active {
     width: 4em;
   }
 }
@@ -6202,7 +6231,16 @@
   .vplay__controls {
     padding: 0 0.5em;
   }
-  .vplay__volume:hover .vplay__volume-bar {
+  .vplay__volume:hover .vplay__volume-bar,
+  .vplay__volume.vplay__active .vplay__volume-bar {
+    margin: 0 0.5em;
+    width: 3em;
+  }
+}
+@media (max-width: 375px) and (pointer: coarse) {
+  .vplay__volume-bar,
+  .vplay__volume-bar:hover,
+  .vplay__volume-bar.vplay__active {
     margin: 0 0.5em;
     width: 3em;
   }
