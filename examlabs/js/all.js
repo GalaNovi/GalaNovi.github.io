@@ -14876,6 +14876,9 @@ var Vplay = /*#__PURE__*/function () {
 
       this._container.addEventListener("fullscreenchange", this._onContainerFullscreenchange);
 
+      this._container.addEventListener("webkitfullscreenchange", this._onContainerFullscreenchange); // Safari
+
+
       document.onmsfullscreenchange = this._onContainerFullscreenchange; // IE11
 
       this._videoElement.autoplay && this.play();
@@ -15465,7 +15468,7 @@ var Vplay = /*#__PURE__*/function () {
         if (this._container.requestFullscreen) {
           this._container.requestFullscreen();
         } else if (this._container.webkitRequestFullscreen) {
-          this._container.webkitRequestFullscreen();
+          this._container.webkitRequestFullScreen();
         } else if (this._container.msRequestFullscreen) {
           this._container.msRequestFullscreen();
         }
