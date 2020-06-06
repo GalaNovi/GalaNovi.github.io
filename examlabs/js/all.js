@@ -14794,17 +14794,25 @@ var DragNDrop = /*#__PURE__*/function () {
 
       this._container.classList.add("vplay__active");
 
-      window.addEventListener("touchend", this._onWindowTouchend);
-      window.addEventListener("touchmove", this._onWindowTouchmove);
+      window.addEventListener("touchend", this._onWindowTouchend, {
+        passive: true
+      });
+      window.addEventListener("touchmove", this._onWindowTouchmove, {
+        passive: true
+      });
 
       this._changeCoords(evt.changedTouches[0].clientX);
     }
   }, {
     key: "_init",
     value: function _init() {
-      this._container.addEventListener("mousedown", this._onContainerMousedown);
+      this._container.addEventListener("mousedown", this._onContainerMousedown, {
+        passive: true
+      });
 
-      this._container.addEventListener("touchstart", this._onContainerTouchstart);
+      this._container.addEventListener("touchstart", this._onContainerTouchstart, {
+        passive: true
+      });
     }
   }, {
     key: "value",
@@ -15376,6 +15384,28 @@ var Vplay = /*#__PURE__*/function () {
       this._playPauseButton.querySelector("span").textContent = "Replay";
     }
   }, {
+    key: "_enterFullscreen",
+    value: function _enterFullscreen() {
+      if (this._container.requestFullscreen) {
+        this._container.requestFullscreen();
+      } else if (this._container.webkitRequestFullscreen) {
+        this._container.webkitRequestFullScreen();
+      } else if (this._container.msRequestFullscreen) {
+        this._container.msRequestFullscreen();
+      }
+    }
+  }, {
+    key: "_exitFullscreen",
+    value: function _exitFullscreen() {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.webkitCancelFullScreen) {
+        document.webkitCancelFullScreen();
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+      }
+    }
+  }, {
     key: "_toggleFullscreenButton",
     value: function _toggleFullscreenButton() {
       if (!this._fullScreenButton.classList.contains("vplay__fullscreen--active")) {
@@ -15457,21 +15487,9 @@ var Vplay = /*#__PURE__*/function () {
       evt.preventDefault();
 
       if (document.fullscreenElement && document.fullscreenElement.classList.contains("vplay") || document.msFullscreenElement && document.msFullscreenElement.classList.contains("vplay")) {
-        if (document.exitFullscreen) {
-          document.exitFullscreen();
-        } else if (document.webkitCancelFullScreen) {
-          document.webkitCancelFullScreen();
-        } else if (document.msExitFullscreen) {
-          document.msExitFullscreen();
-        }
+        this._exitFullscreen();
       } else {
-        if (this._container.requestFullscreen) {
-          this._container.requestFullscreen();
-        } else if (this._container.webkitRequestFullscreen) {
-          this._container.webkitRequestFullScreen();
-        } else if (this._container.msRequestFullscreen) {
-          this._container.msRequestFullscreen();
-        }
+        this._enterFullscreen();
       }
 
       ;
