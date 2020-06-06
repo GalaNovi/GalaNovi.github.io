@@ -15456,12 +15456,16 @@ var Vplay = /*#__PURE__*/function () {
       if (document.fullscreenElement && document.fullscreenElement.classList.contains("vplay") || document.msFullscreenElement && document.msFullscreenElement.classList.contains("vplay")) {
         if (document.exitFullscreen) {
           document.exitFullscreen();
+        } else if (document.webkitCancelFullScreen) {
+          document.webkitCancelFullScreen();
         } else if (document.msExitFullscreen) {
           document.msExitFullscreen();
         }
       } else {
         if (this._container.requestFullscreen) {
           this._container.requestFullscreen();
+        } else if (this._container.webkitRequestFullscreen) {
+          this._container.webkitRequestFullscreen();
         } else if (this._container.msRequestFullscreen) {
           this._container.msRequestFullscreen();
         }
