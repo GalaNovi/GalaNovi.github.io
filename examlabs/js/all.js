@@ -14342,19 +14342,26 @@ var Modal = /*#__PURE__*/function () {
     this._onCallButtonClick = this._onCallButtonClick.bind(this);
     this._onOverlayMousedown = this._onOverlayMousedown.bind(this);
     this._onEsqKeydown = this._onEsqKeydown.bind(this);
+    this._onWindowFullscreenChange = this._onWindowFullscreenChange.bind(this);
 
     this._init();
   }
 
   _createClass(Modal, [{
+    key: "_addFullscreenChangeListener",
+    value: function _addFullscreenChangeListener() {
+      if (document.body.requestFullscreen) {
+        window.addEventListener("fullscreenchange", this._onWindowFullscreenChange);
+      } else if (document.body.webkitRequestFullscreen) {
+        window.addEventListener("webkitfullscreenchange", this._onWindowFullscreenChange);
+      } else if (document.body.msRequestFullscreen) {
+        window.addEventListener("MSFullscreenChange", this._onWindowFullscreenChange);
+      }
+    }
+  }, {
     key: "_blockBody",
     value: function _blockBody() {
       this._bodyElement.style.overflow = "hidden";
-    }
-  }, {
-    key: "_unblockBody",
-    value: function _unblockBody() {
-      this._bodyElement.style.overflow = "";
     }
   }, {
     key: "_onCallButtonClick",
@@ -14369,6 +14376,14 @@ var Modal = /*#__PURE__*/function () {
       this.close();
     }
   }, {
+    key: "_onEsqKeydown",
+    value: function _onEsqKeydown(evt) {
+      if (evt.key === "Escape" || evt.key === "Esc") {
+        evt.preventDefault();
+        this.close();
+      }
+    }
+  }, {
     key: "_onOverlayMousedown",
     value: function _onOverlayMousedown(evt) {
       if (evt.target.classList.contains(this._overlayClass)) {
@@ -14376,12 +14391,18 @@ var Modal = /*#__PURE__*/function () {
       }
     }
   }, {
-    key: "_onEsqKeydown",
-    value: function _onEsqKeydown(evt) {
-      if (evt.key === "Escape" || evt.key === "Esc") {
-        evt.preventDefault();
-        this.close();
+    key: "_onWindowFullscreenChange",
+    value: function _onWindowFullscreenChange() {
+      if (document.fullscreenElement || document.msFullscreenElement) {
+        window.removeEventListener("keydown", this._onEsqKeydown);
+      } else {
+        window.addEventListener("keydown", this._onEsqKeydown);
       }
+    }
+  }, {
+    key: "_unblockBody",
+    value: function _unblockBody() {
+      this._bodyElement.style.overflow = "";
     }
   }, {
     key: "_init",
@@ -14392,6 +14413,17 @@ var Modal = /*#__PURE__*/function () {
         this._callButtonsElements.forEach(function (button) {
           button.addEventListener("click", _this2._onCallButtonClick);
         });
+      }
+    }
+  }, {
+    key: "_removeFullscreenChangeListener",
+    value: function _removeFullscreenChangeListener() {
+      if (document.body.requestFullscreen) {
+        window.removeEventListener("fullscreenchange", this._onWindowFullscreenChange);
+      } else if (document.body.webkitRequestFullscreen) {
+        window.removeEventListener("webkitfullscreenchange", this._onWindowFullscreenChange);
+      } else if (document.body.msRequestFullscreen) {
+        window.removeEventListener("MSFullscreenChange", this._onWindowFullscreenChange);
       }
     }
   }, {
@@ -14411,6 +14443,9 @@ var Modal = /*#__PURE__*/function () {
       this._overlayElement.addEventListener("mousedown", this._onOverlayMousedown);
 
       window.addEventListener("keydown", this._onEsqKeydown);
+
+      this._addFullscreenChangeListener();
+
       this.onOpen && this.onOpen();
       setTimeout(function () {
         _this3._overlayElement.classList.add("".concat(_this3._overlayClass + _this3._activeClassEnding));
@@ -14436,6 +14471,9 @@ var Modal = /*#__PURE__*/function () {
       this._overlayElement.removeEventListener("mousedown", this._onOverlayMousedown);
 
       window.removeEventListener("keydown", this._onEsqKeydown);
+
+      this._removeFullscreenChangeListener();
+
       this.onClose && this.onClose();
       setTimeout(function () {
         _this4._overlayElement.style.display = '';
@@ -14882,12 +14920,7 @@ var Vplay = /*#__PURE__*/function () {
 
       this._videoElement.addEventListener("seeked", this._onVideoSeeked);
 
-      this._container.addEventListener("fullscreenchange", this._onContainerFullscreenchange);
-
-      this._container.addEventListener("webkitfullscreenchange", this._onContainerFullscreenchange); // Safari
-
-
-      document.onmsfullscreenchange = this._onContainerFullscreenchange; // IE11
+      this._addFullscreenChangeListener();
 
       this._videoElement.autoplay && this.play();
     }
@@ -15010,6 +15043,17 @@ var Vplay = /*#__PURE__*/function () {
 
       this._volumeButton.title = "Mute";
       this._volumeButton.querySelector("span").textContent = "Mute";
+    }
+  }, {
+    key: "_addFullscreenChangeListener",
+    value: function _addFullscreenChangeListener() {
+      if (document.body.requestFullscreen) {
+        window.addEventListener("fullscreenchange", this._onContainerFullscreenchange);
+      } else if (document.body.webkitRequestFullscreen) {
+        window.addEventListener("webkitfullscreenchange", this._onContainerFullscreenchange);
+      } else if (document.body.msRequestFullscreen) {
+        window.addEventListener("MSFullscreenChange", this._onContainerFullscreenchange);
+      }
     }
   }, {
     key: "_createA11yText",
@@ -15476,7 +15520,7 @@ var Vplay = /*#__PURE__*/function () {
     }
   }, {
     key: "_onContainerFullscreenchange",
-    value: function _onContainerFullscreenchange() {
+    value: function _onContainerFullscreenchange(evt) {
       this._container.classList.toggle("vplay--fullscreen");
 
       this._toggleFullscreenButton();
