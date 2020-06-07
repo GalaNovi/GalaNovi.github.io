@@ -15530,7 +15530,7 @@ var Vplay = /*#__PURE__*/function () {
     value: function _onFullscreenClick(evt) {
       evt.preventDefault();
 
-      if (document.fullscreenElement && document.fullscreenElement.classList.contains("vplay") || document.msFullscreenElement && document.msFullscreenElement.classList.contains("vplay")) {
+      if (document.fullscreenElement && document.fullscreenElement.classList.contains("vplay") || document.webkitFullscreenElement && document.webkitFullscreenElement.classList.contains("vplay") || document.msFullscreenElement && document.msFullscreenElement.classList.contains("vplay")) {
         this._exitFullscreen();
       } else {
         this._enterFullscreen();
