@@ -14888,7 +14888,7 @@ var Vplay = /*#__PURE__*/function () {
     this._onVideoProgress = this._onVideoProgress.bind(this);
     this._onFullscreenClick = this._onFullscreenClick.bind(this);
     this._onContainerFullscreenchange = this._onContainerFullscreenchange.bind(this);
-    this._onProgressBarHover = this._onProgressBarHover.bind(this);
+    this._onProgressBarMove = this._onProgressBarMove.bind(this);
     this._onPlaylistButtonClick = this._onPlaylistButtonClick.bind(this);
     this._onNextButtonClick = this._onNextButtonClick.bind(this);
     this._onPreviousButtonClick = this._onPreviousButtonClick.bind(this);
@@ -15273,7 +15273,8 @@ var Vplay = /*#__PURE__*/function () {
         onChange: this._pauseOnVideoTimeupdate,
         onTotalChange: this._updateCurrentTime
       });
-      bar.addEventListener("mousemove", this._onProgressBarHover);
+      bar.addEventListener("mousemove", this._onProgressBarMove);
+      bar.addEventListener("touchmove", this._onProgressBarMove);
       return bar;
     }
   }, {
@@ -15634,8 +15635,8 @@ var Vplay = /*#__PURE__*/function () {
       }
     }
   }, {
-    key: "_onProgressBarHover",
-    value: function _onProgressBarHover(evt) {
+    key: "_onProgressBarMove",
+    value: function _onProgressBarMove(evt) {
       var barCoords = evt.currentTarget.getBoundingClientRect();
       var value = (evt.clientX - barCoords.left) / barCoords.width * 100;
       var time = formatTime(this._videoElement.duration * value / 100);
