@@ -14814,7 +14814,7 @@ var DragNDrop = /*#__PURE__*/function () {
     key: "_onContainerMousedown",
     value: function _onContainerMousedown(evt) {
       if (evt.which === 1) {
-        evt.preventDefault();
+        // evt.preventDefault();
         this._containerCoords = this._container.getBoundingClientRect();
 
         this._container.classList.add("vplay__active");
@@ -14888,10 +14888,11 @@ var Vplay = /*#__PURE__*/function () {
     this._onVideoProgress = this._onVideoProgress.bind(this);
     this._onFullscreenClick = this._onFullscreenClick.bind(this);
     this._onContainerFullscreenchange = this._onContainerFullscreenchange.bind(this);
-    this._onProgressBarMove = this._onProgressBarMove.bind(this);
+    this._onProgressBarMousemove = this._onProgressBarMousemove.bind(this);
     this._onPlaylistButtonClick = this._onPlaylistButtonClick.bind(this);
     this._onNextButtonClick = this._onNextButtonClick.bind(this);
     this._onPreviousButtonClick = this._onPreviousButtonClick.bind(this);
+    this._onProgressBarTouchmove = this._onProgressBarTouchmove.bind(this);
     this.init();
   }
 
@@ -15273,8 +15274,10 @@ var Vplay = /*#__PURE__*/function () {
         onChange: this._pauseOnVideoTimeupdate,
         onTotalChange: this._updateCurrentTime
       });
-      bar.addEventListener("mousemove", this._onProgressBarMove);
-      bar.addEventListener("touchmove", this._onProgressBarMove);
+      bar.addEventListener("mousemove", this._onProgressBarMousemove);
+      bar.addEventListener("touchmove", this._onProgressBarTouchmove, {
+        passive: true
+      });
       return bar;
     }
   }, {
@@ -15586,6 +15589,12 @@ var Vplay = /*#__PURE__*/function () {
       this._updateLostVideoLine(currentTime);
     }
   }, {
+    key: "_onNextButtonClick",
+    value: function _onNextButtonClick(evt) {
+      evt.preventDefault();
+      this.playNext();
+    }
+  }, {
     key: "_onPlaylistButtonClick",
     value: function _onPlaylistButtonClick(evt) {
       var _this6 = this;
@@ -15614,12 +15623,6 @@ var Vplay = /*#__PURE__*/function () {
       }
     }
   }, {
-    key: "_onNextButtonClick",
-    value: function _onNextButtonClick(evt) {
-      evt.preventDefault();
-      this.playNext();
-    }
-  }, {
     key: "_onPlayPauseClick",
     value: function _onPlayPauseClick(evt) {
       evt.preventDefault();
@@ -15635,13 +15638,22 @@ var Vplay = /*#__PURE__*/function () {
       }
     }
   }, {
-    key: "_onProgressBarMove",
-    value: function _onProgressBarMove(evt) {
+    key: "_onProgressBarMousemove",
+    value: function _onProgressBarMousemove(evt) {
       var barCoords = evt.currentTarget.getBoundingClientRect();
-      var value = (evt.clientX - barCoords.left) / barCoords.width * 100;
-      var time = formatTime(this._videoElement.duration * value / 100);
-      this._timeTooltip.textContent = time;
-      this._timeTooltip.style.left = value + '%';
+      var positionX = evt.clientX - Math.floor(barCoords.left);
+
+      this._updateTimeTooltip(barCoords, positionX);
+    }
+  }, {
+    key: "_onProgressBarTouchmove",
+    value: function _onProgressBarTouchmove(evt) {
+      var barCoords = evt.currentTarget.getBoundingClientRect();
+      var positionX = evt.changedTouches[0].clientX - Math.floor(barCoords.left);
+
+      if (positionX >= 0 && positionX <= Math.ceil(barCoords.width)) {
+        this._updateTimeTooltip(barCoords, positionX);
+      }
     }
   }, {
     key: "_pauseOnVideoTimeupdate",
@@ -15721,6 +15733,14 @@ var Vplay = /*#__PURE__*/function () {
       var value = timeToPercent(currentTime, this._videoElement.duration);
 
       this._progressBar.changeValue(value);
+    }
+  }, {
+    key: "_updateTimeTooltip",
+    value: function _updateTimeTooltip(barCoords, positionX) {
+      var value = positionX / barCoords.width * 100;
+      var time = formatTime(this._videoElement.duration * value / 100);
+      this._timeTooltip.textContent = time;
+      this._timeTooltip.style.left = value + '%';
     }
   }, {
     key: "_updateVolumeClass",
