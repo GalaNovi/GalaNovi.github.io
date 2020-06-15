@@ -14112,587 +14112,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 });
 "use strict";
 
-"use strict";
-
-(function () {
-  var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
-
-  var stickFooter = function stickFooter() {
-    document.querySelector(".ie-width").textContent = "".concat(innerWidth, "px");
-    var FOOTER = document.querySelector(".page-footer");
-    var MAIN = document.querySelector(".page-main");
-    var BODY = document.querySelector("body");
-    var footerHeight = FOOTER.offsetHeight;
-    BODY.style.position = "relative";
-    MAIN.style.marginBottom = "".concat(footerHeight, "px");
-    FOOTER.style.position = "absolute";
-    FOOTER.style.bottom = "0";
-    FOOTER.style.left = "0";
-    FOOTER.style.width = "100%";
-  };
-
-  if (isIE11) {
-    var widthLabel = document.createElement("div");
-    widthLabel.style.position = 'fixed';
-    widthLabel.style.top = '0';
-    widthLabel.style.left = '0';
-    widthLabel.style.padding = '10px 20px';
-    widthLabel.style.color = 'white';
-    widthLabel.style.fontSize = '20px', widthLabel.style.fontWeight = '500';
-    widthLabel.style.border = '2px solid rgba(0, 255, 155, 1)';
-    widthLabel.style.backgroundColor = 'rgba(0, 255, 155, 0.7)';
-    widthLabel.style.zIndex = '15';
-    widthLabel.classList.add("ie-width");
-    widthLabel.textContent = "".concat(innerWidth, "px");
-    document.body.appendChild(widthLabel);
-    stickFooter();
-    window.addEventListener("resize", stickFooter);
-  }
-})();
-'use strict';
-
-(function () {
-  var buttonElement = document.querySelector('.button-up'); // Кнопка скролла в начало страницы
-
-  window.utils = {
-    scrollTop: function scrollTop() {
-      // Функция прокручивает страницу в начало
-      $('html, body').animate({
-        scrollTop: 0
-      }, 500);
-      return false;
-    }
-  };
-
-  if (buttonElement) {
-    var onPageScroll = function onPageScroll() {
-      // Добавляет/удаляет класс кнопки
-      if (document.documentElement.scrollTop >= innerHeight * 0.6) {
-        buttonElement.classList.add('button-up--visible');
-      } else {
-        buttonElement.classList.remove('button-up--visible');
-      }
-    };
-
-    buttonElement.addEventListener('click', window.utils.scrollTop);
-    document.addEventListener('scroll', onPageScroll);
-  }
-})();
-"use strict";
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var Menu = /*#__PURE__*/function () {
-  function Menu(openButtonClass, closeButtonClass, menuClass) {
-    _classCallCheck(this, Menu);
-
-    this.openButtonClass = openButtonClass;
-    this.closeButtonClass = closeButtonClass;
-    this.menuClass = menuClass;
-    this.openButtonElement = document.querySelector(".".concat(this.openButtonClass));
-    this.closeButtonElement = document.querySelector(".".concat(this.closeButtonClass));
-    this.menuElement = document.querySelector(".".concat(this.menuClass));
-    this.init();
-  }
-
-  _createClass(Menu, [{
-    key: "show",
-    value: function show() {
-      var _this = this;
-
-      document.body.style.overflow = "hidden";
-      this.menuElement.style.display = "block";
-      setTimeout(function () {
-        _this.menuElement.classList.add("".concat(_this.menuClass, "--shown"));
-      }, 50);
-    }
-  }, {
-    key: "hide",
-    value: function hide() {
-      var _this2 = this;
-
-      document.body.style.overflow = "";
-      this.menuElement.classList.remove("".concat(this.menuClass, "--shown"));
-      setTimeout(function () {
-        _this2.menuElement.style.display = "none";
-      }, 300);
-    }
-  }, {
-    key: "init",
-    value: function init() {
-      var _this3 = this;
-
-      this.openButtonElement.addEventListener("click", function (evt) {
-        evt.preventDefault();
-
-        _this3.show();
-      });
-      this.closeButtonElement.addEventListener("click", function (evt) {
-        evt.preventDefault();
-
-        _this3.hide();
-      });
-    }
-  }]);
-
-  return Menu;
-}();
-"use strict";
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var Search = /*#__PURE__*/function () {
-  function Search(buttonClass, searchClass) {
-    _classCallCheck(this, Search);
-
-    this._buttonClass = buttonClass;
-    this._searchClass = searchClass;
-    this._buttonElement = document.querySelector(".".concat(this._buttonClass));
-    this._searchElement = document.querySelector(".".concat(this._searchClass));
-    this._isonlyFocus = this._searchElement.classList.contains("search-js--only-focus");
-    this._isSearchShown = false;
-
-    this._init();
-  }
-
-  _createClass(Search, [{
-    key: "_focus",
-    value: function _focus() {
-      this._searchElement.querySelector("input[type=\"search\"]").focus();
-    }
-  }, {
-    key: "_showSearch",
-    value: function _showSearch() {
-      this._searchElement.classList.add("".concat(this._searchClass, "--shown"));
-
-      this._focus();
-
-      this._isSearchShown = true;
-    }
-  }, {
-    key: "_hideSearch",
-    value: function _hideSearch() {
-      this._searchElement.classList.remove("".concat(this._searchClass, "--shown"));
-
-      this._isSearchShown = false;
-    }
-  }, {
-    key: "_init",
-    value: function _init() {
-      var _this = this;
-
-      if (this._isOnlyFocus) {
-        this._buttonElement.addEventListener("click", function (evt) {
-          evt.preventDefault();
-
-          _this._focus();
-        });
-      } else {
-        this._buttonElement.addEventListener("click", function (evt) {
-          evt.preventDefault();
-          _this._isSearchShown ? _this._hideSearch() : _this._showSearch();
-        });
-      }
-    }
-  }]);
-
-  return Search;
-}();
-"use strict";
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var Modal = /*#__PURE__*/function () {
-  function Modal(modalClass) {
-    var _this = this;
-
-    var props = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    _classCallCheck(this, Modal);
-
-    this._modalClass = modalClass;
-    this._activeClassEnding = props.activeClassEnding || "--shown";
-    this._callButtonClass = props.callButtonClass || null;
-    this._overlayClass = props.overlayClass || "overlay";
-    this._closeButtonClasses = props.closeButtonClasses || ["modal__close", "modal__close-bottom"];
-    this.onOpen = props.onOpen || null;
-    this.onClose = props.onClose || null;
-    this._bodyElement = document.body;
-    this._callButtonsElements = this._callButtonClass ? Array.from(document.querySelectorAll(".".concat(this._callButtonClass))) : null;
-    this._modalElement = document.querySelector(".".concat(this._modalClass));
-    this._overlayElement = this._modalElement.closest(".".concat(this._overlayClass));
-    this._closeButtonElements = this._closeButtonClasses.map(function (buttonClass) {
-      return _this._modalElement.querySelector(".".concat(buttonClass));
-    }).filter(function (item) {
-      return item !== null;
-    });
-    this._onCloseButtonClick = this._onCloseButtonClick.bind(this);
-    this._onCallButtonClick = this._onCallButtonClick.bind(this);
-    this._onOverlayMousedown = this._onOverlayMousedown.bind(this);
-    this._onEsqKeydown = this._onEsqKeydown.bind(this);
-    this._onWindowFullscreenChange = this._onWindowFullscreenChange.bind(this);
-
-    this._init();
-  }
-
-  _createClass(Modal, [{
-    key: "_addFullscreenChangeListener",
-    value: function _addFullscreenChangeListener() {
-      if (document.body.requestFullscreen) {
-        window.addEventListener("fullscreenchange", this._onWindowFullscreenChange);
-      } else if (document.body.webkitRequestFullscreen) {
-        window.addEventListener("webkitfullscreenchange", this._onWindowFullscreenChange);
-      } else if (document.body.msRequestFullscreen) {
-        window.addEventListener("MSFullscreenChange", this._onWindowFullscreenChange);
-      }
-    }
-  }, {
-    key: "_blockBody",
-    value: function _blockBody() {
-      this._bodyElement.style.overflow = "hidden";
-    }
-  }, {
-    key: "_onCallButtonClick",
-    value: function _onCallButtonClick(evt) {
-      evt.preventDefault();
-      this.show();
-    }
-  }, {
-    key: "_onCloseButtonClick",
-    value: function _onCloseButtonClick(evt) {
-      evt.preventDefault();
-      this.close();
-    }
-  }, {
-    key: "_onEsqKeydown",
-    value: function _onEsqKeydown(evt) {
-      if (evt.key === "Escape" || evt.key === "Esc") {
-        evt.preventDefault();
-        this.close();
-      }
-    }
-  }, {
-    key: "_onOverlayMousedown",
-    value: function _onOverlayMousedown(evt) {
-      if (evt.target.classList.contains(this._overlayClass)) {
-        this.close();
-      }
-    }
-  }, {
-    key: "_onWindowFullscreenChange",
-    value: function _onWindowFullscreenChange() {
-      if (document.fullscreenElement || document.msFullscreenElement) {
-        window.removeEventListener("keydown", this._onEsqKeydown);
-      } else {
-        window.addEventListener("keydown", this._onEsqKeydown);
-      }
-    }
-  }, {
-    key: "_unblockBody",
-    value: function _unblockBody() {
-      this._bodyElement.style.overflow = "";
-    }
-  }, {
-    key: "_init",
-    value: function _init() {
-      var _this2 = this;
-
-      if (this._callButtonsElements) {
-        this._callButtonsElements.forEach(function (button) {
-          button.addEventListener("click", _this2._onCallButtonClick);
-        });
-      }
-    }
-  }, {
-    key: "_removeFullscreenChangeListener",
-    value: function _removeFullscreenChangeListener() {
-      if (document.body.requestFullscreen) {
-        window.removeEventListener("fullscreenchange", this._onWindowFullscreenChange);
-      } else if (document.body.webkitRequestFullscreen) {
-        window.removeEventListener("webkitfullscreenchange", this._onWindowFullscreenChange);
-      } else if (document.body.msRequestFullscreen) {
-        window.removeEventListener("MSFullscreenChange", this._onWindowFullscreenChange);
-      }
-    }
-  }, {
-    key: "show",
-    value: function show() {
-      var _this3 = this;
-
-      this._blockBody();
-
-      this._overlayElement.style.display = 'flex';
-      this._modalElement.style.display = 'block';
-
-      this._closeButtonElements.forEach(function (button) {
-        return button.addEventListener("click", _this3._onCloseButtonClick);
-      });
-
-      this._overlayElement.addEventListener("mousedown", this._onOverlayMousedown);
-
-      window.addEventListener("keydown", this._onEsqKeydown);
-
-      this._addFullscreenChangeListener();
-
-      this.onOpen && this.onOpen();
-      setTimeout(function () {
-        _this3._overlayElement.classList.add("".concat(_this3._overlayClass + _this3._activeClassEnding));
-
-        _this3._modalElement.classList.add("modal".concat(_this3._activeClassEnding));
-      }, 50);
-    }
-  }, {
-    key: "close",
-    value: function close() {
-      var _this4 = this;
-
-      this._unblockBody();
-
-      this._overlayElement.classList.remove("".concat(this._overlayClass + this._activeClassEnding));
-
-      this._modalElement.classList.remove("modal".concat(this._activeClassEnding));
-
-      this._closeButtonElements.forEach(function (button) {
-        return button.removeEventListener("click", _this4._onCloseButtonClick);
-      });
-
-      this._overlayElement.removeEventListener("mousedown", this._onOverlayMousedown);
-
-      window.removeEventListener("keydown", this._onEsqKeydown);
-
-      this._removeFullscreenChangeListener();
-
-      this.onClose && this.onClose();
-      setTimeout(function () {
-        _this4._overlayElement.style.display = '';
-        _this4._modalElement.style.display = '';
-      }, 300);
-    }
-  }]);
-
-  return Modal;
-}();
-"use strict";
-
-(function () {
-  if (document.querySelector(".js-unlimited-option")) {
-    var options = Array.from(document.querySelectorAll(".js-unlimited-option"));
-    var total = document.querySelector(".options__total-price");
-    options.forEach(function (option) {
-      return option.addEventListener("click", function (evt) {
-        total.textContent = evt.target.getAttribute("data-value");
-      });
-    });
-    total.textContent = options.find(function (option) {
-      return option.checked;
-    }).getAttribute("data-value");
-  }
-})();
-"use strict";
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var Parts = /*#__PURE__*/function () {
-  function Parts(options) {
-    _classCallCheck(this, Parts);
-
-    this._partsElements = Array.from(document.querySelectorAll(".".concat(options.partClass)));
-    this._buttonsElements = Array.from(document.querySelectorAll(".".concat(options.buttonClass)));
-    this._onButtonClick = this._onButtonClick.bind(this);
-
-    this._init();
-  }
-
-  _createClass(Parts, [{
-    key: "_onButtonClick",
-    value: function _onButtonClick(evt) {
-      evt.preventDefault();
-      var desiredPartNumber = evt.target.getAttribute("data-part");
-
-      this._partsElements.forEach(function (part, index) {
-        if (index === desiredPartNumber - 1) {
-          part.style.display = "block";
-        } else {
-          part.style.display = "none";
-        }
-      });
-    }
-  }, {
-    key: "_init",
-    value: function _init() {
-      var _this = this;
-
-      this._partsElements.forEach(function (part, index) {
-        if (index !== 0) {
-          part.style.display = "none";
-        }
-      });
-
-      this._buttonsElements.forEach(function (button) {
-        return button.addEventListener("click", _this._onButtonClick);
-      });
-    }
-  }]);
-
-  return Parts;
-}();
-"use strict";
-
-(function () {
-  if (document.querySelector(".form__capcha-button")) {
-    var buttons = Array.from(document.querySelectorAll(".form__capcha-button"));
-    buttons.forEach(function (button) {
-      button.addEventListener("click", function (evt) {
-        evt.preventDefault();
-        evt.target.classList.add("form__capcha-button--refresh");
-        setTimeout(function () {
-          evt.target.classList.remove("form__capcha-button--refresh");
-        }, 300);
-      });
-    });
-  }
-})();
-'use strict'; // class Collapse {
-//   constructor(options = {}) {
-//     this._buttonElements = Array.from(document.querySelectorAll(`[data-collapse-button]`));
-//     this._contentElements = Array.from(document.querySelectorAll(`[data-collapse-content]`));
-//     this._limitSymbols = options.limitSymbols || 380;
-//     this._hideText = options.hideText || `Hide`;
-//     this._buttonsDefaultText = this._buttonElements.map((button) => button.textContent) || null;
-//     this._contentsInner = this._contentElements.map((content) => content.innerHTML) || null;
-//     this._contentsInitialHeight = this._contentElements.map((content) => content.offsetHeight) || null;
-//     this._isHiddenText = false;
-//     this._onButtonClick = this._onButtonClick.bind(this);
-//   }
-//   _onButtonClick(evt) {
-//     evt.preventDefault();
-//   }
-//   init() {
-//     if (this._buttonElements.length > 0) {
-//       this._contentElements.forEach((content) => content.style.cssText = `transition: height 0.3s; overflow: hidden; height: ${this._contentsInitialHeight[0]}px`);
-//       this._buttonElements.forEach((button) => button.addEventListener(`click`, this._onButtonClick))
-//     }
-//   }
-// }
-// new Collapse().init();
-
-(function () {
-  var initHidingBlock = function initHidingBlock(block, button, limitSymbols) {
-    var BUTTON_HIDE_TEXT = 'Hide'; // Текск кнопки, что бы спрятать текст
-
-    var isHiddenText = false; // Флаг спрятан или показан текст
-
-    var blockText; // Полный текст блока
-
-    var button; // Кнопка скрытия/показа текста
-
-    var buttonText; // Первоначальный текст кнопки
-
-    var hideText = function hideText() {
-      // Прячет текст
-      var limitedText = block.innerHTML.substring(0, limitSymbols) + '...';
-      block.innerHTML = limitedText;
-      button.textContent = buttonText;
-      isHiddenText = true;
-      button.blur();
-    };
-
-    var showAllText = function showAllText() {
-      // Показывает текст
-      block.innerHTML = blockText;
-      button.textContent = BUTTON_HIDE_TEXT;
-      isHiddenText = false;
-      button.blur();
-    };
-
-    var initButton = function initButton() {
-      // Инициализирует кнопку
-      button.addEventListener('click', function (evt) {
-        evt.preventDefault();
-
-        if (isHiddenText) {
-          showAllText();
-        } else {
-          hideText();
-        }
-      });
-    };
-
-    var initTextHiding = function initTextHiding() {
-      // Инициализирует весь функционал
-      buttonText = button.textContent;
-      blockText = block.innerHTML;
-      initButton();
-      hideText();
-    };
-
-    initTextHiding();
-  }; // ============== Initialization ================
-  // About Course
-
-
-  if (document.querySelector('.collapse__content')) {
-    initHidingBlock(document.querySelector('.collapse__content'), document.querySelector('.collapse__button'), 381);
-  }
-})();
-"use strict";
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var InputFile = /*#__PURE__*/function () {
-  function InputFile(container) {
-    _classCallCheck(this, InputFile);
-
-    this._container = container;
-    this._input = this._container.querySelector("input[type=\"file\"]");
-    this._inputText = this._container.querySelector("*[data-text]");
-    this._onInputChange = this._onInputChange.bind(this);
-
-    this._init();
-  }
-
-  _createClass(InputFile, [{
-    key: "_onInputChange",
-    value: function _onInputChange(evt) {
-      evt.preventDefault();
-      var fileName = evt.target.value.split(/(\\|\/)/g).pop();
-
-      this._inputText.classList.add("active");
-
-      this._inputText.title = fileName;
-      this._inputText.textContent = fileName;
-    }
-  }, {
-    key: "_init",
-    value: function _init() {
-      this._input.addEventListener("change", this._onInputChange);
-    }
-  }]);
-
-  return InputFile;
-}();
-"use strict";
-
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -14814,7 +14233,6 @@ var DragNDrop = /*#__PURE__*/function () {
     key: "_onContainerMousedown",
     value: function _onContainerMousedown(evt) {
       if (evt.which === 1) {
-        // evt.preventDefault();
         this._containerCoords = this._container.getBoundingClientRect();
 
         this._container.classList.add("vplay__active");
@@ -15758,6 +15176,589 @@ var Vplay = /*#__PURE__*/function () {
   }]);
 
   return Vplay;
+}();
+"use strict";
+
+"use strict";
+
+(function () {
+  var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+
+  var stickFooter = function stickFooter() {
+    document.querySelector(".ie-width").textContent = "".concat(innerWidth, "px");
+    var FOOTER = document.querySelector(".page-footer");
+    var MAIN = document.querySelector(".page-main");
+    var BODY = document.querySelector("body");
+    var footerHeight = FOOTER.offsetHeight;
+    BODY.style.position = "relative";
+    MAIN.style.marginBottom = "".concat(footerHeight, "px");
+    FOOTER.style.position = "absolute";
+    FOOTER.style.bottom = "0";
+    FOOTER.style.left = "0";
+    FOOTER.style.width = "100%";
+  };
+
+  if (isIE11) {
+    var widthLabel = document.createElement("div");
+    widthLabel.style.position = 'fixed';
+    widthLabel.style.top = '0';
+    widthLabel.style.left = '0';
+    widthLabel.style.padding = '10px 20px';
+    widthLabel.style.color = 'white';
+    widthLabel.style.fontSize = '20px', widthLabel.style.fontWeight = '500';
+    widthLabel.style.border = '2px solid rgba(0, 255, 155, 1)';
+    widthLabel.style.backgroundColor = 'rgba(0, 255, 155, 0.7)';
+    widthLabel.style.zIndex = '15';
+    widthLabel.classList.add("ie-width");
+    widthLabel.textContent = "".concat(innerWidth, "px");
+    document.body.appendChild(widthLabel);
+    stickFooter();
+    window.addEventListener("resize", stickFooter);
+  }
+})();
+'use strict';
+
+(function () {
+  var buttonElement = document.querySelector('.button-up'); // Кнопка скролла в начало страницы
+
+  window.utils = {
+    scrollTop: function scrollTop() {
+      // Функция прокручивает страницу в начало
+      var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+      var delay = isIE11 ? 500 : 0;
+      $("html, body").animate({
+        scrollTop: 0
+      }, delay);
+      return false;
+    }
+  };
+
+  if (buttonElement) {
+    var onPageScroll = function onPageScroll() {
+      // Добавляет/удаляет класс кнопки      
+      if (document.documentElement.scrollTop >= innerHeight * 0.6) {
+        buttonElement.classList.add("button-up--visible");
+      } else {
+        buttonElement.classList.remove("button-up--visible");
+      }
+    };
+
+    buttonElement.addEventListener("click", window.utils.scrollTop);
+    document.addEventListener("scroll", onPageScroll);
+  }
+})();
+"use strict";
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Menu = /*#__PURE__*/function () {
+  function Menu(openButtonClass, closeButtonClass, menuClass) {
+    _classCallCheck(this, Menu);
+
+    this.openButtonClass = openButtonClass;
+    this.closeButtonClass = closeButtonClass;
+    this.menuClass = menuClass;
+    this.openButtonElement = document.querySelector(".".concat(this.openButtonClass));
+    this.closeButtonElement = document.querySelector(".".concat(this.closeButtonClass));
+    this.menuElement = document.querySelector(".".concat(this.menuClass));
+    this.init();
+  }
+
+  _createClass(Menu, [{
+    key: "show",
+    value: function show() {
+      var _this = this;
+
+      document.body.style.overflow = "hidden";
+      this.menuElement.style.display = "block";
+      setTimeout(function () {
+        _this.menuElement.classList.add("".concat(_this.menuClass, "--shown"));
+      }, 50);
+    }
+  }, {
+    key: "hide",
+    value: function hide() {
+      var _this2 = this;
+
+      document.body.style.overflow = "";
+      this.menuElement.classList.remove("".concat(this.menuClass, "--shown"));
+      setTimeout(function () {
+        _this2.menuElement.style.display = "none";
+      }, 300);
+    }
+  }, {
+    key: "init",
+    value: function init() {
+      var _this3 = this;
+
+      this.openButtonElement.addEventListener("click", function (evt) {
+        evt.preventDefault();
+
+        _this3.show();
+      });
+      this.closeButtonElement.addEventListener("click", function (evt) {
+        evt.preventDefault();
+
+        _this3.hide();
+      });
+    }
+  }]);
+
+  return Menu;
+}();
+"use strict";
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Search = /*#__PURE__*/function () {
+  function Search(buttonClass, searchClass) {
+    _classCallCheck(this, Search);
+
+    this._buttonClass = buttonClass;
+    this._searchClass = searchClass;
+    this._buttonElement = document.querySelector(".".concat(this._buttonClass));
+    this._searchElement = document.querySelector(".".concat(this._searchClass));
+    this._isonlyFocus = this._searchElement.classList.contains("search-js--only-focus");
+    this._isSearchShown = false;
+
+    this._init();
+  }
+
+  _createClass(Search, [{
+    key: "_focus",
+    value: function _focus() {
+      this._searchElement.querySelector("input[type=\"search\"]").focus();
+    }
+  }, {
+    key: "_showSearch",
+    value: function _showSearch() {
+      this._searchElement.classList.add("".concat(this._searchClass, "--shown"));
+
+      this._focus();
+
+      this._isSearchShown = true;
+    }
+  }, {
+    key: "_hideSearch",
+    value: function _hideSearch() {
+      this._searchElement.classList.remove("".concat(this._searchClass, "--shown"));
+
+      this._isSearchShown = false;
+    }
+  }, {
+    key: "_init",
+    value: function _init() {
+      var _this = this;
+
+      if (this._isOnlyFocus) {
+        this._buttonElement.addEventListener("click", function (evt) {
+          evt.preventDefault();
+
+          _this._focus();
+        });
+      } else {
+        this._buttonElement.addEventListener("click", function (evt) {
+          evt.preventDefault();
+          _this._isSearchShown ? _this._hideSearch() : _this._showSearch();
+        });
+      }
+    }
+  }]);
+
+  return Search;
+}();
+"use strict";
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Modal = /*#__PURE__*/function () {
+  function Modal(modalClass) {
+    var _this = this;
+
+    var props = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    _classCallCheck(this, Modal);
+
+    this._modalClass = modalClass;
+    this._activeClassEnding = props.activeClassEnding || "--shown";
+    this._callButtonClass = props.callButtonClass || null;
+    this._overlayClass = props.overlayClass || "overlay";
+    this._closeButtonClasses = props.closeButtonClasses || ["modal__close", "modal__close-bottom"];
+    this.onOpen = props.onOpen || null;
+    this.onClose = props.onClose || null;
+    this._bodyElement = document.body;
+    this._callButtonsElements = this._callButtonClass ? Array.from(document.querySelectorAll(".".concat(this._callButtonClass))) : null;
+    this._modalElement = document.querySelector(".".concat(this._modalClass));
+    this._overlayElement = this._modalElement.closest(".".concat(this._overlayClass));
+    this._closeButtonElements = this._closeButtonClasses.map(function (buttonClass) {
+      return _this._modalElement.querySelector(".".concat(buttonClass));
+    }).filter(function (item) {
+      return item !== null;
+    });
+    this._onCloseButtonClick = this._onCloseButtonClick.bind(this);
+    this._onCallButtonClick = this._onCallButtonClick.bind(this);
+    this._onOverlayMousedown = this._onOverlayMousedown.bind(this);
+    this._onEsqKeydown = this._onEsqKeydown.bind(this);
+    this._onWindowFullscreenChange = this._onWindowFullscreenChange.bind(this);
+
+    this._init();
+  }
+
+  _createClass(Modal, [{
+    key: "_addFullscreenChangeListener",
+    value: function _addFullscreenChangeListener() {
+      if (document.body.requestFullscreen) {
+        window.addEventListener("fullscreenchange", this._onWindowFullscreenChange);
+      } else if (document.body.webkitRequestFullscreen) {
+        window.addEventListener("webkitfullscreenchange", this._onWindowFullscreenChange);
+      } else if (document.body.msRequestFullscreen) {
+        window.addEventListener("MSFullscreenChange", this._onWindowFullscreenChange);
+      }
+    }
+  }, {
+    key: "_blockBody",
+    value: function _blockBody() {
+      this._bodyElement.style.overflow = "hidden";
+    }
+  }, {
+    key: "_onCallButtonClick",
+    value: function _onCallButtonClick(evt) {
+      evt.preventDefault();
+      this.show();
+    }
+  }, {
+    key: "_onCloseButtonClick",
+    value: function _onCloseButtonClick(evt) {
+      evt.preventDefault();
+      this.close();
+    }
+  }, {
+    key: "_onEsqKeydown",
+    value: function _onEsqKeydown(evt) {
+      if (evt.key === "Escape" || evt.key === "Esc") {
+        evt.preventDefault();
+        this.close();
+      }
+    }
+  }, {
+    key: "_onOverlayMousedown",
+    value: function _onOverlayMousedown(evt) {
+      if (evt.target.classList.contains(this._overlayClass)) {
+        this.close();
+      }
+    }
+  }, {
+    key: "_onWindowFullscreenChange",
+    value: function _onWindowFullscreenChange() {
+      if (document.fullscreenElement || document.msFullscreenElement) {
+        window.removeEventListener("keydown", this._onEsqKeydown);
+      } else {
+        window.addEventListener("keydown", this._onEsqKeydown);
+      }
+    }
+  }, {
+    key: "_unblockBody",
+    value: function _unblockBody() {
+      this._bodyElement.style.overflow = "";
+    }
+  }, {
+    key: "_init",
+    value: function _init() {
+      var _this2 = this;
+
+      if (this._callButtonsElements) {
+        this._callButtonsElements.forEach(function (button) {
+          button.addEventListener("click", _this2._onCallButtonClick);
+        });
+      }
+    }
+  }, {
+    key: "_removeFullscreenChangeListener",
+    value: function _removeFullscreenChangeListener() {
+      if (document.body.requestFullscreen) {
+        window.removeEventListener("fullscreenchange", this._onWindowFullscreenChange);
+      } else if (document.body.webkitRequestFullscreen) {
+        window.removeEventListener("webkitfullscreenchange", this._onWindowFullscreenChange);
+      } else if (document.body.msRequestFullscreen) {
+        window.removeEventListener("MSFullscreenChange", this._onWindowFullscreenChange);
+      }
+    }
+  }, {
+    key: "show",
+    value: function show() {
+      var _this3 = this;
+
+      this._blockBody();
+
+      this._overlayElement.style.display = 'flex';
+      this._modalElement.style.display = 'block';
+
+      this._closeButtonElements.forEach(function (button) {
+        return button.addEventListener("click", _this3._onCloseButtonClick);
+      });
+
+      this._overlayElement.addEventListener("mousedown", this._onOverlayMousedown);
+
+      window.addEventListener("keydown", this._onEsqKeydown);
+
+      this._addFullscreenChangeListener();
+
+      this.onOpen && this.onOpen();
+      setTimeout(function () {
+        _this3._overlayElement.classList.add("".concat(_this3._overlayClass + _this3._activeClassEnding));
+
+        _this3._modalElement.classList.add("modal".concat(_this3._activeClassEnding));
+      }, 50);
+    }
+  }, {
+    key: "close",
+    value: function close() {
+      var _this4 = this;
+
+      this._unblockBody();
+
+      this._overlayElement.classList.remove("".concat(this._overlayClass + this._activeClassEnding));
+
+      this._modalElement.classList.remove("modal".concat(this._activeClassEnding));
+
+      this._closeButtonElements.forEach(function (button) {
+        return button.removeEventListener("click", _this4._onCloseButtonClick);
+      });
+
+      this._overlayElement.removeEventListener("mousedown", this._onOverlayMousedown);
+
+      window.removeEventListener("keydown", this._onEsqKeydown);
+
+      this._removeFullscreenChangeListener();
+
+      this.onClose && this.onClose();
+      setTimeout(function () {
+        _this4._overlayElement.style.display = '';
+        _this4._modalElement.style.display = '';
+      }, 300);
+    }
+  }]);
+
+  return Modal;
+}();
+"use strict";
+
+(function () {
+  if (document.querySelector(".js-unlimited-option")) {
+    var options = Array.from(document.querySelectorAll(".js-unlimited-option"));
+    var total = document.querySelector(".options__total-price");
+    options.forEach(function (option) {
+      return option.addEventListener("click", function (evt) {
+        total.textContent = evt.target.getAttribute("data-value");
+      });
+    });
+    total.textContent = options.find(function (option) {
+      return option.checked;
+    }).getAttribute("data-value");
+  }
+})();
+"use strict";
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Parts = /*#__PURE__*/function () {
+  function Parts(options) {
+    _classCallCheck(this, Parts);
+
+    this._partsElements = Array.from(document.querySelectorAll(".".concat(options.partClass)));
+    this._buttonsElements = Array.from(document.querySelectorAll(".".concat(options.buttonClass)));
+    this._onButtonClick = this._onButtonClick.bind(this);
+
+    this._init();
+  }
+
+  _createClass(Parts, [{
+    key: "_onButtonClick",
+    value: function _onButtonClick(evt) {
+      evt.preventDefault();
+      var desiredPartNumber = evt.target.getAttribute("data-part");
+
+      this._partsElements.forEach(function (part, index) {
+        if (index === desiredPartNumber - 1) {
+          part.style.display = "block";
+        } else {
+          part.style.display = "none";
+        }
+      });
+    }
+  }, {
+    key: "_init",
+    value: function _init() {
+      var _this = this;
+
+      this._partsElements.forEach(function (part, index) {
+        if (index !== 0) {
+          part.style.display = "none";
+        }
+      });
+
+      this._buttonsElements.forEach(function (button) {
+        return button.addEventListener("click", _this._onButtonClick);
+      });
+    }
+  }]);
+
+  return Parts;
+}();
+"use strict";
+
+(function () {
+  if (document.querySelector(".form__capcha-button")) {
+    var buttons = Array.from(document.querySelectorAll(".form__capcha-button"));
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function (evt) {
+        evt.preventDefault();
+        evt.target.classList.add("form__capcha-button--refresh");
+        setTimeout(function () {
+          evt.target.classList.remove("form__capcha-button--refresh");
+        }, 300);
+      });
+    });
+  }
+})();
+'use strict'; // class Collapse {
+//   constructor(options = {}) {
+//     this._buttonElements = Array.from(document.querySelectorAll(`[data-collapse-button]`));
+//     this._contentElements = Array.from(document.querySelectorAll(`[data-collapse-content]`));
+//     this._limitSymbols = options.limitSymbols || 380;
+//     this._hideText = options.hideText || `Hide`;
+//     this._buttonsDefaultText = this._buttonElements.map((button) => button.textContent) || null;
+//     this._contentsInner = this._contentElements.map((content) => content.innerHTML) || null;
+//     this._contentsInitialHeight = this._contentElements.map((content) => content.offsetHeight) || null;
+//     this._isHiddenText = false;
+//     this._onButtonClick = this._onButtonClick.bind(this);
+//   }
+//   _onButtonClick(evt) {
+//     evt.preventDefault();
+//   }
+//   init() {
+//     if (this._buttonElements.length > 0) {
+//       this._contentElements.forEach((content) => content.style.cssText = `transition: height 0.3s; overflow: hidden; height: ${this._contentsInitialHeight[0]}px`);
+//       this._buttonElements.forEach((button) => button.addEventListener(`click`, this._onButtonClick))
+//     }
+//   }
+// }
+// new Collapse().init();
+
+(function () {
+  var initHidingBlock = function initHidingBlock(block, button, limitSymbols) {
+    var BUTTON_HIDE_TEXT = 'Hide'; // Текск кнопки, что бы спрятать текст
+
+    var isHiddenText = false; // Флаг спрятан или показан текст
+
+    var blockText; // Полный текст блока
+
+    var button; // Кнопка скрытия/показа текста
+
+    var buttonText; // Первоначальный текст кнопки
+
+    var hideText = function hideText() {
+      // Прячет текст
+      var limitedText = block.innerHTML.substring(0, limitSymbols) + '...';
+      block.innerHTML = limitedText;
+      button.textContent = buttonText;
+      isHiddenText = true;
+      button.blur();
+    };
+
+    var showAllText = function showAllText() {
+      // Показывает текст
+      block.innerHTML = blockText;
+      button.textContent = BUTTON_HIDE_TEXT;
+      isHiddenText = false;
+      button.blur();
+    };
+
+    var initButton = function initButton() {
+      // Инициализирует кнопку
+      button.addEventListener('click', function (evt) {
+        evt.preventDefault();
+
+        if (isHiddenText) {
+          showAllText();
+        } else {
+          hideText();
+        }
+      });
+    };
+
+    var initTextHiding = function initTextHiding() {
+      // Инициализирует весь функционал
+      buttonText = button.textContent;
+      blockText = block.innerHTML;
+      initButton();
+      hideText();
+    };
+
+    initTextHiding();
+  }; // ============== Initialization ================
+  // About Course
+
+
+  if (document.querySelector('.collapse__content')) {
+    initHidingBlock(document.querySelector('.collapse__content'), document.querySelector('.collapse__button'), 381);
+  }
+})();
+"use strict";
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var InputFile = /*#__PURE__*/function () {
+  function InputFile(container) {
+    _classCallCheck(this, InputFile);
+
+    this._container = container;
+    this._input = this._container.querySelector("input[type=\"file\"]");
+    this._inputText = this._container.querySelector("*[data-text]");
+    this._onInputChange = this._onInputChange.bind(this);
+
+    this._init();
+  }
+
+  _createClass(InputFile, [{
+    key: "_onInputChange",
+    value: function _onInputChange(evt) {
+      evt.preventDefault();
+      var fileName = evt.target.value.split(/(\\|\/)/g).pop();
+
+      this._inputText.classList.add("active");
+
+      this._inputText.title = fileName;
+      this._inputText.textContent = fileName;
+    }
+  }, {
+    key: "_init",
+    value: function _init() {
+      this._input.addEventListener("change", this._onInputChange);
+    }
+  }]);
+
+  return InputFile;
 }();
 "use strict";
 
